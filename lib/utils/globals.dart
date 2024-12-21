@@ -12,6 +12,8 @@ final AuthService authService = AuthService(userRepository);
 /// Enables secure login with email verification and PIN code.
 bool secureLogin = true;
 
+String appName = 'Finexa';
+
 void navigateAndRemoveUntil(context, page) {
   Navigator.pushAndRemoveUntil(
     context,

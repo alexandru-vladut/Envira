@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/providers/user_provider.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
-import 'package:flutter_app_base/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/forget_email_sent.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/verification_email_sent.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/pin/create_pin.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/pin/enter_pin.dart';
+import 'package:flutter_app_base/presentation/screens/home.dart';
+import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/utils/globals.dart';
 import 'package:provider/provider.dart';
 
@@ -42,14 +47,14 @@ class AuthService {
 
       if (secureLogin == false) {
         await startListeningToProviders(context, user.uid);
-        navigateAndRemoveUntil(context, HomePage());
+        navigateAndRemoveUntil(context, const HomePage());
         return;
       }
 
       if (user.emailVerified == false) {
         await user.sendEmailVerification();
         _firebaseAuth.signOut();
-        navigateAndRemoveUntil(context, VerificationEmailSent());
+        navigateAndRemoveUntil(context, const VerificationEmailSent());
         return;
       }
         
@@ -95,7 +100,7 @@ class AuthService {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
       logger.i('[INFO - sendPasswordResetEmail()] Password reset email sent successfully.');
-      navigateAndRemoveUntil(context, ForgetEmailSent());
+      navigateAndRemoveUntil(context, const ForgetEmailSent());
       
     } catch (error) {
       logger.e('[ERROR - sendPasswordResetEmail()] ${error.toString()}');
