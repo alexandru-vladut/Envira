@@ -1,0 +1,16 @@
+{
+    "files.exclude": {
+        "**/.dart_tool": true,
+        "**/.idea": true,
+        "**/.metadata": true,
+        "**/android/.gitignore": true,
+        "**/android/flutter_app_base_android.iml": true,
+        "**/android/gradle.properties": true,
+        "**/android/gradle/wrapper/gradle-wrapper.jar": true,
+        "**/android/gradlew": true,
+        "**/android/gradlew.bat": true,
+        "**/android/local.properties": true,
+        "**/flutter_app_base.iml": true,
+        "**/pubspec.lock": true
+    }
+}
