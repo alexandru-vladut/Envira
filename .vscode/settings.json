@@ -11,6 +11,8 @@
         "**/android/gradlew.bat": true,
         "**/android/local.properties": true,
         "**/flutter_app_base.iml": true,
-        "**/pubspec.lock": true
+        "**/pubspec.lock": true,
+        "**/.flutter-plugins": true,
+        "**/.flutter-plugins-dependencies": true
     }
 }
