@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app_base/globals.dart';
+import 'package:flutter_app_base/utils/globals.dart';
 
 abstract class BaseRepository<T> {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -36,6 +36,11 @@ abstract class BaseRepository<T> {
           .collection(collectionName)
           .where(fieldName, isEqualTo: value)
           .get();
+
+      if (querySnapshot.docs.isEmpty) {
+        logger.w("[WARNING - getDocumentsByField()] No documents with $fieldName equal to $value found in collection $collectionName.");
+        return [];
+      }
 
       return querySnapshot.docs.map((doc) => fromDocumentSnapshot(doc)).toList();
     } catch (error) {
