@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
+import 'package:flutter_app_base/data/providers/user_provider.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/utils/dialog_widgets.dart';
 import 'package:flutter_app_base/utils/globals.dart';
@@ -190,16 +191,16 @@ class AuthService {
     }
   }
 
-  Future<void> startListeningToProviders(BuildContext context, String uid) async {
+  Future<void> startListeningToProviders(BuildContext context, String userUid) async {
 
     final userProvider = Provider.of<UserProvider>(context, listen: false);
 
-    userProvider.startListeningToUser(uid);
+    userProvider.startListening(fieldName: 'uid', value: userUid);
 
     await userProvider.initializationCompleter.future;
   }
 
   Future<void> stopListeningToProviders(BuildContext context) async {
-    Provider.of<UserProvider>(context, listen: false).stopListeningToUser();
+    Provider.of<UserProvider>(context, listen: false).stopListening();
   }
 }
