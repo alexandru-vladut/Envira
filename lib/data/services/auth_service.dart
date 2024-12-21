@@ -9,7 +9,7 @@ import 'package:flutter_app_base/presentation/screens/authentication/pin/create_
 import 'package:flutter_app_base/presentation/screens/authentication/pin/enter_pin.dart';
 import 'package:flutter_app_base/presentation/screens/home.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
-import 'package:flutter_app_base/utils/globals.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:provider/provider.dart';
 
 class AuthService {

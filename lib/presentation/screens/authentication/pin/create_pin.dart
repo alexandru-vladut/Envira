@@ -1,8 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/utils/globals.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
+import 'package:flutter_app_base/app/theme.dart';
 
 class CreatePin extends StatefulWidget {
 

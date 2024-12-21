@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/data/providers/user_provider.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/utils/globals.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {

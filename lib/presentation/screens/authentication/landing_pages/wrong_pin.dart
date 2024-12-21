@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/utils/globals.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
+import 'package:flutter_app_base/app/theme.dart';
 
 class WrongPin extends StatelessWidget {
 

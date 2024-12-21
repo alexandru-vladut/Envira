@@ -1,6 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/theme.dart';
 
 class BubbleIndicatorPainter extends CustomPainter {
   BubbleIndicatorPainter(

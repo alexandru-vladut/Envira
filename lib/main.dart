@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/providers/user_provider.dart';
-import 'package:flutter_app_base/firebase_options.dart';
+import 'package:flutter_app_base/app/firebase_options.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/pin/enter_pin.dart';
 import 'package:flutter_app_base/presentation/screens/home.dart';
-import 'package:flutter_app_base/utils/globals.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 

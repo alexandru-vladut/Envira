@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/theme.dart';
 import 'utils/bubble_indicator_painter.dart';
 import 'sign_in.dart';
 import 'sign_up.dart';

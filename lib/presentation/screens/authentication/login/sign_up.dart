@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/utils/globals.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
+import 'package:flutter_app_base/app/theme.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignUp extends StatefulWidget {

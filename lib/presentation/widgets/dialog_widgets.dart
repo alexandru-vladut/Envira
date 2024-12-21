@@ -1,6 +1,6 @@
 import 'package:cool_alert/cool_alert.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/utils/theme.dart';
+import 'package:flutter_app_base/app/theme.dart';
 
 void loadingDialog(BuildContext context) {
   CoolAlert.show(

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app_base/utils/globals.dart';
+import 'package:flutter_app_base/app/app_constants.dart';
 
 abstract class BaseRepository<T> {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
