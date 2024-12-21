@@ -66,4 +66,48 @@ abstract class BaseRepository<T> {
     }
   }
 
+  Stream<T?> getDocumentStreamByField(String fieldName, String value) {
+    try {
+      return firestore.collection(collectionName).where(fieldName, isEqualTo: value).snapshots().map((querySnapshot) {
+        if (querySnapshot.docs.isNotEmpty) {
+          // Assuming only one document matches the query
+          final doc = querySnapshot.docs.first;
+          return fromDocumentSnapshot(doc);
+        }
+
+        logger.e('[ERROR - getDocumentStreamByField()] No document found for $fieldName: $value');
+        return null;
+      }).handleError((error) {
+        logger.e('[ERROR - getDocumentStreamByField()] Error fetching document stream: ${error.toString()}');
+        return null;
+      });
+    } catch (e) {
+      // If an error occurs outside the stream, return an error stream
+      logger.e('[ERROR - getDocumentStreamByField()] ${e.toString()}');
+      return Stream.error('[ERROR - getDocumentStreamByField()] ${e.toString()}');
+    }
+  }
+
+  Stream<List<T>> getCollectionStream() {
+    try {
+      return firestore.collection(collectionName).snapshots().map((querySnapshot) {
+        if (querySnapshot.docs.isNotEmpty) {
+          return querySnapshot.docs.map((doc) {
+            return fromDocumentSnapshot(doc);
+          }).toList();
+        }
+
+        logger.e('[ERROR - getCollectionStream()] No documents found in collection $collectionName.');
+        return <T>[];
+      }).handleError((error) {
+        // Log or handle Firestore stream errors
+        logger.e('[ERROR - getCollectionStream()] Error fetching documents: ${error.toString()}');
+        return <T>[]; // Return an empty list on error
+      });
+    } catch (e) {
+      // If an error occurs outside the stream, return an error stream
+      logger.e('[ERROR - getCollectionStream()] ${e.toString()}');
+      return Stream.error('[ERROR - getCollectionStream()] ${e.toString()}');
+    }
+  }
 }
