@@ -31,7 +31,6 @@ class UserModel {
     this.ecoCard
   });
 
-  // Convert UserModel to a Map for Firestore
   Map<String, dynamic> toMap() {
     return {
       "uid": uid,
@@ -47,7 +46,6 @@ class UserModel {
     };
   }
 
-  // Factory method to create a UserModel from Firestore document snapshot
   factory UserModel.fromDocumentSnapshot(DocumentSnapshot doc) {
     
     Map data = doc.data()! as Map<String, dynamic>;
