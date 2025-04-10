@@ -48,30 +48,38 @@ class AuthService {
         return;
       }
 
-      if (AppConfig.secureLogin == false) {
+      if (AppConfig.emailVerificationEnabled == false && AppConfig.pinCodeEnabled == false) {
         await sessionManager.startListeningToProviders(context, user.uid);
         AppNavigator.navigateAndRemoveAll(context, const HomePage());
         return;
       }
 
-      if (user.emailVerified == false) {
-        await user.sendEmailVerification();
-        _firebaseAuth.signOut();
-        AppNavigator.navigateAndRemoveAll(context, const VerificationEmailSent());
-        return;
+      if (AppConfig.emailVerificationEnabled) {
+        if (user.emailVerified == false) {
+          await user.sendEmailVerification();
+          _firebaseAuth.signOut();
+          AppNavigator.navigateAndRemoveAll(context, const VerificationEmailSent());
+          return;
+        } else if (AppConfig.pinCodeEnabled == false) {
+          await sessionManager.startListeningToProviders(context, user.uid);
+          AppNavigator.navigateAndRemoveAll(context, const HomePage());
+          return;
+        }
       }
-        
-      UserModel currentUser = filteredUsers[0];
-      String? currentUserPin = currentUser.pin;
+      
+      if (AppConfig.pinCodeEnabled) {
+        UserModel currentUser = filteredUsers[0];
+        String? currentUserPin = currentUser.pin;
 
-      // Sign out in case PIN verification doesn't happen
-      _firebaseAuth.signOut();
+        // Sign out in case PIN verification doesn't happen
+        _firebaseAuth.signOut();
 
-      // If user has no PIN, redirect to 'Set PIN' page, else redirect to 'Enter PIN' page
-      if (currentUserPin == null) {
-        AppNavigator.navigateAndRemoveAll(context, CreatePin(email: email, password: password));
-      } else {
-        AppNavigator.navigateAndRemoveAll(context, EnterPin(email: email, password: password));
+        // If user has no PIN, redirect to 'Set PIN' page, else redirect to 'Enter PIN' page
+        if (currentUserPin == null) {
+          AppNavigator.navigateAndRemoveAll(context, CreatePin(email: email, password: password));
+        } else {
+          AppNavigator.navigateAndRemoveAll(context, EnterPin(email: email, password: password));
+        }
       }
       
     } on FirebaseAuthException catch (error) {
@@ -168,7 +176,7 @@ class AuthService {
       await user.updateDisplayName(inputName);
       await user.reload();
 
-      if (AppConfig.secureLogin == false) {
+      if (AppConfig.emailVerificationEnabled == false) {
         await sessionManager.startListeningToProviders(context, user.uid);
         AppNavigator.navigateAndRemoveAll(context, const HomePage());
         return;
@@ -180,7 +188,7 @@ class AuthService {
       logger.i('[INFO - signUp()] User created successfully. Email verification sent.');
 
       // Navigare catre pagina de 'Email Verification Sent' care trebuie sa aiba si redirect catre 'Login Page'
-      AppNavigator.navigateAndRemoveAll(context, VerificationEmailSent());
+      AppNavigator.navigateAndRemoveAll(context, const VerificationEmailSent());
 
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {

@@ -44,7 +44,7 @@ class AuthGate extends StatelessWidget {
     if (user == null) return const LoginPage();
 
     // If secureLogin is disabled, go to HomePage().
-    if (AppConfig.secureLogin == false) {
+    if (AppConfig.pinCodeEnabled == false) {
       // Ensure data required by the home page is loaded here
       sessionManager.startListeningToProviders(context, user.uid);
       return const HomePage();
