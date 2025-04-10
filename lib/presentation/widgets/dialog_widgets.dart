@@ -54,6 +54,29 @@ void successDialog(BuildContext context, String message) {
   );
 }
 
+void errorDialogWithFunction({
+  required BuildContext context,
+  required String title,
+  required String text,
+  required String confirmButtonText,
+  required VoidCallback onConfirm,
+}) {
+  CoolAlert.show(
+    context: context,
+    barrierDismissible: false,
+    type: CoolAlertType.error,
+    backgroundColor: Colors.redAccent.withOpacity(0.1),
+    confirmBtnColor: Colors.redAccent,
+    confirmBtnText: confirmButtonText,
+    title: title,
+    titleTextStyle: const TextStyle(
+      fontWeight: FontWeight.w600,
+    ),
+    text: text,
+    onConfirmBtnTap: onConfirm,
+  );
+}
+
 void errorDialog(BuildContext context, String message) {
   Navigator.pop(context); // close loadingDialog()
   CoolAlert.show(

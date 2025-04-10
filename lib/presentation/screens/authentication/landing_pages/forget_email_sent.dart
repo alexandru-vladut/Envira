@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/app_config.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:flutter_app_base/app/theme.dart';
 
 class ForgetEmailSent extends StatelessWidget {
@@ -21,32 +22,32 @@ class ForgetEmailSent extends StatelessWidget {
               image: AssetImage('assets/images/info.png')
             ),
             RichText(
-              text: TextSpan(
-                style: const TextStyle(
+              text: const TextSpan(
+                style: TextStyle(
                   fontSize: 17,
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
                   fontFamily: 'DMSans'
                 ),
                 children: <TextSpan>[
-                  const TextSpan(
+                  TextSpan(
                     text: '✨ Password Reset Requested ✨\n\n'
                     'A password recovery email has been sent to the email address associated with your account. Please check your inbox for the next steps to reset your password. If you don\'t see the email, be sure to check your spam or junk mail folder, as it can sometimes end up there.\n\n',
                   ),
-                  const TextSpan(
+                  TextSpan(
                     text: '🔗 Follow the Link: ',
                     style: TextStyle(fontWeight: FontWeight.w900,),
                   ),
-                  const TextSpan(
+                  TextSpan(
                     text: 'The email contains a link to reset your password. This link is only valid for a limited time, so please act promptly.\n\n',
                   ),
-                  const TextSpan(
+                  TextSpan(
                     text: '🛡️ Security Notice: ',
                     style: TextStyle(fontWeight: FontWeight.w900,),
                   ),
                   TextSpan(
                     text: 'If you did not request a password reset, please ignore this email. It\'s also a good idea to review your account security settings.\n\n'
-                    'Thank you for using $appName!',
+                    'Thank you for using ${AppConfig.appName}!',
                   ),
                 ]
               ),
@@ -73,7 +74,7 @@ class ForgetEmailSent extends StatelessWidget {
                       fontFamily: 'WorkSansBold'),
                 ),
                 onPressed: () {
-                  navigateAndRemoveUntil(context, const LoginPage());
+                  AppNavigator.navigateAndRemoveAll(context, const LoginPage());
                 },
               ),
             ),

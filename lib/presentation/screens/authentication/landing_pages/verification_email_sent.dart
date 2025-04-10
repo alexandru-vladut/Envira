@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/app_config.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:flutter_app_base/app/theme.dart';
 
 class VerificationEmailSent extends StatelessWidget {
@@ -21,8 +22,8 @@ class VerificationEmailSent extends StatelessWidget {
               image: AssetImage('assets/images/info.png')
             ),
             RichText(
-              text: TextSpan(
-                style: const TextStyle(
+              text: const TextSpan(
+                style: TextStyle(
                   fontSize: 17,
                   color: Colors.white,
                   fontWeight: FontWeight.w400,
@@ -30,17 +31,17 @@ class VerificationEmailSent extends StatelessWidget {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: '🎉 Welcome to $appName! 🚀\n\n'
+                    text: '🎉 Welcome to ${AppConfig.appName}! 🚀\n\n'
                     'Thank you for signing up! We\'re excited to have you on board. To get started, there\'s just one small step left:\n\n',
                   ),
-                  const TextSpan(
+                  TextSpan(
                     text: '📧 Check Your Inbox: ',
                     style: TextStyle(fontWeight: FontWeight.w900,),
                   ),
                   TextSpan(
                     text: 'We\'ve sent a verification email to the address you provided. Please click on the link in that email to verify your account. Can\'t find it? Remember to check your spam folder just in case!\n\n'
-                    'Once verified, you\'ll have full access to all the amazing features $appName has to offer. Happy exploring!\n\n'
-                    '🌟 $appName Team 🌟',
+                    'Once verified, you\'ll have full access to all the amazing features ${AppConfig.appName} has to offer. Happy exploring!\n\n'
+                    '🌟 ${AppConfig.appName} Team 🌟',
                   )
                 ]
               ),
@@ -67,7 +68,7 @@ class VerificationEmailSent extends StatelessWidget {
                       fontFamily: 'WorkSansBold'),
                 ),
                 onPressed: () {
-                  navigateAndRemoveUntil(context, const LoginPage());
+                  AppNavigator.navigateAndRemoveAll(context, const LoginPage());
                 },
               ),
             ),

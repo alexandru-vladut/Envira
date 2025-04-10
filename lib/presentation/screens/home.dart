@@ -1,7 +1,10 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/data/providers/user_provider.dart';
-import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
+import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/data/models/user_model.dart';
+import 'package:flutter_app_base/session/auth_state_provider.dart';
+import 'package:flutter_app_base/data/providers/users_provider.dart';
+import 'package:flutter_app_base/presentation/screens/user_list_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,6 +17,11 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final currentUid = context.select<AuthStateProvider, String?>((auth) => auth.uid);
+    final currentUser = context.select<UsersProvider, UserModel?>(
+      (provider) => provider.items.firstWhereOrNull((u) => u.uid == currentUid),
+    );
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Simple Page'),
@@ -23,10 +31,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             GestureDetector(
-              onTap: () {
-                authService.logOut(context);
-                navigateAndRemoveUntil(context, const LoginPage());
-              },
+              onTap: () => authService.logOut(context),
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 15),
                 padding: const EdgeInsets.all(13),
@@ -37,24 +42,21 @@ class _HomePageState extends State<HomePage> {
                 child: const Icon(Icons.logout, color: Colors.black),
               ),
             ),
-            Consumer<UserProvider>(
-              builder: (context, userProvider, child) {
-                final user = userProvider.items.firstOrNull;
-
-                if (user == null) {
-                  logger.e("[ERROR - HomePage: build()] User should NOT be null here, but it is...");
-                  return const Center(child: CircularProgressIndicator());
-                }
-
-                return Column(
-                  children: [
-                    Text('User ID: ${user.uid}'),
-                    Text('User Name: ${user.name}'),
-                    Text('User Email: ${user.email}'),
-                    Text('User Pin: ${user.pin ?? 'Not Set'}'),
-                  ],
+            if (currentUser == null) ...[
+              const CircularProgressIndicator(),
+            ] else ...[
+              Text('User ID: ${currentUser.uid}'),
+              Text('User Name: ${currentUser.name}'),
+              Text('User Email: ${currentUser.email}'),
+              Text('User Pin: ${currentUser.pin ?? 'Not Set'}'),
+            ],
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const UserListPage()),
                 );
               },
+              child: const Text("View All Users"),
             ),
           ],
         ),

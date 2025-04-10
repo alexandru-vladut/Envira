@@ -2,11 +2,12 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
+import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/wrong_pin.dart';
 import 'package:flutter_app_base/presentation/screens/home.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:flutter_app_base/app/theme.dart';
 
 class EnterPin extends StatefulWidget {
@@ -40,7 +41,7 @@ class _EnterPinState extends State<EnterPin> {
         if (widget.email == null && widget.password == null) {
           authService.logOut(context, showLoadingDialog: false);
         }
-        navigateAndRemoveUntil(context, const WrongPin());
+        AppNavigator.navigateAndRemoveAll(context, const WrongPin());
       }
     });
   }
@@ -74,8 +75,8 @@ class _EnterPinState extends State<EnterPin> {
                 );
               }
               
-              await authService.startListeningToProviders(context, currentUser.uid);
-              navigateAndRemoveUntil(context, const HomePage());
+              await sessionManager.startListeningToProviders(context, currentUser.uid);
+              AppNavigator.navigateAndRemoveAll(context, const HomePage());
 
             } else {
               resetProcess();

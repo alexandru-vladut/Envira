@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
+import 'package:flutter_app_base/app/global_instances.dart';
 
 abstract class BaseRepository<T> {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -20,7 +20,7 @@ abstract class BaseRepository<T> {
 
       return querySnapshot.docs.map((doc) => fromDocumentSnapshot(doc)).toList();
     } catch (error) {
-      logger.e("[ERROR - getAllDocuments()] Error getting all documents from collection $collectionName: $error");
+      logger.e("[ERROR - getAllDocuments()] Error getting all documents from collection $collectionName: ${error.toString()}");
       return [];
     }
   }
@@ -44,7 +44,7 @@ abstract class BaseRepository<T> {
 
       return querySnapshot.docs.map((doc) => fromDocumentSnapshot(doc)).toList();
     } catch (error) {
-      logger.e("[ERROR - getDocumentsByField()] Error getting documents with $fieldName equal to $value from collection $collectionName: $error");
+      logger.e("[ERROR - getDocumentsByField()] Error getting documents with $fieldName equal to $value from collection $collectionName: ${error.toString()}");
       return [];
     }
   }
@@ -87,13 +87,13 @@ abstract class BaseRepository<T> {
         return <T>[];
       }).handleError((error) {
         // Log Firestore stream errors
-        logger.e('[ERROR - getDocumentsStream()] Error fetching documents: ${error.toString()}');
+        logger.e('[ERROR - getDocumentsStream()] Error fetching documents in collection $collectionName: ${error.toString()}');
         return <T>[]; // Return an empty list on error
       });
-    } catch (e) {
+    } catch (error) {
       // If an error occurs outside the stream, return an error stream
-      logger.e('[ERROR - getDocumentsStream()] ${e.toString()}');
-      return Stream.error('[ERROR - getDocumentsStream()] ${e.toString()}');
+      logger.e('[ERROR - getDocumentsStream()] Error getting documents stream from collection $collectionName: ${error.toString()}');
+      return Stream.error('[ERROR - getDocumentsStream()] Error getting documents stream from collection $collectionName: ${error.toString()}');
     }
   }
 }

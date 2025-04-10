@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/app/app_constants.dart';
 import 'package:flutter_app_base/app/theme.dart';
 
 class WrongPin extends StatelessWidget {
@@ -66,7 +66,7 @@ class WrongPin extends StatelessWidget {
                       fontFamily: 'WorkSansBold'),
                 ),
                 onPressed: () {
-                  navigateAndRemoveUntil(context, const LoginPage());
+                  AppNavigator.navigateAndRemoveAll(context, const LoginPage());
                 },
               ),
             ),
