@@ -246,7 +246,7 @@ class SignUpState extends State<SignUp> {
                             },
                             onFieldSubmitted: (_) {
                               if (_formKey.currentState!.validate()) {
-                                authService.signUp(context, signupEmailController.text, signupNumeController.text, signupPasswordController.text, signupConfirmPasswordController.text);
+                                authService.signUp(signupEmailController.text, signupNumeController.text, signupPasswordController.text, signupConfirmPasswordController.text);
                               } else {
                                 setState(() {
                                   containerHeight = 380;
@@ -281,7 +281,7 @@ class SignUpState extends State<SignUp> {
                     ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        authService.signUp(context, signupEmailController.text, signupNumeController.text, signupPasswordController.text, signupConfirmPasswordController.text);
+                        authService.signUp(signupEmailController.text, signupNumeController.text, signupPasswordController.text, signupConfirmPasswordController.text);
                       } else {
                         setState(() {
                           containerHeight = 325; // 380

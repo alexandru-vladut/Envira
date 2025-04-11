@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/app/app_config.dart';
 import 'package:flutter_app_base/app/app_navigator.dart';
+import 'package:flutter_app_base/app/context_utils.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
@@ -25,9 +26,9 @@ class AuthService {
   // FirebaseAuth instance
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  void signIn(BuildContext context, String email, String password) async {
+  Future<void> signIn({required String email, required String password}) async {
 
-    loadingDialog(context);
+    loadingDialog(); // safe: uses navigatorKey inside
 
     try {
       // 1. Check data with FirebaseAuth (validate email and password)
@@ -45,15 +46,14 @@ class AuthService {
         _firebaseAuth.signOut();
         logger.e('[ERROR - signIn()] User not found in Firestore Database.');
         errorDialog(
-          context: context,
           title: '[ERROR - signIn()] User not found in Firestore Database.',
         );
         return;
       }
 
       if (AppConfig.emailVerificationEnabled == false && AppConfig.pinCodeEnabled == false) {
-        await sessionManager.startListeningToProviders(context, user.uid);
-        AppNavigator.navigateAndRemoveAll(context, const HomePage());
+        await sessionManager.startListeningToProviders();
+        AppNavigator.navigateAndRemoveAll(page: const HomePage());
         return;
       }
 
@@ -61,11 +61,11 @@ class AuthService {
         if (user.emailVerified == false) {
           await user.sendEmailVerification();
           _firebaseAuth.signOut();
-          AppNavigator.navigateAndRemoveAll(context, const VerificationEmailSent());
+          AppNavigator.navigateAndRemoveAll(page: const VerificationEmailSent());
           return;
         } else if (AppConfig.pinCodeEnabled == false) {
-          await sessionManager.startListeningToProviders(context, user.uid);
-          AppNavigator.navigateAndRemoveAll(context, const HomePage());
+          await sessionManager.startListeningToProviders();
+          AppNavigator.navigateAndRemoveAll(page: const HomePage());
           return;
         }
       }
@@ -79,22 +79,20 @@ class AuthService {
 
         // If user has no PIN, redirect to 'Set PIN' page, else redirect to 'Enter PIN' page
         if (currentUserPin == null) {
-          AppNavigator.navigateAndRemoveAll(context, CreatePin(email: email, password: password));
+          AppNavigator.navigateAndRemoveAll(page: CreatePin(email: email, password: password));
         } else {
-          AppNavigator.navigateAndRemoveAll(context, EnterPin(email: email, password: password));
+          AppNavigator.navigateAndRemoveAll(page: EnterPin(email: email, password: password));
         }
       }
       
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found' || error.code == 'wrong-password') {
         errorDialog(
-          context: context,
           title: 'Email/parolă greșite!',
         );
         logger.w("[WARNING - signIn()] Wrong email/password: ${error.toString()}");
       } else {
         errorDialog(
-          context: context,
           title: error.toString(),
         );
         logger.e("[ERROR - signIn()] ${error.toString()}");
@@ -102,68 +100,62 @@ class AuthService {
     }
   }
 
-  Future<void> logOut(BuildContext context, {bool showLoadingDialog = true}) async {
-    if (showLoadingDialog) {
-      loadingDialog(context);
-    }
+  Future<void> logOut({bool showLoadingDialog = true}) async {
+
+    // Handle context across async gaps
+    final ctx = ContextUtils.getSafeContext();
+    if (ctx == null) return;
+
+    if (showLoadingDialog) loadingDialog();
 
     try {
       logger.i('[INFO - logOut()] Logging out user...');
-      context.read<AuthStateProvider>().markManualLogout(); // 👈 mark it before logging out
+      ctx.read<AuthStateProvider>().markManualLogout(); // 👈 mark it before logging out
 
       await _firebaseAuth.signOut();
-      sessionManager.stopListeningToProviders(context);
+      await sessionManager.stopListeningToProviders();
 
       logger.i('[INFO - logOut()] User logged out successfully.');
       
       if (showLoadingDialog) {
-        Navigator.pop(context);
+        AppNavigator.pop();
         await Future.delayed(const Duration(milliseconds: 200));
       }
-      AppNavigator.navigateAndRemoveAll(context, const LoginPage());
+      AppNavigator.navigateAndRemoveAll(page: const LoginPage());
     } catch (error) {
       logger.e('[ERROR - logOut()] ${error.toString()}');
       if (showLoadingDialog) {
-        Navigator.pop(context);
+        AppNavigator.pop();
         await Future.delayed(const Duration(milliseconds: 200));
-        errorDialog(
-          context: context,
-          title: error.toString()
-        );
+        errorDialog(title: error.toString());
       }
     }
   }
 
-  Future<void> sendPasswordResetEmail(BuildContext context, BuildContext dialogContext, String email) async {
+  Future<void> sendPasswordResetEmail(BuildContext dialogContext, String email) async {
 
     Navigator.pop(dialogContext);
-    loadingDialog(context);
+    loadingDialog();
 
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
       logger.i('[INFO - sendPasswordResetEmail()] Password reset email sent successfully.');
-      AppNavigator.navigateAndRemoveAll(context, const ForgetEmailSent());
+      AppNavigator.navigateAndRemoveAll(page: const ForgetEmailSent());
       
     } catch (error) {
       logger.e('[ERROR - sendPasswordResetEmail()] ${error.toString()}');
-      errorDialog(
-        context: context,
-        title: error.toString(),
-      );
+      errorDialog(title: error.toString());
     }
   }
 
-  void signUp(BuildContext context, String inputEmail, String inputName, String inputPassword, String inputConfirmPassword) async {
+  void signUp(String inputEmail, String inputName, String inputPassword, String inputConfirmPassword) async {
 
-    loadingDialog(context);
+    loadingDialog();
 
     try {
       // 1. Check if password and confirmPassword fields correspond.
       if (inputPassword != inputConfirmPassword) {
-        errorDialog(
-          context: context,
-          title: 'Parolele nu corespund!',
-        );
+        errorDialog(title: 'Parolele nu corespund!');
         logger.w('[WARNING - signUp()] Passwords do not match!');
         return;
       }
@@ -195,8 +187,8 @@ class AuthService {
       await user.reload();
 
       if (AppConfig.emailVerificationEnabled == false) {
-        await sessionManager.startListeningToProviders(context, user.uid);
-        AppNavigator.navigateAndRemoveAll(context, const HomePage());
+        await sessionManager.startListeningToProviders();
+        AppNavigator.navigateAndRemoveAll(page: const HomePage());
         return;
       }
 
@@ -206,26 +198,17 @@ class AuthService {
       logger.i('[INFO - signUp()] User created successfully. Email verification sent.');
 
       // Navigare catre pagina de 'Email Verification Sent' care trebuie sa aiba si redirect catre 'Login Page'
-      AppNavigator.navigateAndRemoveAll(context, const VerificationEmailSent());
+      AppNavigator.navigateAndRemoveAll(page: const VerificationEmailSent());
 
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
-        errorDialog(
-          context: context,
-          title: 'Parolă prea slabă!\n (min. 6 caractere)',
-        );
+        errorDialog(title: 'Parolă prea slabă!\n (min. 6 caractere)',);
         logger.w("[WARNING - signUp()] Weak password: ${error.toString()}");
       } else if (error.code == 'email-already-in-use') {
-        errorDialog(
-          context: context,
-          title: 'Adresă de email deja existentă!',
-        );
+        errorDialog(title: 'Adresă de email deja existentă!');
         logger.w("[WARNING - signUp()] Email already in use: ${error.toString()}");
       } else {
-        errorDialog(
-          context: context,
-          title: error.toString(),
-        );
+        errorDialog(title: error.toString());
         logger.e("[ERROR - signUp()] ${error.toString()}");
       }
     }
@@ -233,7 +216,7 @@ class AuthService {
 
   Future<void> createPinCode(BuildContext context, String email, String password, String pin) async {
 
-    loadingDialog(context);
+    loadingDialog();
     
     try {
       UserModel currentUser = (await _userRepository.getDocumentsByField("email", email))[0];
@@ -245,16 +228,12 @@ class AuthService {
         password: password,
       );
 
-      await sessionManager.startListeningToProviders(context, currentUser.uid);
-      AppNavigator.navigateAndRemoveAll(context, const HomePage());
+      await sessionManager.startListeningToProviders();
+      AppNavigator.navigateAndRemoveAll(page: const HomePage());
 
     } catch (error) {
       logger.e('[ERROR - createPinCode()] ${error.toString()}');
-      errorDialog(
-        context: context,
-        title: error.toString(),
-      );
+      errorDialog(title: error.toString());
     }
   }
-
 }

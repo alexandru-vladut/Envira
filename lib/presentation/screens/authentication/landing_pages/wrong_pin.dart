@@ -66,7 +66,7 @@ class WrongPin extends StatelessWidget {
                       fontFamily: 'WorkSansBold'),
                 ),
                 onPressed: () {
-                  AppNavigator.navigateAndRemoveAll(context, const LoginPage());
+                  AppNavigator.navigateAndRemoveAll(page: const LoginPage(), context: context);
                 },
               ),
             ),

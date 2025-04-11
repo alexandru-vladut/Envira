@@ -14,7 +14,7 @@ class AuthGate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<Widget>(
-      future: returnPageBasedOnLoginStatus(context),
+      future: returnPageBasedOnLoginStatus(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           
@@ -37,7 +37,7 @@ class AuthGate extends StatelessWidget {
     );
   }
 
-  Future<Widget> returnPageBasedOnLoginStatus(BuildContext context) async {
+  Future<Widget> returnPageBasedOnLoginStatus() async {
     User? user = FirebaseAuth.instance.currentUser;
     
     // If user is logged out, redirect to LoginPage().
@@ -46,7 +46,7 @@ class AuthGate extends StatelessWidget {
     // If secureLogin is disabled, go to HomePage().
     if (AppConfig.pinCodeEnabled == false) {
       // Ensure data required by the home page is loaded here
-      sessionManager.startListeningToProviders(context, user.uid);
+      sessionManager.startListeningToProviders();
       return const HomePage();
     }
 
@@ -56,7 +56,7 @@ class AuthGate extends StatelessWidget {
 
     // If PIN code is not set, force new log-in to set PIN code
     if (currentUserPin == null) {
-      authService.logOut(context, showLoadingDialog: false);
+      authService.logOut(showLoadingDialog: false);
       return const LoginPage();
     }
 

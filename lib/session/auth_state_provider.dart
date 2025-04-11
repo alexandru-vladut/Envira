@@ -30,21 +30,17 @@ class AuthStateProvider extends ChangeNotifier {
         // Unexpected logout occurred here
         logger.w('[WARNING - AuthStateProvider()] Unexpected logout detected');
 
-        final context = navigatorKey.currentContext;
-        if (context != null) {
-          logger.i('[INFO - AuthStateProvider()] Showing auto-logout dialog...');
-          errorDialog(
-            context: context,
-            title: "Signed Out",
-            text: "You were signed out automatically. Your session may have expired.",
-            confirmButtonText: "OK",
-            onConfirm: () async {
-              Navigator.pop(context);
-              await Future.delayed(const Duration(milliseconds: 200));
-              AppNavigator.navigateAndRemoveAllWithKey(navigatorKey, const LoginPage());
-            },
-          );
-        }
+        logger.i('[INFO - AuthStateProvider()] Showing auto-logout dialog...');
+        errorDialog(
+          title: "Signed Out",
+          text: "You were signed out automatically. Your session may have expired.",
+          confirmButtonText: "OK",
+          onConfirm: () async {
+            AppNavigator.pop();
+            await Future.delayed(const Duration(milliseconds: 200));
+            AppNavigator.navigateAndRemoveAll(page: const LoginPage());
+          },
+        );
       }
 
       _manualLogout = false; // Reset for next time

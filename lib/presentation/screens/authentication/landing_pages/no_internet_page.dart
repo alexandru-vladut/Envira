@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/app/app_navigator.dart';
+import 'package:flutter_app_base/app/context_utils.dart';
 import 'package:flutter_app_base/session/auth_gate.dart';
 import 'package:flutter_app_base/session/connection_state_provider.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
@@ -22,7 +23,7 @@ class NoInternetPage extends StatelessWidget {
               const Text("No Internet Connection", style: TextStyle(fontSize: 20)),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () => _handleRetryPressed(context),
+                onPressed: () => _handleRetryPressed(),
                 child: const Text("Retry"),
               )
             ],
@@ -32,23 +33,26 @@ class NoInternetPage extends StatelessWidget {
     );
   }
 
-  Future<void> _handleRetryPressed(BuildContext context) async {
-    loadingDialog(context);
+  Future<void> _handleRetryPressed() async {
 
-    await context.read<ConnectionStateProvider>().recheckConnection();
-    final isConnected = context.read<ConnectionStateProvider>().isConnected;
+    loadingDialog();
+
+    // Handle context across async gaps
+    final ctx = ContextUtils.getSafeContext();
+    if (ctx == null) return;
+
+    final connectionProvider = ctx.read<ConnectionStateProvider>();
+    await connectionProvider.recheckConnection();
+    final isConnected = connectionProvider.isConnected;
 
     if (isConnected) {
       await Future.delayed(const Duration(milliseconds: 200));
-      Navigator.pop(context); // Dismiss loading
+      AppNavigator.pop(); // Dismiss loading
       await Future.delayed(const Duration(milliseconds: 200));
-      AppNavigator.navigateAndRemoveAll(context, const AuthGate());
+      AppNavigator.navigateAndRemoveAll(page: const AuthGate());
     } else {
-      Navigator.pop(context); // Dismiss loading
-      errorDialog(
-        context: context,
-        title: "Still No Internet Connection",
-      );
+      AppNavigator.pop(); // Dismiss loading
+      errorDialog(title: "Still No Internet Connection");
     }
   }
 }

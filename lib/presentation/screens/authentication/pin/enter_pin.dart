@@ -39,9 +39,9 @@ class _EnterPinState extends State<EnterPin> {
       } else {
 
         if (widget.email == null && widget.password == null) {
-          authService.logOut(context, showLoadingDialog: false);
+          authService.logOut(showLoadingDialog: false);
         }
-        AppNavigator.navigateAndRemoveAll(context, const WrongPin());
+        AppNavigator.navigateAndRemoveAll(page: const WrongPin());
       }
     });
   }
@@ -59,7 +59,7 @@ class _EnterPinState extends State<EnterPin> {
 
           if (inputPin.length == 4) {
 
-            loadingDialog(context);
+            loadingDialog(context: context);
 
             User? user = FirebaseAuth.instance.currentUser;
             String emailValue = (user == null) ? widget.email! : user.email!;
@@ -75,8 +75,8 @@ class _EnterPinState extends State<EnterPin> {
                 );
               }
               
-              await sessionManager.startListeningToProviders(context, currentUser.uid);
-              AppNavigator.navigateAndRemoveAll(context, const HomePage());
+              await sessionManager.startListeningToProviders(contextOverride: context);
+              AppNavigator.navigateAndRemoveAll(page: const HomePage(), context: context);
 
             } else {
               resetProcess();

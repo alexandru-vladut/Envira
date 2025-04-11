@@ -144,9 +144,9 @@ class SignInState extends State<SignIn> {
                               }
                               return null;
                             },
-                            onFieldSubmitted: (_) {
+                            onFieldSubmitted: (_) async {
                               if (_formKey.currentState!.validate()) {
-                                authService.signIn(context, loginEmailController.text, loginPasswordController.text);
+                                await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
                               } else {
                                 setState(() {
                                   containerHeight = 190;
@@ -178,9 +178,9 @@ class SignInState extends State<SignIn> {
                           fontSize: 20.0,
                           fontFamily: 'WorkSansBold'),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        authService.signIn(context, loginEmailController.text, loginPasswordController.text);
+                        await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
                       } else {
                         setState(() {
                           containerHeight = 190;
@@ -266,7 +266,7 @@ class SignInState extends State<SignIn> {
                                     validator: (value) => isEmailValid(value),
                                     onFieldSubmitted: (_) {
                                       if (dialogFormKey.currentState!.validate()) {
-                                        authService.sendPasswordResetEmail(context, dialogContext, forgotController.text);
+                                        authService.sendPasswordResetEmail(dialogContext, forgotController.text);
                                       }
                                     },
                                     textInputAction: TextInputAction.go,
@@ -282,7 +282,7 @@ class SignInState extends State<SignIn> {
                                 GestureDetector(
                                   onTap: () {
                                     if (dialogFormKey.currentState!.validate()) {
-                                      authService.sendPasswordResetEmail(context, dialogContext, forgotController.text);
+                                      authService.sendPasswordResetEmail(dialogContext, forgotController.text);
                                     }
                                   },
                                   child: Align(

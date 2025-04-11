@@ -114,7 +114,7 @@ class LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixi
             Expanded(
               child: TextButton(
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
                 ),
                 onPressed: _onSignInButtonPress,
                 child: Text(
@@ -130,7 +130,7 @@ class LoginPageState extends State<LoginPage> with SingleTickerProviderStateMixi
             Expanded(
               child: TextButton(
                 style: ButtonStyle(
-                  overlayColor: MaterialStateProperty.all(Colors.transparent),
+                  overlayColor: WidgetStateProperty.all(Colors.transparent),
                 ),
                 onPressed: _onSignUpButtonPress,
                 child: Text(

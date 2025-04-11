@@ -1,30 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/context_utils.dart';
 
 class AppNavigator {
-  static void navigateTo(BuildContext context, Widget page) {
+
+  static void pop({BuildContext? context}) {
+    final ctx = ContextUtils.getSafeContext(context);
+    if (ctx == null) return;
+
+    Navigator.pop(ctx);
+  }
+
+  static void navigateTo({required Widget page, BuildContext? context}) {
+    final ctx = ContextUtils.getSafeContext(context);
+    if (ctx == null) return;
+
     Navigator.push(
-      context,
+      ctx,
       MaterialPageRoute(builder: (_) => page),
     );
   }
 
-  static void navigateAndReplace(BuildContext context, Widget page) {
+  static void navigateAndReplace({required Widget page, BuildContext? context}) {
+    final ctx = ContextUtils.getSafeContext(context);
+    if (ctx == null) return;
+
     Navigator.pushReplacement(
-      context,
+      ctx,
       MaterialPageRoute(builder: (_) => page),
     );
   }
 
-  static void navigateAndRemoveAll(BuildContext context, Widget page) {
+  static void navigateAndRemoveAll({required Widget page, BuildContext? context}) {
+    final ctx = ContextUtils.getSafeContext(context);
+    if (ctx == null) return;
+
     Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (_) => page),
-      (_) => false,
-    );
-  }
-
-  static void navigateAndRemoveAllWithKey(GlobalKey<NavigatorState> navigatorKey, Widget page) {
-    navigatorKey.currentState?.pushAndRemoveUntil(
+      ctx,
       MaterialPageRoute(builder: (_) => page),
       (_) => false,
     );
