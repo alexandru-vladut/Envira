@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/app/app_config.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
@@ -40,10 +41,7 @@ class AuthStateProvider extends ChangeNotifier {
             onConfirm: () async {
               Navigator.pop(context);
               await Future.delayed(const Duration(milliseconds: 200));
-              navigatorKey.currentState?.pushAndRemoveUntil(
-                MaterialPageRoute(builder: (_) => const LoginPage()),
-                (_) => false,
-              );
+              AppNavigator.navigateAndRemoveAllWithKey(navigatorKey, const LoginPage());
             },
           );
         }

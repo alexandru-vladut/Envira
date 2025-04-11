@@ -22,4 +22,11 @@ class AppNavigator {
       (_) => false,
     );
   }
+
+  static void navigateAndRemoveAllWithKey(GlobalKey<NavigatorState> navigatorKey, Widget page) {
+    navigatorKey.currentState?.pushAndRemoveUntil(
+      MaterialPageRoute(builder: (_) => page),
+      (_) => false,
+    );
+  }
 }

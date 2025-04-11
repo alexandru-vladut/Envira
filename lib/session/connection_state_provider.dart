@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/no_internet_page.dart';
 
@@ -22,10 +23,7 @@ class ConnectionStateProvider extends ChangeNotifier {
 
       if (wasConnected && !_isConnected) {
         notifyListeners();
-        navigatorKey.currentState?.pushAndRemoveUntil(
-          MaterialPageRoute(builder: (_) => const NoInternetPage()),
-          (_) => false,
-        );
+        AppNavigator.navigateAndRemoveAllWithKey(navigatorKey, const NoInternetPage());
       }
     });
   }
