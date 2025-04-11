@@ -44,7 +44,10 @@ class AuthService {
       if (filteredUsers.isEmpty) {
         _firebaseAuth.signOut();
         logger.e('[ERROR - signIn()] User not found in Firestore Database.');
-        errorDialog(context, '[ERROR - signIn()] User not found in Firestore Database.');
+        errorDialog(
+          context: context,
+          title: '[ERROR - signIn()] User not found in Firestore Database.',
+        );
         return;
       }
 
@@ -84,10 +87,16 @@ class AuthService {
       
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found' || error.code == 'wrong-password') {
-        errorDialog(context, 'Email/parolă greșite!');
+        errorDialog(
+          context: context,
+          title: 'Email/parolă greșite!',
+        );
         logger.w("[WARNING - signIn()] Wrong email/password: ${error.toString()}");
       } else {
-        errorDialog(context, error.toString());
+        errorDialog(
+          context: context,
+          title: error.toString(),
+        );
         logger.e("[ERROR - signIn()] ${error.toString()}");
       }
     }
@@ -117,7 +126,10 @@ class AuthService {
       if (showLoadingDialog) {
         Navigator.pop(context);
         await Future.delayed(const Duration(milliseconds: 200));
-        errorDialog(context, error.toString());
+        errorDialog(
+          context: context,
+          title: error.toString()
+        );
       }
     }
   }
@@ -134,7 +146,10 @@ class AuthService {
       
     } catch (error) {
       logger.e('[ERROR - sendPasswordResetEmail()] ${error.toString()}');
-      errorDialog(context, error.toString());
+      errorDialog(
+        context: context,
+        title: error.toString(),
+      );
     }
   }
 
@@ -145,7 +160,10 @@ class AuthService {
     try {
       // 1. Check if password and confirmPassword fields correspond.
       if (inputPassword != inputConfirmPassword) {
-        errorDialog(context, 'Parolele nu corespund!');
+        errorDialog(
+          context: context,
+          title: 'Parolele nu corespund!',
+        );
         logger.w('[WARNING - signUp()] Passwords do not match!');
         return;
       }
@@ -192,13 +210,22 @@ class AuthService {
 
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
-        errorDialog(context, 'Parolă prea slabă!\n (min. 6 caractere)');
+        errorDialog(
+          context: context,
+          title: 'Parolă prea slabă!\n (min. 6 caractere)',
+        );
         logger.w("[WARNING - signUp()] Weak password: ${error.toString()}");
       } else if (error.code == 'email-already-in-use') {
-        errorDialog(context, 'Adresă de email deja existentă!');
+        errorDialog(
+          context: context,
+          title: 'Adresă de email deja existentă!',
+        );
         logger.w("[WARNING - signUp()] Email already in use: ${error.toString()}");
       } else {
-        errorDialog(context, error.toString());
+        errorDialog(
+          context: context,
+          title: error.toString(),
+        );
         logger.e("[ERROR - signUp()] ${error.toString()}");
       }
     }
@@ -223,7 +250,10 @@ class AuthService {
 
     } catch (error) {
       logger.e('[ERROR - createPinCode()] ${error.toString()}');
-      errorDialog(context, error.toString());
+      errorDialog(
+        context: context,
+        title: error.toString(),
+      );
     }
   }
 

@@ -33,7 +33,7 @@ class AuthStateProvider extends ChangeNotifier {
         final context = navigatorKey.currentContext;
         if (context != null) {
           logger.i('[INFO - AuthStateProvider()] Showing auto-logout dialog...');
-          errorDialogWithFunction(
+          errorDialog(
             context: context,
             title: "Signed Out",
             text: "You were signed out automatically. Your session may have expired.",

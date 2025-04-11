@@ -45,7 +45,10 @@ class NoInternetPage extends StatelessWidget {
       AppNavigator.navigateAndRemoveAll(context, const AuthGate());
     } else {
       Navigator.pop(context); // Dismiss loading
-      errorDialog(context, "Still No Internet Connection");
+      errorDialog(
+        context: context,
+        title: "Still No Internet Connection",
+      );
     }
   }
 }
