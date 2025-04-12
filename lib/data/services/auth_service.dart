@@ -110,17 +110,13 @@ class AuthService {
 
     try {
       logger.i('[INFO - logOut()] Logging out user...');
-      ctx.read<AuthStateProvider>().markManualLogout(); // 👈 mark it before logging out
 
+      ctx.read<AuthStateProvider>().markManualLogout();
       await _firebaseAuth.signOut();
       await sessionManager.stopListeningToProviders();
 
       logger.i('[INFO - logOut()] User logged out successfully.');
       
-      if (showLoadingDialog) {
-        AppNavigator.pop();
-        await Future.delayed(const Duration(milliseconds: 200));
-      }
       AppNavigator.navigateAndRemoveAll(page: const LoginPage());
     } catch (error) {
       logger.e('[ERROR - logOut()] ${error.toString()}');
