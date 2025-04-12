@@ -85,7 +85,7 @@ class _EnterPinState extends State<EnterPin> {
         },
 
         splashColor: Colors.transparent,
-        highlightColor: CustomTheme.darkBlue1.withOpacity(0.2),
+        highlightColor: CustomTheme.darkBlue1.withSafeOpacity(0.2),
         borderRadius: BorderRadius.circular(40),
 
         child: Container(
@@ -93,7 +93,7 @@ class _EnterPinState extends State<EnterPin> {
           height: 80,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: CustomTheme.darkBlue1.withOpacity(0.05),
+            color: CustomTheme.darkBlue1.withSafeOpacity(0.05),
           ),
           child: Center(
             child: Text(
@@ -161,7 +161,7 @@ class _EnterPinState extends State<EnterPin> {
                       borderRadius: BorderRadius.circular(15.0),
                       color: index < inputPin.length
                           ? CustomTheme.darkBlue1
-                          : CustomTheme.darkBlue1.withOpacity(0.1),
+                          : CustomTheme.darkBlue1.withSafeOpacity(0.1),
                     ),
                     child: null,
                   );
@@ -204,7 +204,7 @@ class _EnterPinState extends State<EnterPin> {
                     },
 
                     splashColor: Colors.transparent, // Remove default splash effect
-                    highlightColor: CustomTheme.darkBlue1.withOpacity(0.2), // Custom highlight color, slightly darker
+                    highlightColor: CustomTheme.darkBlue1.withSafeOpacity(0.2), // Custom highlight color, slightly darker
                     borderRadius: BorderRadius.circular(40), // Half of width/height for perfect circle
 
                     child: const SizedBox(

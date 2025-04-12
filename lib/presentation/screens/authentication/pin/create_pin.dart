@@ -71,7 +71,7 @@ class _CreatePinState extends State<CreatePin> {
       },
 
       splashColor: Colors.transparent,
-      highlightColor: CustomTheme.darkBlue1.withOpacity(0.2),
+      highlightColor: CustomTheme.darkBlue1.withSafeOpacity(0.2),
       borderRadius: BorderRadius.circular(40),
       
       child: Container(
@@ -79,7 +79,7 @@ class _CreatePinState extends State<CreatePin> {
           height: 80,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: CustomTheme.darkBlue1.withOpacity(0.05),
+            color: CustomTheme.darkBlue1.withSafeOpacity(0.05),
           ),
           child: Center(
             child: Text(
@@ -147,7 +147,7 @@ class _CreatePinState extends State<CreatePin> {
                       borderRadius: BorderRadius.circular(15.0),
                       color: index < inputPin.length
                           ? CustomTheme.darkBlue1
-                          : CustomTheme.darkBlue1.withOpacity(0.1),
+                          : CustomTheme.darkBlue1.withSafeOpacity(0.1),
                     ),
                     child: null,
                   );
@@ -184,7 +184,7 @@ class _CreatePinState extends State<CreatePin> {
                       },
 
                       splashColor: Colors.transparent,
-                      highlightColor: CustomTheme.darkBlue1.withOpacity(0.2),
+                      highlightColor: CustomTheme.darkBlue1.withSafeOpacity(0.2),
                       borderRadius: BorderRadius.circular(40),
 
                       child: const SizedBox(
@@ -210,7 +210,7 @@ class _CreatePinState extends State<CreatePin> {
                     },
 
                     splashColor: Colors.transparent,
-                    highlightColor: CustomTheme.darkBlue1.withOpacity(0.2),
+                    highlightColor: CustomTheme.darkBlue1.withSafeOpacity(0.2),
                     borderRadius: BorderRadius.circular(40),
 
                     child: const SizedBox(

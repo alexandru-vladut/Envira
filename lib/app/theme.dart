@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+extension ColorOpacity on Color {
+  Color withSafeOpacity(double opacity) =>
+      withValues(alpha: (opacity * 255));
+}
+
 class CustomTheme {
   const CustomTheme();
 
