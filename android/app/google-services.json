@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "141327876441",
-    "project_id": "flutter-app-base-8686a",
-    "storage_bucket": "flutter-app-base-8686a.firebasestorage.app"
+    "project_number": "496771319954",
+    "project_id": "bachelor-project-47b18",
+    "storage_bucket": "bachelor-project-47b18.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:141327876441:android:13b2d271a3c7db434b4c48",
+        "mobilesdk_app_id": "1:496771319954:android:89829f5061107c5927be4b",
         "android_client_info": {
           "package_name": "com.flutter.app_base"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCzEmvwthCfF6HKeWJiYOW6-tDjofwr6Eo"
+          "current_key": "AIzaSyCO_EPpjHKL9QOmFXx5EtAr3z9t7XJ-clc"
         }
       ],
       "services": {
