@@ -7,14 +7,9 @@ class UserModel {
   final String name;
   final String email;
   final String? pin; // may be null, initialized with null on register
-
-  // final List<String> friends;
-  // final List<Map<String, String>> tickets;
-  // final Map<String, List<String>> preferences;
-  // final Map<String, int> feelings;
-
-  // final List<CardModel> creditCards;
-  // final CardModel? ecoCard; // may be null, initialized with null on register
+  final int totalPoints;
+  final String companyId;
+  final String role;
   
   UserModel({
     this.docId,
@@ -22,12 +17,9 @@ class UserModel {
     required this.name,
     required this.email,
     required this.pin,
-    // required this.friends,
-    // required this.tickets,
-    // required this.preferences,
-    // required this.feelings,
-    // required this.creditCards,
-    // this.ecoCard
+    required this.totalPoints,
+    required this.companyId,
+    required this.role,
   });
 
   Map<String, dynamic> toMap() {
@@ -36,12 +28,9 @@ class UserModel {
       "name": name,
       "email": email,
       "pin": pin,
-      // "friends": friends,
-      // "tickets": tickets,
-      // "preferences": preferences,
-      // "feelings": feelings,
-      // "creditCards": creditCards.map((e) => e.toMap()).toList(),
-      // "ecoCard": (ecoCard != null) ? ecoCard!.toMap() : null
+      "totalPoints": totalPoints,
+      "companyId": companyId,
+      "role": role,
     };
   }
 
@@ -55,27 +44,15 @@ class UserModel {
     try {
       Map data = rawData as Map<String, dynamic>;
 
-      // List<String> friends = (data["friends"] as List<dynamic>).map((e) => e.toString()).toList();
-      // List<Map<String, String>> tickets = (data["tickets"] as List<dynamic>).map((e) => (e as Map<dynamic, dynamic>).map((key, value) => MapEntry(key.toString(), value.toString())).cast<String, String>()).toList();
-      // Map<String, List<String>> preferences = (data["preferences"] as Map<dynamic, dynamic>).map((key, value) => MapEntry(key.toString(), (value as List<dynamic>).map((e) => e.toString()).toList()));
-      // Map<String, int> feelings = (data["feelings"] as Map<dynamic, dynamic>).map((key, value) => MapEntry(key.toString(), value as int));
-
-      // List<Map<String, dynamic>> creditCardsAsMaps = (data["creditCards"] as List<dynamic>).map((e) => e as Map<String, dynamic>).toList();
-
       return UserModel(
         docId: doc.id,
         uid: data["uid"],
         name: data["name"],
         email: data["email"],
         pin: data["pin"],
-
-        // friends: friends,
-        // tickets: tickets,
-        // preferences: preferences,
-        // feelings: feelings,
-        
-        // creditCards: creditCardsAsMaps.map((e) => CardModel.fromMap(e)).toList(),
-        // ecoCard: CardModel.fromMap(data["ecoCard"])
+        totalPoints: data["totalPoints"],
+        companyId: data["companyId"],
+        role: data["role"],
       );
     } catch (e) {
       throw Exception('Error converting document snapshot fields to UserModel fields: $e');

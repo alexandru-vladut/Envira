@@ -169,12 +169,9 @@ class AuthService {
         name: inputName,
         email: inputEmail,
         pin: null,
-        // friends: [],
-        // tickets: [],
-        // preferences: {},
-        // feelings: {},
-        // creditCards: [],
-        // ecoCard: null 
+        totalPoints: 0,
+        companyId: "the only company id",
+        role: "regular user",
       );
   
       _userRepository.addDocument(newUser);
