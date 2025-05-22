@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_app_base/app/context_utils.dart';
 
 class AppNavigator {
@@ -16,7 +16,7 @@ class AppNavigator {
 
     Navigator.push(
       ctx,
-      MaterialPageRoute(builder: (_) => page),
+      CupertinoPageRoute(builder: (_) => page),
     );
   }
 
@@ -26,7 +26,7 @@ class AppNavigator {
 
     Navigator.pushReplacement(
       ctx,
-      MaterialPageRoute(builder: (_) => page),
+      CupertinoPageRoute(builder: (_) => page),
     );
   }
 
@@ -36,7 +36,7 @@ class AppNavigator {
 
     Navigator.pushAndRemoveUntil(
       ctx,
-      MaterialPageRoute(builder: (_) => page),
+      CupertinoPageRoute(builder: (_) => page),
       (_) => false,
     );
   }

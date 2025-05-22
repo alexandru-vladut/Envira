@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/constants.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kBackgroundColorLight,
         title: const Text('Simple Page'),
       ),
       body: Center(

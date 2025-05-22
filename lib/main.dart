@@ -2,35 +2,40 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/constants.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/session/connection_gate.dart';
 import 'package:flutter_app_base/session/connection_state_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/firebase_options.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
   // Preserve the splash screen until loading is complete
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider<ConnectionStateProvider>(create: (_) => ConnectionStateProvider()),
-        ChangeNotifierProvider<AuthStateProvider>(create: (_) => AuthStateProvider()),
+        ChangeNotifierProvider<ConnectionStateProvider>(
+          create: (_) => ConnectionStateProvider(),
+        ),
+        ChangeNotifierProvider<AuthStateProvider>(
+          create: (_) => AuthStateProvider(),
+        ),
         // TO DO: Add new providers here
-        ChangeNotifierProvider<UsersProvider>(create: (_) => UsersProvider(userRepository)),
+        ChangeNotifierProvider<UsersProvider>(
+          create: (_) => UsersProvider(userRepository),
+        ),
       ],
       child: const MyApp(),
-    )
+    ),
   );
 }
 
@@ -39,19 +44,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.portraitUp,
-    ]);
-    
     return MaterialApp(
-      title: "Finexa",
+      title: "App Base",
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey, // 👈 Plug in your global navigator key here
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
+        scaffoldBackgroundColor: kBackgroundColorLight,
         primarySwatch: Colors.blue,
-        // add your custom theming here
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const ConnectionGate(),
     );

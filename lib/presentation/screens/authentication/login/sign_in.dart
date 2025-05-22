@@ -1,9 +1,14 @@
-// ignore_for_file: use_build_context_synchronously
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
-import 'package:flutter_app_base/app/theme.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/sign_up.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/constants.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/validators.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/widgets/my_password_field.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/widgets/my_text_button.dart';
+import 'package:flutter_app_base/presentation/screens/authentication/login/widgets/my_text_field.dart';
+import 'package:flutter_svg_provider/flutter_svg_provider.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -23,7 +28,7 @@ class SignInState extends State<SignIn> {
   final FocusNode focusNodeEmail = FocusNode();
   final FocusNode focusNodePassword = FocusNode();
 
-  bool _obscureTextPassword = true;
+  bool _isPasswordVisible = true;
 
   @override
   void dispose() {
@@ -32,322 +37,113 @@ class SignInState extends State<SignIn> {
     super.dispose();
   }
 
-  double containerHeight = 180;
-  double buttonMargin = 160;
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(top: 23.0),
-      child: Column(
-        children: <Widget>[
-          Form(
-            key: _formKey,
-            child: Stack(
-              alignment: Alignment.topCenter,
-              children: <Widget>[
-                Card(
-                  elevation: 2.0,
-                  color: CustomTheme.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
-                  child: SizedBox(
-                    width: 300.0,
-                    height: containerHeight,
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0, bottom: 10.0, left: 25.0, right: 25.0),
-                          child: TextFormField(
-                            focusNode: focusNodeEmail,
-                            controller: loginEmailController,
-                            keyboardType: TextInputType.emailAddress,
-                            cursorColor: CustomTheme.cursorColor,
-                            style: const TextStyle(
-                                fontFamily: 'WorkSansSemiBold',
-                                fontSize: 16.0,
-                                color: Colors.black),
-                            decoration: const InputDecoration(
-                              errorStyle: TextStyle(height: 0.05),
-                              border: InputBorder.none,
-                              icon: Icon(
-                                // FontAwesomeIcons.envelope,
-                                Icons.mail_outline_outlined,
-                                color: Colors.black,
-                                // size: 22.0,
-                              ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: kBackgroundColorLight,
+        elevation: 0,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Image(
+            width: 24,
+            color: Colors.black,
+            image: Svg('assets/images/back_arrow.svg'),
+          ),
+        ),
+      ),
+      body: SafeArea(
+        //to make page scrollable
+        child: CustomScrollView(
+          reverse: true,
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Form(
+                  key: _formKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Flexible(
+                        fit: FlexFit.loose,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Welcome back.", style: kHeadlineLight),
+                            SizedBox(height: 10),
+                            Text("You've been missed!", style: kBodyText2Light),
+                            SizedBox(height: 60),
+                            MyTextField(
                               hintText: 'Email',
-                              hintStyle: TextStyle(
-                                  fontFamily: 'WorkSansSemiBold',
-                                  fontSize: 16.0,
-                                  color: Color.fromARGB(255, 135, 135, 135),
-                                ),
+                              inputType: TextInputType.emailAddress,
+                              focusNode: focusNodeEmail,
+                              controller: loginEmailController,
+                              validator: (value) => isTextValid(value),
+                              onFieldSubmitted: (_) {
+                                focusNodePassword.requestFocus();
+                              },
+                              textInputAction: TextInputAction.newline,
                             ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Mandatory field.';
-                              }
-                              return null;
-                            },
-                            onFieldSubmitted: (_) {
-                              focusNodePassword.requestFocus();
-                            },
-                            textInputAction: TextInputAction.newline,
-                          ),
-                        ),
-                        Container(
-                          width: 250.0,
-                          height: 1.0,
-                          color: Colors.grey[400],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, left: 25.0, right: 25.0),
-                          child: TextFormField(
-                            focusNode: focusNodePassword,
-                            controller: loginPasswordController,
-                            obscureText: _obscureTextPassword,
-                            cursorColor: CustomTheme.cursorColor,
-                            style: const TextStyle(
-                                fontFamily: 'WorkSansSemiBold',
-                                fontSize: 16.0,
-                                color: Colors.black),
-                            decoration: InputDecoration(
-                              errorStyle: const TextStyle(height: 0.05),
-                              border: InputBorder.none,
-                              icon: const Icon(
-                                // FontAwesomeIcons.lock,
-                                Icons.lock_outlined,
-                                // size: 22.0,
-                                color: Colors.black,
-                              ),
+                            MyPasswordField(
+                              isPasswordVisible: _isPasswordVisible,
                               hintText: 'Password',
-                              hintStyle: const TextStyle(
-                                  fontFamily: 'WorkSansSemiBold',
-                                  fontSize: 16.0,
-                                  color: Color.fromARGB(255, 135, 135, 135),
-                                ),
-                              suffixIcon: GestureDetector(
-                                onTap: _toggleLogin,
-                                child: Icon(
-                                  _obscureTextPassword
-                                      ? FontAwesomeIcons.eye
-                                      : FontAwesomeIcons.eyeSlash,
-                                  size: 20.0,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                            validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Mandatory field.';
-                              }
-                              return null;
-                            },
-                            onFieldSubmitted: (_) async {
-                              if (_formKey.currentState!.validate()) {
-                                await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
-                              } else {
+                              onTap: () {
                                 setState(() {
-                                  containerHeight = 190;
-                                  buttonMargin = 170;
+                                  _isPasswordVisible = !_isPasswordVisible;
                                 });
-                              }
-                            },
-                            textInputAction: TextInputAction.go,
-                          ),
+                              },
+                              focusNode: focusNodePassword,
+                              controller: loginPasswordController,
+                              validator: (value) => isTextValid(value),
+                              onFieldSubmitted: (_) async {
+                                if (_formKey.currentState!.validate()) {
+                                  await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
+                                }
+                              },
+                              textInputAction: TextInputAction.go,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account? ", style: kBodyTextLight),
+                          GestureDetector(
+                            onTap: () {
+                              AppNavigator.navigateTo(page: const SignUp(), context: context);
+                            },
+                            child: Text(
+                              'Register',
+                              style: kBodyTextLight.copyWith(color: Colors.black),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 16),
+                      MyTextButton(
+                        buttonName: 'Sign In',
+                        onTap: () async {
+                          if (_formKey.currentState!.validate()) {
+                            await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
+                          }
+                        },
+                        bgColor: kBackgroundColor,
+                        textColor: Colors.white,
+                      ),
+                      SizedBox(height: 30),
+                    ],
                   ),
                 ),
-                Container(
-                  width: 230.0,
-                  margin: EdgeInsets.only(top: buttonMargin),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    color: CustomTheme.loginButtonColor,
-                  ),
-                  child: MaterialButton(
-                    highlightColor: Colors.transparent,
-                    splashColor: CustomTheme.darkBlue2,
-                    child: const Text(
-                      'Login',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
-                          fontFamily: 'WorkSansBold'),
-                    ),
-                    onPressed: () async {
-                      if (_formKey.currentState!.validate()) {
-                        await authService.signIn(email: loginEmailController.text, password: loginPasswordController.text);
-                      } else {
-                        setState(() {
-                          containerHeight = 190;
-                          buttonMargin = 170;
-                        });
-                      }
-                    },
-                  ),
-                )
-              ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: TextButton(
-                onPressed: () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext dialogContext) {
-                      final dialogFormKey = GlobalKey<FormState>();
-
-                      return Dialog(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: SizedBox(
-                          height: 215,
-                          child: Form(
-                            key: dialogFormKey,
-                            child: Column(
-                              children: [
-
-                                Container(
-                                  height: 55,
-                                  width: double.infinity,
-                                  padding: const EdgeInsets.all(10.0),
-                                  decoration: const BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20),
-                                    ),
-                                    color: CustomTheme.loginButtonColor,
-                                  ),
-                                  child: const Center(
-                                    child: Text(
-                                      'Forgot password?',
-                                      style: TextStyle(
-                                        color: Color.fromARGB(255, 255, 255, 255),
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w500
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                
-                                Container(
-                                  // height: 75,
-                                  padding: const EdgeInsets.only(left: 15, right: 15, top: 20),
-                                  child: TextFormField(
-                                    keyboardType: TextInputType.emailAddress,
-                                    cursorColor: CustomTheme.cursorColor,
-                                    autocorrect: false,
-                                    style: const TextStyle(
-                                        fontFamily: 'WorkSansSemiBold',
-                                        fontSize: 16.0,
-                                        color: Colors.black),
-                                    decoration: const InputDecoration(
-                                      errorStyle: TextStyle(height: 0.05),
-                                      border: InputBorder.none,
-                                      icon: Icon(
-                                        // FontAwesomeIcons.envelope,
-                                        Icons.mail_outline_outlined,
-                                        color: Colors.black,
-                                      ),
-                                      hintText: 'Email',
-                                      hintStyle: TextStyle(
-                                          fontFamily: 'WorkSansSemiBold',
-                                          fontSize: 16.0,
-                                          color: Color.fromARGB(255, 135, 135, 135),
-                                        ),
-                                    ),
-                                    validator: (value) => isEmailValid(value),
-                                    onFieldSubmitted: (_) {
-                                      if (dialogFormKey.currentState!.validate()) {
-                                        authService.sendPasswordResetEmail(dialogContext, forgotController.text);
-                                      }
-                                    },
-                                    textInputAction: TextInputAction.go,
-                                  ),
-                                ),
-
-                                Container(
-                                  width: 250.0,
-                                  height: 1.0,
-                                  color: Colors.grey[400],
-                                ),
-                                    
-                                GestureDetector(
-                                  onTap: () {
-                                    if (dialogFormKey.currentState!.validate()) {
-                                      authService.sendPasswordResetEmail(dialogContext, forgotController.text);
-                                    }
-                                  },
-                                  child: Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Container(
-                                      height: 45.0,
-                                      width: 45.0,
-                                      margin: const EdgeInsets.all(15),
-                                      decoration: const BoxDecoration(
-                                        color: CustomTheme.loginButtonColor,
-                                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                      ),
-                                      child: const Center(
-                                        child: Icon(
-                                          Icons.navigate_next,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                child: const Text(
-                  'Forgot password?',
-                  style: TextStyle(
-                      decoration: TextDecoration.underline,
-                      color: Color.fromARGB(255, 255, 255, 255),
-                      fontSize: 16.0,
-                      fontFamily: 'WorkSansMedium'),
-                )),
-          ),
-        ],
+          ],
+        ),
       ),
     );
-  }
-
-  String? isEmailValid(String? email) {
-
-    if (email == null || email.isEmpty) {
-      return 'Mandatory field.';
-    }
-
-    RegExp emailRegex = RegExp(
-      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$',
-      caseSensitive: false,
-      multiLine: false,
-    );
-
-    if (!emailRegex.hasMatch(email)) {
-      return 'Email format incorrect.';
-    }
-
-    return null;
-  }
-
-  void _toggleLogin() {
-    setState(() {
-      _obscureTextPassword = !_obscureTextPassword;
-    });
   }
 }
