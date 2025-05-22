@@ -11,3 +11,5 @@
 ## Login
 - New UI for landing pages, PIN code pages and others
 - Sign in with Google
+
+## Create a welcome page (Home)
