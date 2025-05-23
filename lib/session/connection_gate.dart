@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/session/auth_gate.dart';
 import 'package:flutter_app_base/session/connection_state_provider.dart';
-import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/no_internet_page.dart';
+import 'package:flutter_app_base/modules/landing/pages/no_internet_page.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:flutter_app_base/app/app_navigator.dart';
-import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/no_internet_page.dart';
+import 'package:flutter_app_base/core/utils/app_navigator.dart';
+import 'package:flutter_app_base/modules/landing/pages/no_internet_page.dart';
 
 class ConnectionStateProvider extends ChangeNotifier {
   final Connectivity _connectivity = Connectivity();

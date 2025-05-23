@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/app/app_config.dart';
-import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/core/app_config.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
-import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
-import 'package:flutter_app_base/presentation/screens/authentication/pin/enter_pin.dart';
-import 'package:flutter_app_base/presentation/screens/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/authentication/pages/login_page.dart';
+import 'package:flutter_app_base/modules/authentication/pages/enter_pin_page.dart';
+import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class AuthGate extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/app/context_utils.dart';
-import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/core/utils/context_utils.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/providers/companies_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
