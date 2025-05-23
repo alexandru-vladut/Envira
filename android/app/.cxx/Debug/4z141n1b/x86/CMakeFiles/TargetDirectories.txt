@@ -1,2 +1,0 @@
-C:/Users/vladu/Desktop/projects/Flutter-App-Base/android/app/.cxx/Debug/4z141n1b/x86/CMakeFiles/edit_cache.dir
-C:/Users/vladu/Desktop/projects/Flutter-App-Base/android/app/.cxx/Debug/4z141n1b/x86/CMakeFiles/rebuild_cache.dir
