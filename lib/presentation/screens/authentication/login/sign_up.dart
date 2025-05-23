@@ -128,7 +128,7 @@ class SignUpState extends State<SignUp> {
                               },
                               focusNode: confirmPasswordFocusNode,
                               controller: confirmPasswordController,
-                              validator: (value) => isConfirmPasswordValid(value, confirmPasswordController.text),
+                              validator: (value) => isConfirmPasswordValid(passwordController.text, value),
                               onFieldSubmitted: (_) {
                                 if (_formKey.currentState!.validate()) {
                                   authService.signUp(emailController.text, nameController.text, passwordController.text, confirmPasswordController.text);

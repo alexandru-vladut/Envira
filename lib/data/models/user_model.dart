@@ -8,7 +8,7 @@ class UserModel {
   final String email;
   final String? pin; // may be null, initialized with null on register
   final int totalPoints;
-  final String companyId;
+  final String companyId; // this is the firestore documentId of the company
   final String role;
   
   UserModel({

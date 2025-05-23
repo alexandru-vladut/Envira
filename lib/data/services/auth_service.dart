@@ -5,6 +5,7 @@ import 'package:flutter_app_base/app/app_navigator.dart';
 import 'package:flutter_app_base/app/context_utils.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
+import 'package:flutter_app_base/presentation/screens/bottom_nav_bar.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/landing_pages/forget_email_sent.dart';
@@ -12,7 +13,6 @@ import 'package:flutter_app_base/presentation/screens/authentication/landing_pag
 import 'package:flutter_app_base/presentation/screens/authentication/login/login.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/pin/create_pin.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/pin/enter_pin.dart';
-import 'package:flutter_app_base/presentation/screens/home.dart';
 import 'package:flutter_app_base/presentation/widgets/dialog_widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -53,7 +53,7 @@ class AuthService {
 
       if (AppConfig.emailVerificationEnabled == false && AppConfig.pinCodeEnabled == false) {
         await sessionManager.startListeningToProviders();
-        AppNavigator.navigateAndRemoveAll(page: const HomePage());
+        AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
         return;
       }
 
@@ -65,7 +65,7 @@ class AuthService {
           return;
         } else if (AppConfig.pinCodeEnabled == false) {
           await sessionManager.startListeningToProviders();
-          AppNavigator.navigateAndRemoveAll(page: const HomePage());
+          AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
           return;
         }
       }
@@ -87,11 +87,13 @@ class AuthService {
       
     } on FirebaseAuthException catch (error) {
       if (error.code == 'user-not-found' || error.code == 'wrong-password') {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(
           title: 'Email/parolă greșite!',
         );
         logger.w("[WARNING - signIn()] Wrong email/password: ${error.toString()}");
       } else {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(
           title: error.toString(),
         );
@@ -170,8 +172,8 @@ class AuthService {
         email: inputEmail,
         pin: null,
         totalPoints: 0,
-        companyId: "the only company id",
-        role: "regular user",
+        companyId: "355aInOtLhMaQm6fyMCh",
+        role: "user",
       );
   
       _userRepository.addDocument(newUser);
@@ -181,7 +183,7 @@ class AuthService {
 
       if (AppConfig.emailVerificationEnabled == false) {
         await sessionManager.startListeningToProviders();
-        AppNavigator.navigateAndRemoveAll(page: const HomePage());
+        AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
         return;
       }
 
@@ -195,12 +197,15 @@ class AuthService {
 
     } on FirebaseAuthException catch (error) {
       if (error.code == 'weak-password') {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(title: 'Parolă prea slabă!\n (min. 6 caractere)',);
         logger.w("[WARNING - signUp()] Weak password: ${error.toString()}");
       } else if (error.code == 'email-already-in-use') {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(title: 'Adresă de email deja existentă!');
         logger.w("[WARNING - signUp()] Email already in use: ${error.toString()}");
       } else {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(title: error.toString());
         logger.e("[ERROR - signUp()] ${error.toString()}");
       }
@@ -222,7 +227,7 @@ class AuthService {
       );
 
       await sessionManager.startListeningToProviders();
-      AppNavigator.navigateAndRemoveAll(page: const HomePage());
+      AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
 
     } catch (error) {
       logger.e('[ERROR - createPinCode()] ${error.toString()}');

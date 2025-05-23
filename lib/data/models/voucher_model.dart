@@ -36,6 +36,7 @@ class VoucherModel {
       Map data = rawData as Map<String, dynamic>;
 
       return VoucherModel(
+        docId: doc.id,
         cost: data['cost'],
         description: data['description'],
         name: data['name'],

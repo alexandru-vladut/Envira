@@ -23,6 +23,7 @@ dependencies:
   collection: ^1.19.1
   google_fonts: ^6.2.1
   flutter_svg_provider: ^1.0.7
+  mobile_scanner: ^7.0.0
 
 dev_dependencies:
   flutter_test:
@@ -47,3 +48,4 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/placeholders/
+    - assets/fitness_app/

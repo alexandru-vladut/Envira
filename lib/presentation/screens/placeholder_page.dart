@@ -9,19 +9,19 @@ import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/presentation/screens/user_list_page.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class PlaceholderPage extends StatefulWidget {
+  const PlaceholderPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PlaceholderPage> createState() => _PlaceholderPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PlaceholderPageState extends State<PlaceholderPage> {
   @override
   Widget build(BuildContext context) {
-    final currentUid = context.select<AuthStateProvider, String?>((auth) => auth.uid);
+    final currentUserUid = context.select<AuthStateProvider, String?>((auth) => auth.uid);
     final currentUser = context.select<UsersProvider, UserModel?>(
-      (provider) => provider.items.firstWhereOrNull((u) => u.uid == currentUid),
+      (provider) => provider.items.firstWhereOrNull((u) => u.uid == currentUserUid),
     );
     
     return Scaffold(
