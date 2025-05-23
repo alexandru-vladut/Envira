@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/app/context_utils.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/data/providers/companies_provider.dart';
+import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
+import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
 import 'package:provider/provider.dart';
 
 class SessionManager {
@@ -17,10 +20,19 @@ class SessionManager {
     logger.i('[INFO - SessionManager] Starting to listen to providers...');
 
     final usersProvider = Provider.of<UsersProvider>(ctx, listen: false);
+    final vouchersProvider = Provider.of<VouchersProvider>(ctx, listen: false);
+    final transactionsProvider = Provider.of<TransactionsProvider>(ctx, listen: false);
+    final companiesProvider = Provider.of<CompaniesProvider>(ctx, listen: false);
 
     usersProvider.startListening();
+    vouchersProvider.startListening();
+    transactionsProvider.startListening();
+    companiesProvider.startListening();
 
     await usersProvider.initializationCompleter.future;
+    await vouchersProvider.initializationCompleter.future;
+    await transactionsProvider.initializationCompleter.future;
+    await companiesProvider.initializationCompleter.future;
     
     logger.i('[INFO - SessionManager] Providers initialized.');
   }
@@ -36,6 +48,9 @@ class SessionManager {
     logger.i('[INFO - SessionManager] Stopping all provider listeners...');
 
     Provider.of<UsersProvider>(ctx, listen: false).stopListening();
+    Provider.of<VouchersProvider>(ctx, listen: false).stopListening();
+    Provider.of<TransactionsProvider>(ctx, listen: false).stopListening();
+    Provider.of<CompaniesProvider>(ctx, listen: false).stopListening();
 
     logger.i('[INFO - SessionManager] Providers stopped.');
   }

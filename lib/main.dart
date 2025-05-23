@@ -2,6 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_base/app/global_instances.dart';
+import 'package:flutter_app_base/data/providers/companies_provider.dart';
+import 'package:flutter_app_base/data/providers/transactions_provider.dart';
+import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
 import 'package:flutter_app_base/presentation/screens/authentication/login/constants.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/session/connection_gate.dart';
@@ -32,6 +35,15 @@ void main() async {
         // TO DO: Add new providers here
         ChangeNotifierProvider<UsersProvider>(
           create: (_) => UsersProvider(userRepository),
+        ),
+        ChangeNotifierProvider<VouchersProvider>(
+          create: (_) => VouchersProvider(voucherRepository),
+        ),
+        ChangeNotifierProvider<TransactionsProvider>(
+          create: (_) => TransactionsProvider(transactionRepository),
+        ),
+        ChangeNotifierProvider<CompaniesProvider>(
+          create: (_) => CompaniesProvider(companyRepository),
         ),
       ],
       child: const MyApp(),

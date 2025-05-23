@@ -28,7 +28,7 @@ class TransactionModel {
     };
   }
 
-  factory TransactionModel.fromMap(DocumentSnapshot doc) {
+  factory TransactionModel.fromDocumentSnapshot(DocumentSnapshot doc) {
     final rawData = doc.data();
 
     if (rawData == null) {

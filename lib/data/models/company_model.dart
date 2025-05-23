@@ -16,7 +16,7 @@ class CompanyModel {
     };
   }
 
-  factory CompanyModel.fromMap(DocumentSnapshot doc) {
+  factory CompanyModel.fromDocumentSnapshot(DocumentSnapshot doc) {
     final rawData = doc.data();
 
     if (rawData == null) {

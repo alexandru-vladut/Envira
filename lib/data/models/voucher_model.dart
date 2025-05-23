@@ -25,7 +25,7 @@ class VoucherModel {
     };
   }
 
-  factory VoucherModel.fromMap(DocumentSnapshot doc) {
+  factory VoucherModel.fromDocumentSnapshot(DocumentSnapshot doc) {
     final rawData = doc.data();
 
     if (rawData == null) {
