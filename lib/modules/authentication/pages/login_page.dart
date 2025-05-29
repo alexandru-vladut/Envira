@@ -60,7 +60,7 @@ class LoginPage extends StatelessWidget {
                         bgColor: Colors.transparent,
                         buttonName: 'Register',
                         onTap: () {
-                          AppNavigator.navigateTo(page: const SignUp(), context: context);
+                          AppNavigator.navigateTo(page: const SignUp(), context: context, withCupertino: true);
                         },
                         textColor: Colors.white,
                       ),
@@ -70,7 +70,7 @@ class LoginPage extends StatelessWidget {
                         bgColor: Colors.white,
                         buttonName: 'Sign In',
                         onTap: () {
-                          AppNavigator.navigateTo(page: const SignIn(), context: context);
+                          AppNavigator.navigateTo(page: const SignIn(), context: context, withCupertino: true);
                         },
                         textColor: Colors.black87,
                       ),

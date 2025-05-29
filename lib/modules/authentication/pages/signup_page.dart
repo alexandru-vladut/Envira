@@ -145,7 +145,7 @@ class SignUpState extends State<SignUp> {
                           Text("Already have an account? ", style: kBodyTextLight),
                           GestureDetector(
                             onTap: () {
-                              AppNavigator.navigateTo(page: const SignIn(), context: context);
+                              AppNavigator.navigateTo(page: const SignIn(), context: context, withCupertino: true);
                             },
                             child: Text(
                               "Sign In",
