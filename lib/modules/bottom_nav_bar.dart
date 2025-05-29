@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/theme/login_theme.dart';
 import 'package:flutter_app_base/modules/home/pages/home_page.dart';
 import 'package:flutter_app_base/modules/placeholder_page.dart';
+import 'package:flutter_app_base/modules/vouchers/screens/vouchers_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -28,10 +29,9 @@ class _BottomNavBarState extends State<BottomNavBar>
     setState(() {
       widgetOptions = <Widget>[
         HomePage(animationController: animationController),
+        VouchersPage(),
         const PlaceholderPage(),
         const PlaceholderPage(),
-        const PlaceholderPage(),
-        // const VouchersPage(),
         // const LeaderboardPage(),
         // const Profile()
       ];

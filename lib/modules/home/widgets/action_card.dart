@@ -1,11 +1,10 @@
-// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
+import 'package:flutter_app_base/modules/action_work_log/pages/calendar_page.dart';
+import 'package:flutter_app_base/modules/challenges/screens/challenges_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
-import 'package:flutter_app_base/modules/placeholder_page.dart';
 import 'package:flutter_app_base/modules/action_recycle/services/recycle_service.dart';
 
 class ActionCard extends StatefulWidget {
@@ -19,7 +18,7 @@ class ActionCard extends StatefulWidget {
   final Animation<double>? mainScreenAnimation;
 
   @override
-  _ActionCardState createState() => _ActionCardState();
+  State<ActionCard> createState() => _ActionCardState();
 }
 
 class _ActionCardState extends State<ActionCard> with TickerProviderStateMixin {
@@ -114,11 +113,9 @@ class ActionsView extends StatelessWidget {
                 if (title == 'Recycle') {
                   await RecycleService.scanBarcode(context);
                 } else if (title == 'Work') {
-                  AppNavigator.navigateTo(page: const PlaceholderPage());
-                  // Navigator.push(context, SlideRightToLeft(page: const CalendarPage()));
+                  AppNavigator.navigateTo(page: CalendarPage());
                 } else if (title == 'Challenges') {
-                  AppNavigator.navigateTo(page: const PlaceholderPage());
-                  // Navigator.push(context, SlideRightToLeft(page: const ChallengesPage()));
+                  AppNavigator.navigateTo(page: ChallengesPage());
                 }
               },
               child: SizedBox(

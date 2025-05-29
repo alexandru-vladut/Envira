@@ -174,6 +174,7 @@ class AuthService {
         totalPoints: 0,
         companyId: "355aInOtLhMaQm6fyMCh",
         role: "user",
+        myVouchersIds: [],
       );
   
       _userRepository.addDocument(newUser);

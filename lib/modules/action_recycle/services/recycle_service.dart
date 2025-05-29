@@ -36,6 +36,9 @@ class RecycleService {
   }
 
   static Future<void> recycleProduct(BuildContext context, String barcode) async {
+    
+    loadingDialog(context: context);
+
     try {
       // Get current user UID from auth provider
       final currentUserUid = context.read<AuthStateProvider>().uid;
@@ -91,9 +94,11 @@ class RecycleService {
       await transactionRepository.addDocument(transaction);
 
       // Success - navigate to home
+      AppNavigator.pop(); // Close loading dialog
       AppNavigator.navigateTo(page: BottomNavBar());
 
     } catch (error) {
+      AppNavigator.pop(); // Close loading dialog
       errorDialog(
         context: context,
         title: 'Error processing recycle: $error'

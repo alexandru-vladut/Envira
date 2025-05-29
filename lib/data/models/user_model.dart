@@ -10,6 +10,7 @@ class UserModel {
   final int totalPoints;
   final String companyId; // this is the firestore documentId of the company
   final String role;
+  final List<String> myVouchersIds;
   
   UserModel({
     this.docId,
@@ -20,6 +21,7 @@ class UserModel {
     required this.totalPoints,
     required this.companyId,
     required this.role,
+    required this.myVouchersIds,
   });
 
   Map<String, dynamic> toMap() {
@@ -31,6 +33,7 @@ class UserModel {
       "totalPoints": totalPoints,
       "companyId": companyId,
       "role": role,
+      "myVouchersIds": myVouchersIds,
     };
   }
 
@@ -44,6 +47,8 @@ class UserModel {
     try {
       Map data = rawData as Map<String, dynamic>;
 
+      List<String> myVouchersIds = (data["myVouchersIds"] as List<dynamic>).map((e) => e.toString()).toList();
+
       return UserModel(
         docId: doc.id,
         uid: data["uid"],
@@ -53,6 +58,7 @@ class UserModel {
         totalPoints: data["totalPoints"],
         companyId: data["companyId"],
         role: data["role"],
+        myVouchersIds: myVouchersIds,
       );
     } catch (e) {
       throw Exception('Error converting document snapshot fields to UserModel fields: $e');
