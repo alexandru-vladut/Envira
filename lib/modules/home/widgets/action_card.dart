@@ -6,7 +6,7 @@ import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/modules/placeholder_page.dart';
-import 'package:flutter_app_base/modules/recycle_action/services/recycle_service.dart';
+import 'package:flutter_app_base/modules/action_recycle/services/recycle_service.dart';
 
 class ActionCard extends StatefulWidget {
   const ActionCard({

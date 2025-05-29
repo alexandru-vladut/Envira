@@ -6,9 +6,9 @@ import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
-import 'package:flutter_app_base/modules/recycle_action/pages/barcode_scanner_page.dart';
-import 'package:flutter_app_base/modules/recycle_action/pages/scan_product_result.dart';
-import 'package:flutter_app_base/modules/recycle_action/products.dart';
+import 'package:flutter_app_base/modules/action_recycle/pages/barcode_scanner_page.dart';
+import 'package:flutter_app_base/modules/action_recycle/pages/scan_product_result.dart';
+import 'package:flutter_app_base/modules/action_recycle/products.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 

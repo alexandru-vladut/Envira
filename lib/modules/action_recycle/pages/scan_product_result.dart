@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/modules/recycle_action/products.dart';
-import 'package:flutter_app_base/modules/recycle_action/services/recycle_service.dart';
-import 'package:flutter_app_base/modules/recycle_action/widgets/bottom_bar_element.dart';
+import 'package:flutter_app_base/modules/action_recycle/products.dart';
+import 'package:flutter_app_base/modules/action_recycle/services/recycle_service.dart';
+import 'package:flutter_app_base/modules/action_recycle/widgets/bottom_bar_element.dart';
 
 class ScanProductResultPage extends StatefulWidget {
   final String barcode;
