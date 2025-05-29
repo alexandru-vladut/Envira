@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
-import 'package:flutter_app_base/modules/barcode_scanner_page.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/modules/placeholder_page.dart';
+import 'package:flutter_app_base/modules/recycle_action/services/recycle_service.dart';
 
 class ActionCard extends StatefulWidget {
   const ActionCard({
@@ -109,10 +109,10 @@ class ActionsView extends StatelessWidget {
           child: Transform(
             transform: Matrix4.translationValues(100 * (1.0 - animation!.value), 0.0, 0.0),
             child: GestureDetector(
-              onTap: () {
+              onTap: () async {
                 String title = actionListData!.titleTxt;
                 if (title == 'Recycle') {
-                  scanBarcode(context);
+                  await RecycleService.scanBarcode(context);
                 } else if (title == 'Work') {
                   AppNavigator.navigateTo(page: const PlaceholderPage());
                   // Navigator.push(context, SlideRightToLeft(page: const CalendarPage()));
