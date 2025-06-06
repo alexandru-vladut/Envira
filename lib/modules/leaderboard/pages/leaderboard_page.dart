@@ -55,7 +55,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: 340,
+                  height: 310,
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
                     color: Colors.white,
@@ -67,9 +67,9 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                   child: ListView.builder(
                       shrinkWrap: true,
                       physics: const BouncingScrollPhysics(),
-                      itemCount: data.otherUsers.length,
+                      itemCount: data.otherUsersAllTime.length,
                       itemBuilder: (context, index) {
-                        final item = data.otherUsers[index];
+                        final item = data.otherUsersAllTime[index];
                         return Padding(
                           padding: const EdgeInsets.only(right: 20, left: 20, bottom: 15),
                           child: Row(
@@ -136,8 +136,8 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
                 ),
               ),
               const Positioned(
-                top: 70,
-                left: 120,
+                top: 50,
+                left: 100,
                 child: Text(
                   "Leaderboard",
                   style: TextStyle(
@@ -148,36 +148,36 @@ class _LeaderboardPageState extends State<LeaderboardPage> {
               ),
               // Rank 1st
               Positioned(
-                top: 135,
-                left: 150,
+                top: 110,
+                left: 140,
                 child: rank(
                     radius: 45.0,
                     height: 3,
                     image: "assets/memoji/1.png",
-                    name: data.topThreeUsers[0].name,
-                    point: data.topThreeUsers[0].totalPoints.toString(),),
+                    name: data.topThreeUsersAllTime.isNotEmpty ? data.topThreeUsersAllTime[0].name : "N/A",
+                    point: data.topThreeUsersAllTime.isNotEmpty ? data.topThreeUsersAllTime[0].totalPoints.toString() : "0",),
               ),
               // for rank 2nd
               Positioned(
-                top: 200,
+                top: 175,
                 left: 45,
                 child: rank(
                     radius: 30.0,
                     height: 2,
                     image: "assets/memoji/2.png",
-                    name: data.topThreeUsers[1].name,
-                    point: data.topThreeUsers[1].totalPoints.toString(),),
+                    name: data.topThreeUsersAllTime.length > 1 ? data.topThreeUsersAllTime[1].name : "N/A",
+                    point: data.topThreeUsersAllTime.length > 1 ? data.topThreeUsersAllTime[1].totalPoints.toString() : "0",),
               ),
               // For 3rd rank
               Positioned(
-                top: 220,
-                right: 50,
+                top: 195,
+                right: 45,
                 child: rank(
                     radius: 30.0,
                     height: 2,
                     image: "assets/memoji/3.png",
-                    name: data.topThreeUsers[2].name,
-                    point: data.topThreeUsers[2].totalPoints.toString(),),
+                    name: data.topThreeUsersAllTime.length > 2 ? data.topThreeUsersAllTime[2].name : "N/A",
+                    point: data.topThreeUsersAllTime.length > 2 ? data.topThreeUsersAllTime[2].totalPoints.toString() : "0",),
               ),
             ],
           ),

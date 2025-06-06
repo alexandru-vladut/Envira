@@ -1,7 +1,11 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
+import 'package:flutter_app_base/data/models/company_model.dart';
+import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
+import 'package:flutter_app_base/data/providers/companies_provider.dart';
+import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -28,32 +32,113 @@ class LeaderboardProvider extends StatelessWidget {
       (provider) => provider.items,
     );
 
-    // Filter users by company and role, then sort by points
-    final leaderboardUsers = allUsers
-      .where((user) => user.companyId == currentUser?.companyId)
-      .where((user) => user.role != 'admin')
-      .toList()
-      ..sort((a, b) => (b.totalPoints).compareTo(a.totalPoints));
+    // Get all transactions
+    final allTransactions = context.select<TransactionsProvider, List<TransactionModel>>(
+      (provider) => provider.items,
+    );
 
-    // Split into top three and others
-    final topThreeUsers = leaderboardUsers.take(3).toList();
-    final otherUsers = leaderboardUsers.skip(3).toList();
+    // Get company data
+    final company = context.select<CompaniesProvider, CompanyModel?>(
+      (provider) => currentUser != null 
+        ? provider.items.firstWhereOrNull((c) => c.docId == currentUser.companyId)
+        : null,
+    );
 
-    final leaderboardData = LeaderboardData(
-      topThreeUsers: topThreeUsers,
-      otherUsers: otherUsers,
+    // Calculate leaderboard data
+    final leaderboardData = _calculateLeaderboardData(
+      currentUser: currentUser,
+      allUsers: allUsers,
+      allTransactions: allTransactions,
+      company: company,
     );
 
     return builder(leaderboardData);
   }
+
+  LeaderboardData _calculateLeaderboardData({
+    required UserModel? currentUser,
+    required List<UserModel> allUsers,
+    required List<TransactionModel> allTransactions,
+    required CompanyModel? company,
+  }) {
+    if (currentUser == null || company == null) {
+      return const LeaderboardData(
+        topThreeUsersAllTime: [],
+        otherUsersAllTime: [],
+        topThreeUsersGoal: [],
+        otherUsersGoal: [],
+      );
+    }
+
+    // Filter users by company and role
+    final companyUsers = allUsers
+      .where((user) => user.companyId == currentUser.companyId)
+      .where((user) => user.role != 'admin')
+      .toList();
+
+    // All-time leaderboard (based on totalPoints)
+    final allTimeRanked = List<UserModel>.from(companyUsers)
+      ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
+
+    final topThreeUsers = allTimeRanked.take(3).toList();
+    final otherUsers = allTimeRanked.skip(3).toList();
+
+    // Goal-based leaderboard
+    final goalBasedUsers = companyUsers.map((user) {
+      final goalPoints = _calculateUserGoalPoints(user, allTransactions, company);
+      return UserWithGoalPoints(user: user, goalPoints: goalPoints);
+    }).toList()
+      ..sort((a, b) => b.goalPoints.compareTo(a.goalPoints));
+
+    final topThreeGoalUsers = goalBasedUsers.take(3).map((u) => u.user).toList();
+    final otherGoalUsers = goalBasedUsers.skip(3).map((u) => u.user).toList();
+
+    return LeaderboardData(
+      topThreeUsersAllTime: topThreeUsers,
+      otherUsersAllTime: otherUsers,
+      topThreeUsersGoal: topThreeGoalUsers,
+      otherUsersGoal: otherGoalUsers,
+    );
+  }
+
+  int _calculateUserGoalPoints(
+    UserModel user,
+    List<TransactionModel> allTransactions,
+    CompanyModel company,
+  ) {
+    final goalStartDate = company.goalCreatedTimestamp.toDate();
+    final goalEndDate = company.goalDeadlineTimestamp.toDate();
+    
+    final userGoalTransactions = allTransactions
+      .where((t) => 
+        t.userUid == user.uid &&
+        t.timestamp.toDate().isAfter(goalStartDate) &&
+        t.timestamp.toDate().isBefore(goalEndDate) &&
+        t.value > 0)
+      .toList();
+    
+    return userGoalTransactions.fold<int>(0, (sum, t) => sum + t.value);
+  }
+}
+
+// Helper class to store user with their goal points
+class UserWithGoalPoints {
+  final UserModel user;
+  final int goalPoints;
+
+  UserWithGoalPoints({required this.user, required this.goalPoints});
 }
 
 class LeaderboardData {
-  final List<UserModel> topThreeUsers;
-  final List<UserModel> otherUsers;
+  final List<UserModel> topThreeUsersAllTime;
+  final List<UserModel> otherUsersAllTime;
+  final List<UserModel> topThreeUsersGoal;
+  final List<UserModel> otherUsersGoal;
 
   const LeaderboardData({
-    required this.topThreeUsers,
-    required this.otherUsers,
+    required this.topThreeUsersAllTime,
+    required this.otherUsersAllTime,
+    required this.topThreeUsersGoal,
+    required this.otherUsersGoal,
   });
 }
