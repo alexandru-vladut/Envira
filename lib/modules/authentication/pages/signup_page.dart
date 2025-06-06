@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/modules/authentication/pages/signin_page.dart';
@@ -46,7 +47,7 @@ class SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: kBackgroundColorLight,
+        backgroundColor: HomeAppTheme.background,
         elevation: 0,
         leading: IconButton(
           onPressed: () {
