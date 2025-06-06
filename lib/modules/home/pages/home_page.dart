@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
                 animationController: widget.animationController!,
                 currentGoalPoints: data.currentGoalPoints,
+                goalPoints: data.goalPoints,
                 allTimePoints: data.allTimePoints,
                 goalCompletedPercentage: data.goalCompletedPercentage,
                 emissionsSaved: data.emissionsSaved,

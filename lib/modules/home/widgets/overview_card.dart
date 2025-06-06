@@ -8,6 +8,7 @@ class OverviewCard extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
   final int currentGoalPoints;
+  final int goalPoints;
   final int allTimePoints;
   final int goalCompletedPercentage;
   final double emissionsSaved;
@@ -19,6 +20,7 @@ class OverviewCard extends StatelessWidget {
     this.animationController,
     this.animation,
     required this.currentGoalPoints,
+    required this.goalPoints,
     required this.allTimePoints,
     required this.goalCompletedPercentage,
     required this.emissionsSaved,
@@ -64,8 +66,8 @@ class OverviewCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 16,
-                        left: 16,
-                        right: 16,
+                        left: 12,
+                        right: 12,
                       ),
                       child: Row(
                         children: <Widget>[
@@ -106,7 +108,7 @@ class OverviewCard extends StatelessWidget {
                                                 bottom: 2,
                                               ),
                                               child: Text(
-                                                'Since Goal Start',
+                                                'Active Goal',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
@@ -135,13 +137,12 @@ class OverviewCard extends StatelessWidget {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.only(
-                                                        left: 4,
-                                                        bottom: 3,
+                                                        left: 3,
+                                                        bottom: 2,
                                                       ),
                                                   child: Text(
-                                                    (currentGoalPoints != -1)
-                                                        ? currentGoalPoints
-                                                            .toString()
+                                                    (currentGoalPoints != -1 && goalPoints != -1)
+                                                        ? "$currentGoalPoints/$goalPoints"
                                                         : '',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
@@ -149,7 +150,7 @@ class OverviewCard extends StatelessWidget {
                                                           HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
-                                                      fontSize: 16,
+                                                      fontSize: 15,
                                                       color:
                                                           HomeAppTheme
                                                               .darkerText,
@@ -242,8 +243,8 @@ class OverviewCard extends StatelessWidget {
                                                 Padding(
                                                   padding:
                                                       const EdgeInsets.only(
-                                                        left: 4,
-                                                        bottom: 3,
+                                                        left: 3,
+                                                        bottom: 2,
                                                       ),
                                                   child: Text(
                                                     (allTimePoints != -1)
@@ -256,7 +257,7 @@ class OverviewCard extends StatelessWidget {
                                                           HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
-                                                      fontSize: 16,
+                                                      fontSize: 15,
                                                       color:
                                                           HomeAppTheme
                                                               .darkerText,

@@ -67,10 +67,11 @@ class HomeDataProvider extends StatelessWidget {
     required List<TransactionModel> userTransactions,
     required CompanyModel? company,
   }) {
-    if (currentUser == null) {
+    if (currentUser == null || company == null) {
       return const HomeData(
         userName: '',
         currentGoalPoints: -1,
+        goalPoints: -1,
         allTimePoints: -1,
         goalCompletedPercentage: -1,
         emissionsSaved: -1,
@@ -93,47 +94,39 @@ class HomeDataProvider extends StatelessWidget {
 
     // Calculate points from company goal created timestamp to goal deadline timestamp
     final int currentGoalPoints;
-    if (company?.goalCreatedTimestamp != null &&
-        company?.goalDeadlineTimestamp != null) {
-      final goalStartDate = company!.goalCreatedTimestamp.toDate();
-      final goalEndDate = company.goalDeadlineTimestamp.toDate();
-      final currentGoalTransactions =
-          userTransactions
-              .where(
-                (t) =>
-                    t.timestamp.toDate().isAfter(goalStartDate) &&
-                    t.timestamp.toDate().isBefore(goalEndDate) &&
-                    t.value > 0,
-              )
-              .toList();
-      currentGoalPoints = currentGoalTransactions.fold<int>(
-        0,
-        (sum, t) => sum + t.value,
-      );
-    } else {
-      currentGoalPoints = -1;
-    }
+    final goalStartDate = company.goalCreatedTimestamp.toDate();
+    final goalEndDate = company.goalDeadlineTimestamp.toDate();
+    final currentGoalTransactions =
+        userTransactions
+            .where(
+              (t) =>
+                  t.timestamp.toDate().isAfter(goalStartDate) &&
+                  t.timestamp.toDate().isBefore(goalEndDate) &&
+                  t.value > 0,
+            )
+            .toList();
+    currentGoalPoints = currentGoalTransactions.fold<int>(
+      0,
+      (sum, t) => sum + t.value,
+    );
 
     // Calculate percentage
     final goalCompletedPercentage =
-        company != null && company.goalPoints > 0
+        company.goalPoints > 0
             ? ((currentGoalPoints / company.goalPoints) * 100).toInt()
             : -1;
 
     // Calculate days remaining until goal deadline
     final int goalTimeLeft;
-    if (company?.goalDeadlineTimestamp != null) {
-      final goalDeadline = company!.goalDeadlineTimestamp.toDate();
-      final now = DateTime.now();
-      final difference = goalDeadline.difference(now);
-      goalTimeLeft = difference.inDays;
-    } else {
-      goalTimeLeft = -1;
-    }
+    final goalDeadline = company.goalDeadlineTimestamp.toDate();
+    final now = DateTime.now();
+    final difference = goalDeadline.difference(now);
+    goalTimeLeft = difference.inDays;
 
     return HomeData(
       userName: currentUser.name,
       currentGoalPoints: currentGoalPoints,
+      goalPoints: company.goalPoints,
       allTimePoints: currentUser.totalPoints,
       goalCompletedPercentage: goalCompletedPercentage,
       emissionsSaved: currentUser.totalPoints * 2.518,
@@ -146,6 +139,7 @@ class HomeDataProvider extends StatelessWidget {
 class HomeData {
   final String userName;
   final int currentGoalPoints;
+  final int goalPoints;
   final int allTimePoints;
   final int goalCompletedPercentage;
   final double emissionsSaved;
@@ -155,6 +149,7 @@ class HomeData {
   const HomeData({
     required this.userName,
     required this.currentGoalPoints,
+    required this.goalPoints,
     required this.allTimePoints,
     required this.goalCompletedPercentage,
     required this.emissionsSaved,
