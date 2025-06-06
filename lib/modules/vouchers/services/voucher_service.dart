@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
@@ -19,6 +19,7 @@ class VoucherService{
     try {
       // Check if user is authenticated
       if (user == null) {
+        AppNavigator.pop(); // Close loading dialog
         errorDialog(
           context: context,
           title: 'Current user not found'
@@ -28,6 +29,7 @@ class VoucherService{
 
       // Check if user has enough points
       if (user.credits < voucher.cost) {
+        AppNavigator.pop(); // Close loading dialog
         errorDialog(
           context: context,
           title: 'Insufficient credits to purchase this voucher'

@@ -7,7 +7,7 @@ import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/modules/landing/pages/wrong_pin.dart';
 import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 
 class EnterPin extends StatefulWidget {

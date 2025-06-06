@@ -13,7 +13,7 @@ import 'package:flutter_app_base/modules/landing/pages/verification_email_sent.d
 import 'package:flutter_app_base/modules/authentication/pages/login_page.dart';
 import 'package:flutter_app_base/modules/authentication/pages/create_pin_page.dart';
 import 'package:flutter_app_base/modules/authentication/pages/enter_pin_page.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:provider/provider.dart';
 
 class AuthService {
@@ -45,6 +45,7 @@ class AuthService {
       if (filteredUsers.isEmpty) {
         _firebaseAuth.signOut();
         logger.e('[ERROR - signIn()] User not found in Firestore Database.');
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(
           title: '[ERROR - signIn()] User not found in Firestore Database.',
         );
@@ -142,6 +143,7 @@ class AuthService {
       
     } catch (error) {
       logger.e('[ERROR - sendPasswordResetEmail()] ${error.toString()}');
+      AppNavigator.pop(); // close loadingDialog
       errorDialog(title: error.toString());
     }
   }
@@ -153,6 +155,7 @@ class AuthService {
     try {
       // 1. Check if password and confirmPassword fields correspond.
       if (inputPassword != inputConfirmPassword) {
+        AppNavigator.pop(); // close loadingDialog
         errorDialog(title: 'Parolele nu corespund!');
         logger.w('[WARNING - signUp()] Passwords do not match!');
         return;
@@ -233,6 +236,7 @@ class AuthService {
 
     } catch (error) {
       logger.e('[ERROR - createPinCode()] ${error.toString()}');
+      AppNavigator.pop(); // close loadingDialog
       errorDialog(title: error.toString());
     }
   }

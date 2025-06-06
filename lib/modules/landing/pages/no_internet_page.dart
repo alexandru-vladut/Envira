@@ -3,7 +3,7 @@ import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/context_utils.dart';
 import 'package:flutter_app_base/session/auth_gate.dart';
 import 'package:flutter_app_base/session/connection_state_provider.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:provider/provider.dart';
 
 class NoInternetPage extends StatelessWidget {

@@ -2,6 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
@@ -164,7 +165,17 @@ class _VouchersPageState extends State<VouchersPage> {
                   if (!isAdded) {
                     await voucherService.purchaseVoucher(context, currentUser, voucher);
                   } else {
-                    await voucherService.refundVoucher(context, currentUser, voucher);
+                    confirmDialog(
+                      context: context,
+                      title: "Confirm Refund",
+                      message: "Are you sure you want to refund this voucher? You will receive ${voucher.cost} points back.",
+                      confirmText: "Refund",
+                      confirmColor: Colors.red,
+                      confirmIcon: Icons.restore,
+                      onConfirm: () async {
+                        await voucherService.refundVoucher(context, currentUser, voucher);
+                      },
+                    );
                   }
                 },
                 child: Container(

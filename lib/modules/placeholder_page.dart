@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/core/theme/login_theme.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:provider/provider.dart';

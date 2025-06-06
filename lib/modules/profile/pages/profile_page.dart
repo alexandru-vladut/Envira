@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/modules/profile/providers/profile_provider.dart';
 import 'package:flutter_app_base/modules/profile/utils/assets.dart';
 import 'package:flutter_app_base/modules/profile/utils/iconly_bold.dart';

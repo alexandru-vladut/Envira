@@ -1,7 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
@@ -28,6 +28,7 @@ class WorkLogService {
       // Get current user UID from auth provider
       final currentUserUid = context.read<AuthStateProvider>().uid;
       if (currentUserUid == null) {
+        AppNavigator.pop(); // Close loading dialog
         errorDialog(context: context, title: 'User not authenticated');
         return;
       }
@@ -38,6 +39,7 @@ class WorkLogService {
       );
 
       if (currentUser == null) {
+        AppNavigator.pop(); // Close loading dialog
         errorDialog(context: context, title: 'User data not found');
         return;
       }

@@ -6,7 +6,7 @@ import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/modules/authentication/pages/login_page.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
+import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 
 class AuthStateProvider extends ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
