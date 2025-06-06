@@ -12,19 +12,19 @@ import 'package:provider/provider.dart';
 class HomeDataProvider extends StatelessWidget {
   final Widget Function(HomeData data) builder;
 
-  const HomeDataProvider({
-    super.key,
-    required this.builder,
-  });
+  const HomeDataProvider({super.key, required this.builder});
 
   @override
   Widget build(BuildContext context) {
     // Get current user UID
-    final currentUserUid = context.select<AuthStateProvider, String?>((auth) => auth.uid);
-    
+    final currentUserUid = context.select<AuthStateProvider, String?>(
+      (auth) => auth.uid,
+    );
+
     // Get current user data
     final currentUser = context.select<UsersProvider, UserModel?>(
-      (provider) => provider.items.firstWhereOrNull((u) => u.uid == currentUserUid),
+      (provider) =>
+          provider.items.firstWhereOrNull((u) => u.uid == currentUserUid),
     );
 
     // Get all users for ranking calculation
@@ -33,95 +33,132 @@ class HomeDataProvider extends StatelessWidget {
     );
 
     // Get current user's transactions
-    final userTransactions = context.select<TransactionsProvider, List<TransactionModel>>(
-      (provider) => provider.items.where((t) => t.userUid == currentUserUid).toList(),
-    );
+    final userTransactions = context
+        .select<TransactionsProvider, List<TransactionModel>>(
+          (provider) =>
+              provider.items.where((t) => t.userUid == currentUserUid).toList(),
+        );
 
     // Get company data
     final company = context.select<CompaniesProvider, CompanyModel?>(
-      (provider) => currentUser != null 
-        ? provider.items.firstWhereOrNull((c) => c.docId == currentUser.companyId)
-        : null,
+      (provider) =>
+          currentUser != null
+              ? provider.items.firstWhereOrNull(
+                (c) => c.docId == currentUser.companyId,
+              )
+              : null,
     );
 
     // Calculate derived data
-    final calculatedData = _calculateData(
+    final homeData = _calculateData(
       currentUser: currentUser,
       allUsers: allUsers,
       userTransactions: userTransactions,
       company: company,
     );
 
-    final homeData = HomeData(
-      currentUser: currentUser,
-      calculatedData: calculatedData,
-    );
-
     return builder(homeData);
   }
 
   // Calculate derived data
-  HomeCalculatedData _calculateData({
+  HomeData _calculateData({
     required UserModel? currentUser,
     required List<UserModel> allUsers,
     required List<TransactionModel> userTransactions,
     required CompanyModel? company,
   }) {
     if (currentUser == null) {
-      return const HomeCalculatedData(
-        thisMonthPoints: -1,
+      return const HomeData(
+        userName: '',
+        currentGoalPoints: -1,
+        allTimePoints: -1,
+        goalCompletedPercentage: -1,
+        emissionsSaved: -1,
+        goalTimeLeft: -1,
         userRank: -1,
-        thisMonthPercentage: -1,
       );
     }
 
-    // Calculate this month's points
-    final startOfCurrentMonth = DateTime(DateTime.now().year, DateTime.now().month, 1);
-    final thisMonthTransactions = userTransactions.where((t) => 
-      t.timestamp.toDate().isAfter(startOfCurrentMonth) && t.value > 0
-    ).toList();
-    
-    final thisMonthPoints = thisMonthTransactions.fold<int>(0, (sum, t) => sum + t.value);
+    // Calculate user rank (all-time)
+    final companyUsers =
+        allUsers
+            .where(
+              (u) => u.companyId == currentUser.companyId && u.role != 'admin',
+            )
+            .toList()
+          ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
 
-    // Calculate user rank
-    final companyUsers = allUsers
-      .where((u) => u.companyId == currentUser.companyId && u.role != 'admin')
-      .toList()
-      ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
-    
-    final userRank = companyUsers.indexWhere((u) => u.uid == currentUser.uid) + 1;
+    final userRank =
+        companyUsers.indexWhere((u) => u.uid == currentUser.uid) + 1;
+
+    // Calculate points from company goal created timestamp to goal deadline timestamp
+    final int currentGoalPoints;
+    if (company?.goalCreatedTimestamp != null &&
+        company?.goalDeadlineTimestamp != null) {
+      final goalStartDate = company!.goalCreatedTimestamp.toDate();
+      final goalEndDate = company.goalDeadlineTimestamp.toDate();
+      final currentGoalTransactions =
+          userTransactions
+              .where(
+                (t) =>
+                    t.timestamp.toDate().isAfter(goalStartDate) &&
+                    t.timestamp.toDate().isBefore(goalEndDate) &&
+                    t.value > 0,
+              )
+              .toList();
+      currentGoalPoints = currentGoalTransactions.fold<int>(
+        0,
+        (sum, t) => sum + t.value,
+      );
+    } else {
+      currentGoalPoints = -1;
+    }
 
     // Calculate percentage
-    final thisMonthPercentage = company != null && company.pointsGoal > 0
-      ? ((thisMonthPoints / company.pointsGoal) * 100).toInt()
-      : -1;
+    final goalCompletedPercentage =
+        company != null && company.goalPoints > 0
+            ? ((currentGoalPoints / company.goalPoints) * 100).toInt()
+            : -1;
 
-    return HomeCalculatedData(
-      thisMonthPoints: thisMonthPoints,
+    // Calculate days remaining until goal deadline
+    final int goalTimeLeft;
+    if (company?.goalDeadlineTimestamp != null) {
+      final goalDeadline = company!.goalDeadlineTimestamp.toDate();
+      final now = DateTime.now();
+      final difference = goalDeadline.difference(now);
+      goalTimeLeft = difference.inDays;
+    } else {
+      goalTimeLeft = -1;
+    }
+
+    return HomeData(
+      userName: currentUser.name,
+      currentGoalPoints: currentGoalPoints,
+      allTimePoints: currentUser.totalPoints,
+      goalCompletedPercentage: goalCompletedPercentage,
+      emissionsSaved: currentUser.totalPoints * 2.518,
+      goalTimeLeft: goalTimeLeft,
       userRank: userRank,
-      thisMonthPercentage: thisMonthPercentage,
     );
   }
 }
 
 class HomeData {
-  final UserModel? currentUser;
-  final HomeCalculatedData calculatedData;
+  final String userName;
+  final int currentGoalPoints;
+  final int allTimePoints;
+  final int goalCompletedPercentage;
+  final double emissionsSaved;
+  final int goalTimeLeft;
+  final int userRank;
 
   const HomeData({
-    required this.currentUser,
-    required this.calculatedData,
-  });
-}
-
-class HomeCalculatedData {
-  final int thisMonthPoints;
-  final int userRank;
-  final int thisMonthPercentage;
-
-  const HomeCalculatedData({
-    required this.thisMonthPoints,
+    required this.userName,
+    required this.currentGoalPoints,
+    required this.allTimePoints,
+    required this.goalCompletedPercentage,
+    required this.emissionsSaved,
+    required this.goalTimeLeft,
     required this.userRank,
-    required this.thisMonthPercentage,
   });
 }

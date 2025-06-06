@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/data/models/user_model.dart';
 
 class HomeHeader extends StatelessWidget {
-  final UserModel? userData;
+  final String userName;
 
   const HomeHeader({
     super.key,
-    required this.userData,
+    required this.userName,
   });
 
   @override
@@ -26,7 +25,7 @@ class HomeHeader extends StatelessWidget {
                 )
               ),
               Text(
-                userData?.name ?? '',
+                userName,
                 style: TextStyle(
                   color: const Color.fromARGB(255, 32, 32, 32).withOpacity(0.7),
                   fontSize: 28,
@@ -42,15 +41,9 @@ class HomeHeader extends StatelessWidget {
               ),
             ],
           ),
-          Container(
-            child: (userData != null) ?
-              Image.asset(
-                (userData!.companyId == '355aInOtLhMaQm6fyMCh') 
-                  ? 'assets/images/singleton.png' 
-                  : 'assets/images/technova.png',
-                width: 200,
-              )
-              : const SizedBox(),
+          Image.asset(
+            'assets/images/singleton.png',
+            width: 200,
           )
         ],
       ),

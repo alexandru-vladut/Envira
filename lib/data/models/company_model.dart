@@ -1,18 +1,23 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CompanyModel {
-
   final String? docId;
-  final int pointsGoal;
+  final int goalPoints;
+  final dynamic goalCreatedTimestamp;
+  final dynamic goalDeadlineTimestamp;
 
   CompanyModel({
     this.docId,
-    required this.pointsGoal,
+    required this.goalPoints,
+    required this.goalCreatedTimestamp,
+    required this.goalDeadlineTimestamp,
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'pointsGoal': pointsGoal,
+      'goalPoints': goalPoints,
+      'goalCreatedTimestamp': goalCreatedTimestamp,
+      'goalDeadlineTimestamp': goalDeadlineTimestamp,
     };
   }
 
@@ -20,7 +25,9 @@ class CompanyModel {
     final rawData = doc.data();
 
     if (rawData == null) {
-      throw Exception('doc.data() is null for docId ${doc.id}, cannot convert to CompanyModel.');
+      throw Exception(
+        'doc.data() is null for docId ${doc.id}, cannot convert to CompanyModel.',
+      );
     }
 
     try {
@@ -28,10 +35,14 @@ class CompanyModel {
 
       return CompanyModel(
         docId: doc.id,
-        pointsGoal: data['pointsGoal'],
+        goalPoints: data['goalPoints'],
+        goalCreatedTimestamp: data['goalCreatedTimestamp'],
+        goalDeadlineTimestamp: data['goalDeadlineTimestamp'],
       );
     } catch (e) {
-      throw Exception('Error converting document snapshot fields to CompanyModel fields: $e');
+      throw Exception(
+        'Error converting document snapshot fields to CompanyModel fields: $e',
+      );
     }
   }
 }

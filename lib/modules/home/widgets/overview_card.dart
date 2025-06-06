@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 
 class OverviewCard extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
-  final int thisMonthPoints;
-  final int thisMonthPercentage;
+  final int currentGoalPoints;
+  final int allTimePoints;
+  final int goalCompletedPercentage;
+  final double emissionsSaved;
+  final int goalTimeLeft;
   final int userRank;
-  final UserModel? userData;
 
   const OverviewCard({
     super.key,
     this.animationController,
     this.animation,
-    required this.thisMonthPoints,
-    this.userData,
+    required this.currentGoalPoints,
+    required this.allTimePoints,
+    required this.goalCompletedPercentage,
+    required this.emissionsSaved,
+    required this.goalTimeLeft,
     required this.userRank,
-    required this.thisMonthPercentage,
   });
 
   @override
   Widget build(BuildContext context) {
-    DateTime now = DateTime.now();
-    DateTime lastDayOfMonth = DateTime(now.year, now.month + 1, 0);
-    Duration timeLeft = lastDayOfMonth.difference(now);
 
     return AnimatedBuilder(
       animation: animationController!,
@@ -35,7 +35,11 @@ class OverviewCard extends StatelessWidget {
         return FadeTransition(
           opacity: animation!,
           child: Transform(
-            transform: Matrix4.translationValues(0.0, 30 * (1.0 - animation!.value), 0.0),
+            transform: Matrix4.translationValues(
+              0.0,
+              30 * (1.0 - animation!.value),
+              0.0,
+            ),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24),
               child: Container(
@@ -69,7 +73,7 @@ class OverviewCard extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(
                                 left: 8,
-                                right: 8,
+                                // right: 8,
                                 top: 4,
                               ),
                               child: Column(
@@ -102,7 +106,7 @@ class OverviewCard extends StatelessWidget {
                                                 bottom: 2,
                                               ),
                                               child: Text(
-                                                'This Month',
+                                                'Since Goal Start',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily:
@@ -135,8 +139,8 @@ class OverviewCard extends StatelessWidget {
                                                         bottom: 3,
                                                       ),
                                                   child: Text(
-                                                    (thisMonthPoints != -1)
-                                                        ? thisMonthPoints
+                                                    (currentGoalPoints != -1)
+                                                        ? currentGoalPoints
                                                             .toString()
                                                         : '',
                                                     textAlign: TextAlign.center,
@@ -242,8 +246,8 @@ class OverviewCard extends StatelessWidget {
                                                         bottom: 3,
                                                       ),
                                                   child: Text(
-                                                    (userData != null)
-                                                        ? userData!.totalPoints
+                                                    (allTimePoints != -1)
+                                                        ? allTimePoints
                                                             .toString()
                                                         : '',
                                                     textAlign: TextAlign.center,
@@ -320,8 +324,8 @@ class OverviewCard extends StatelessWidget {
                                             CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Text(
-                                            (thisMonthPercentage != -1)
-                                                ? "$thisMonthPercentage%"
+                                            (goalCompletedPercentage != -1)
+                                                ? "$goalCompletedPercentage%"
                                                 : '',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
@@ -359,11 +363,12 @@ class OverviewCard extends StatelessWidget {
                                           HexColor("#8A98E8"),
                                         ],
                                         angle:
-                                            (thisMonthPercentage != -1)
-                                                ? (3.6 * thisMonthPercentage) +
+                                            (goalCompletedPercentage != -1)
+                                                ? (3.6 *
+                                                        goalCompletedPercentage) +
                                                     (360 -
                                                             (3.6 *
-                                                                thisMonthPercentage)) *
+                                                                goalCompletedPercentage)) *
                                                         (1.0 - animation!.value)
                                                 : 360 *
                                                     (1.0 - animation!.value),
@@ -462,17 +467,15 @@ class OverviewCard extends StatelessWidget {
                                 Padding(
                                   padding: const EdgeInsets.only(top: 6),
                                   child: Text(
-                                    (userData != null)
-                                        ? '${(userData!.totalPoints * 2.518).toStringAsFixed(1)} kg'
+                                    (emissionsSaved != -1)
+                                        ? '${emissionsSaved.toStringAsFixed(1)} kg'
                                         : '',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontFamily: HomeAppTheme.fontName,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
-                                      color: HomeAppTheme.grey.withOpacity(
-                                        0.5,
-                                      ),
+                                      color: HomeAppTheme.grey.withOpacity(0.5),
                                     ),
                                   ),
                                 ),
@@ -543,14 +546,17 @@ class OverviewCard extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(top: 6),
                                       child: Text(
-                                        '${timeLeft.inDays} days left',
+                                        (goalTimeLeft > 0)
+                                          ? '$goalTimeLeft days left'
+                                          : 'Goal Ended',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontFamily: HomeAppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: HomeAppTheme.grey
-                                              .withOpacity(0.5),
+                                          color: HomeAppTheme.grey.withOpacity(
+                                            0.5,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -639,8 +645,9 @@ class OverviewCard extends StatelessWidget {
                                           fontFamily: HomeAppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: HomeAppTheme.grey
-                                              .withOpacity(0.5),
+                                          color: HomeAppTheme.grey.withOpacity(
+                                            0.5,
+                                          ),
                                         ),
                                       ),
                                     ),

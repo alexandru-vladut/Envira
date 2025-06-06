@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           body: ListView(
             padding: const EdgeInsets.only(top: 60),
             children: [
-              HomeHeader(userData: data.currentUser),
+              HomeHeader(userName: data.userName),
               const SizedBox(height: 20),
               TitleView(
                 titleTxt: 'Overview',
@@ -59,10 +59,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
                 animationController: widget.animationController!,
-                thisMonthPoints: data.calculatedData.thisMonthPoints,
-                userData: data.currentUser,
-                userRank: data.calculatedData.userRank,
-                thisMonthPercentage: data.calculatedData.thisMonthPercentage,
+                currentGoalPoints: data.currentGoalPoints,
+                allTimePoints: data.allTimePoints,
+                goalCompletedPercentage: data.goalCompletedPercentage,
+                emissionsSaved: data.emissionsSaved,
+                goalTimeLeft: data.goalTimeLeft,
+                userRank: data.userRank,
               ),
               const SizedBox(height: 24),
               TitleView(
