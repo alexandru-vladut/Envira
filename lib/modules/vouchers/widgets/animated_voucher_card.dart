@@ -4,6 +4,7 @@ import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/modules/vouchers/utils/constants.dart';
+import 'package:flutter_app_base/modules/vouchers/widgets/promo_code_modal.dart';
 
 class AnimatedVoucherCard extends StatefulWidget {
   final VoucherModel voucher;
@@ -11,11 +12,11 @@ class AnimatedVoucherCard extends StatefulWidget {
   final UserModel? currentUser;
 
   const AnimatedVoucherCard({
-    Key? key,
+    super.key,
     required this.voucher,
     required this.isAdded,
     required this.currentUser,
-  }) : super(key: key);
+  });
 
   @override
   State<AnimatedVoucherCard> createState() => _AnimatedVoucherCardState();
@@ -63,6 +64,36 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
     setState(() => _isPressed = false);
   }
 
+  void _handleTap() async {
+    if (widget.isAdded) {
+      // Show promo code modal for claimed vouchers
+      PromoCodeModal.show(context, widget.voucher);
+    } else {
+      // Purchase voucher for available vouchers
+      await voucherService.purchaseVoucher(context, widget.currentUser, widget.voucher);
+    }
+  }
+  
+  void _handleActionButtonTap() async {
+    if (widget.isAdded) {
+      // Show refund confirmation for claimed vouchers
+      confirmDialog(
+        context: context,
+        title: "Confirm Refund",
+        message: "Are you sure you want to refund this voucher? You will receive ${widget.voucher.cost} points back.",
+        confirmText: "Refund",
+        confirmColor: Colors.red,
+        confirmIcon: Icons.restore,
+        onConfirm: () async {
+          await voucherService.refundVoucher(context, widget.currentUser, widget.voucher);
+        },
+      );
+    } else {
+      // Purchase voucher for available vouchers
+      await voucherService.purchaseVoucher(context, widget.currentUser, widget.voucher);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final Color cardColor = widget.isAdded 
@@ -81,23 +112,7 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
       onTapDown: _onTapDown,
       onTapUp: _onTapUp,
       onTapCancel: _onTapCancel,
-      onTap: () async {
-        if (!widget.isAdded) {
-          await voucherService.purchaseVoucher(context, widget.currentUser, widget.voucher);
-        } else {
-          confirmDialog(
-            context: context,
-            title: "Confirm Refund",
-            message: "Are you sure you want to refund this voucher? You will receive ${widget.voucher.cost} points back.",
-            confirmText: "Refund",
-            confirmColor: Colors.red,
-            confirmIcon: Icons.restore,
-            onConfirm: () async {
-              await voucherService.refundVoucher(context, widget.currentUser, widget.voucher);
-            },
-          );
-        }
-      },
+      onTap: _handleTap,
       child: AnimatedBuilder(
         animation: _scaleAnimation,
         builder: (context, child) {
@@ -190,28 +205,31 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                         ),
                         
                         // Action Button
-                        Container(
-                          width: 28, // Reduced from 32
-                          height: 28, // Reduced from 32
-                          margin: const EdgeInsets.only(left: 8),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: widget.isAdded ? Colors.red.shade400 : Colors.green.shade400,
-                            boxShadow: [
-                              BoxShadow(
-                                color: widget.isAdded
-                                    ? Colors.red.withOpacity(0.2)
-                                    : Colors.green.withOpacity(0.2),
-                                spreadRadius: 1,
-                                blurRadius: 4,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          child: Icon(
-                            widget.isAdded ? Icons.delete : Icons.add,
-                            color: Colors.white,
-                            size: 14, // Reduced from 16
+                        GestureDetector(
+                          onTap: _handleActionButtonTap,
+                          child: Container(
+                            width: 28, // Reduced from 32
+                            height: 28, // Reduced from 32
+                            margin: const EdgeInsets.only(left: 8),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: widget.isAdded ? Colors.red.shade400 : Colors.green.shade400,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: widget.isAdded
+                                      ? Colors.red.withOpacity(0.2)
+                                      : Colors.green.withOpacity(0.2),
+                                  spreadRadius: 1,
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Icon(
+                              widget.isAdded ? Icons.delete : Icons.add,
+                              color: Colors.white,
+                              size: 14, // Reduced from 16
+                            ),
                           ),
                         ),
                       ],

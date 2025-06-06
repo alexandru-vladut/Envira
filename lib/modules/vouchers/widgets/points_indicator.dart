@@ -4,9 +4,9 @@ class PointsIndicator extends StatefulWidget {
   final int points;
 
   const PointsIndicator({
-    Key? key,
+    super.key,
     required this.points,
-  }) : super(key: key);
+  });
 
   @override
   State<PointsIndicator> createState() => _PointsIndicatorState();

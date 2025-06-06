@@ -7,12 +7,12 @@ class EmptyVouchersPlaceholder extends StatefulWidget {
   final Color color;
 
   const EmptyVouchersPlaceholder({
-    Key? key,
+    super.key,
     required this.title,
     required this.message,
     required this.icon,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   State<EmptyVouchersPlaceholder> createState() => _EmptyVouchersPlaceholderState();

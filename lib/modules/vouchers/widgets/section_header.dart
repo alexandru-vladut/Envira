@@ -7,12 +7,12 @@ class SectionHeader extends StatelessWidget {
   final int itemCount;
 
   const SectionHeader({
-    Key? key,
+    super.key,
     required this.title,
     required this.icon,
     required this.color,
     required this.itemCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
