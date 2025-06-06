@@ -153,8 +153,8 @@ class ActionsView extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(
                             top: 54,
-                            left: 16,
-                            right: 10,
+                            left: 12,
+                            right: 8,
                             bottom: 8,
                           ),
                           child: Column(
@@ -165,9 +165,8 @@ class ActionsView extends StatelessWidget {
                                 actionListData!.titleTxt,
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
-                                  fontFamily: HomeAppTheme.fontName,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 17,
+                                  fontSize: 16,
                                   letterSpacing: 0.2,
                                   color: HomeAppTheme.white,
                                 ),
@@ -175,19 +174,14 @@ class ActionsView extends StatelessWidget {
 
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 8,
-                                    bottom: 8,
-                                  ),
+                                  padding: const EdgeInsets.only(top: 8, bottom: 8),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Text(
                                         actionListData!.actions!.join('\n'),
                                         style: const TextStyle(
-                                          fontFamily: HomeAppTheme.fontName,
                                           fontWeight: FontWeight.w500,
                                           fontSize: 12,
                                           letterSpacing: 0.2,

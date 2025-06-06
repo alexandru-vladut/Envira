@@ -111,8 +111,6 @@ class OverviewCard extends StatelessWidget {
                                                 'Active Goal',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
-                                                  fontFamily:
-                                                      HomeAppTheme.fontName,
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 16,
                                                   letterSpacing: -0.1,
@@ -146,8 +144,6 @@ class OverviewCard extends StatelessWidget {
                                                         : '',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
-                                                      fontFamily:
-                                                          HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 15,
@@ -167,8 +163,6 @@ class OverviewCard extends StatelessWidget {
                                                     'Points',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontFamily:
-                                                          HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 12,
@@ -217,8 +211,6 @@ class OverviewCard extends StatelessWidget {
                                                 'All-Time',
                                                 textAlign: TextAlign.center,
                                                 style: TextStyle(
-                                                  fontFamily:
-                                                      HomeAppTheme.fontName,
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 16,
                                                   letterSpacing: -0.1,
@@ -253,8 +245,6 @@ class OverviewCard extends StatelessWidget {
                                                         : '',
                                                     textAlign: TextAlign.center,
                                                     style: const TextStyle(
-                                                      fontFamily:
-                                                          HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 15,
@@ -274,8 +264,6 @@ class OverviewCard extends StatelessWidget {
                                                     'Points',
                                                     textAlign: TextAlign.center,
                                                     style: TextStyle(
-                                                      fontFamily:
-                                                          HomeAppTheme.fontName,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                       fontSize: 12,
@@ -330,7 +318,6 @@ class OverviewCard extends StatelessWidget {
                                                 : '',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                              fontFamily: HomeAppTheme.fontName,
                                               fontWeight: FontWeight.normal,
                                               fontSize: 24,
                                               letterSpacing: 0.0,
@@ -342,7 +329,6 @@ class OverviewCard extends StatelessWidget {
                                             'Goal Met',
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
-                                              fontFamily: HomeAppTheme.fontName,
                                               fontWeight: FontWeight.bold,
                                               fontSize: 12,
                                               letterSpacing: 0.0,
@@ -404,8 +390,8 @@ class OverviewCard extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(
-                        left: 24,
-                        right: 24,
+                        left: 22,
+                        right: 12,
                         top: 8,
                         bottom: 16,
                       ),
@@ -420,9 +406,8 @@ class OverviewCard extends StatelessWidget {
                                   'CO2e saved',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontFamily: HomeAppTheme.fontName,
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 16,
+                                    fontSize: 15,
                                     letterSpacing: -0.2,
                                     color: HomeAppTheme.darkText,
                                   ),
@@ -473,7 +458,6 @@ class OverviewCard extends StatelessWidget {
                                         : '',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      fontFamily: HomeAppTheme.fontName,
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
                                       color: HomeAppTheme.grey.withOpacity(0.5),
@@ -497,9 +481,8 @@ class OverviewCard extends StatelessWidget {
                                       'Goal End',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        fontFamily: HomeAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                         letterSpacing: -0.2,
                                         color: HomeAppTheme.darkText,
                                       ),
@@ -552,7 +535,6 @@ class OverviewCard extends StatelessWidget {
                                           : 'Goal Ended',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          fontFamily: HomeAppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
                                           color: HomeAppTheme.grey.withOpacity(
@@ -579,9 +561,8 @@ class OverviewCard extends StatelessWidget {
                                     const Text(
                                       'Rank',
                                       style: TextStyle(
-                                        fontFamily: HomeAppTheme.fontName,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 16,
+                                        fontSize: 15,
                                         letterSpacing: -0.2,
                                         color: HomeAppTheme.darkText,
                                       ),
@@ -643,7 +624,6 @@ class OverviewCard extends StatelessWidget {
                                             : '',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                          fontFamily: HomeAppTheme.fontName,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
                                           color: HomeAppTheme.grey.withOpacity(

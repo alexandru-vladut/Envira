@@ -18,7 +18,6 @@ class HomeAppTheme {
   static const Color deactivatedText = Color(0xFF767676);
   static const Color dismissibleBackground = Color(0xFF364A54);
   static const Color spacer = Color(0xFFF2F2F2);
-  static const String fontName = 'Roboto';
 
   static const TextTheme textTheme = TextTheme(
     headlineMedium: display1,
@@ -31,7 +30,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle display1 = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 36,
     letterSpacing: 0.4,
@@ -40,7 +38,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle headline = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 24,
     letterSpacing: 0.27,
@@ -48,7 +45,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle title = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.bold,
     fontSize: 16,
     letterSpacing: 0.18,
@@ -56,7 +52,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle subtitle = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: -0.04,
@@ -64,7 +59,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle body2 = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 14,
     letterSpacing: 0.2,
@@ -72,7 +66,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle body1 = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 16,
     letterSpacing: -0.05,
@@ -80,7 +73,6 @@ class HomeAppTheme {
   );
 
   static const TextStyle caption = TextStyle(
-    fontFamily: fontName,
     fontWeight: FontWeight.w400,
     fontSize: 12,
     letterSpacing: 0.2,
