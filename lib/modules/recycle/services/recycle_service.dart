@@ -85,6 +85,7 @@ class RecycleService {
 
       final newPoints = product['points'] as int;
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
+      final updatedCredits = currentUser.credits + newPoints;
 
       // Update user's total points
       await _userRepository.updateDocumentField(
@@ -93,13 +94,19 @@ class RecycleService {
         updatedTotalPoints,
       );
 
+      // Update user's credits
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'credits',
+        updatedCredits,
+      );
+
       // Create and add transaction
       final transaction = TransactionModel(
         value: newPoints,
         userUid: currentUserUid,
         timestamp: DateTime.now(),
         type: 'recycle product',
-        voucherId: null,
       );
 
       await _transactionRepository.addDocument(transaction);

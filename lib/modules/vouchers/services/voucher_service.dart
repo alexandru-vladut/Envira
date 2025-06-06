@@ -27,20 +27,20 @@ class VoucherService{
       }
 
       // Check if user has enough points
-      if (user.totalPoints < voucher.cost) {
+      if (user.credits < voucher.cost) {
         errorDialog(
           context: context,
-          title: 'Insufficient points to purchase this voucher'
+          title: 'Insufficient credits to purchase this voucher'
         );
         return;
       }
 
-      // Update user's total points
-      final newTotalPoints = user.totalPoints - voucher.cost;
+      // Update user's credits (subtract voucher cost)
+      final updatedCredits = user.credits - voucher.cost;
       await _userRepository.updateDocumentField(
         user.docId!,
-        'totalPoints',
-        newTotalPoints,
+        'credits',
+        updatedCredits,
       );
 
       // Add voucher to user's vouchers list
@@ -90,12 +90,12 @@ class VoucherService{
         return;
       }
 
-      // Update user's total points (add back the voucher cost)
-      final newTotalPoints = user.totalPoints + voucher.cost;
+      // Update user's credits (add back the voucher cost)
+      final updatedCredits = user.credits + voucher.cost;
       await _userRepository.updateDocumentField(
         user.docId!,
-        'totalPoints',
-        newTotalPoints,
+        'credits',
+        updatedCredits,
       );
 
       // Remove voucher from user's vouchers list

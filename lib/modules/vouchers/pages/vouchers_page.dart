@@ -39,7 +39,7 @@ class _VouchersPageState extends State<VouchersPage> {
         backgroundColor: Colors.transparent, // Set the background color to transparent
         elevation: 0, // Remove the shadow
         title: Text(
-          (currentUser != null) ? 'VoucherModels - Points: ${currentUser.totalPoints}' : 'VoucherModels - Points:',
+          (currentUser != null) ? 'Vouchers - Credits: ${currentUser.credits}' : 'Vouchers - Credits:',
           style: TextStyle(color: Colors.black),
         ),
       ),

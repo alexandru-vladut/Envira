@@ -172,6 +172,7 @@ class AuthService {
         email: inputEmail,
         pin: null,
         totalPoints: 0,
+        credits: 0,
         companyId: "355aInOtLhMaQm6fyMCh",
         role: "user",
         myVouchersIds: [],

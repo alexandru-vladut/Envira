@@ -57,7 +57,6 @@ class WorkLogService {
         userUid: currentUserUid,
         timestamp: DateTime.now(),
         type: 'work from home',
-        voucherId: null,
       );
 
       await _transactionRepository.addDocument(transaction);
