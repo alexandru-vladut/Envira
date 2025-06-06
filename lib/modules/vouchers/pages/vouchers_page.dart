@@ -5,6 +5,7 @@ import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
+import 'package:flutter_app_base/modules/vouchers/utils/constants.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -102,17 +103,12 @@ class _VouchersPageState extends State<VouchersPage> {
             child: Row(
               children: [
                 SizedBox(
-                  width: 80,
+                  width: 60,
                   height: 60,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(12), // Adjust the radius as needed
                     child: Image.asset(
-                      (voucher.partner == 'Altex') ? 'assets/images/altex.png' :
-                      (voucher.partner == 'Ivelo') ? 'assets/images/velo.png' :
-                      (voucher.partner == 'Tazz') ? 'assets/images/tazz.png' :
-                      (voucher.partner == 'Nespresso') ? 'assets/images/nespresso.png' :
-                      (voucher.partner == 'Bolt') ? 'assets/images/bolt.png' :
-                      'assets/images/logomic.png',
+                      partnerLogos[voucher.partner] ?? partnerLogos['Default']!,
                       fit: BoxFit.contain,
                     ),
                   ),

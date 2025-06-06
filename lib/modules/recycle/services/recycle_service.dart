@@ -106,7 +106,6 @@ class RecycleService {
         value: newPoints,
         userUid: currentUserUid,
         timestamp: DateTime.now(),
-        type: 'recycle product',
       );
 
       await _transactionRepository.addDocument(transaction);

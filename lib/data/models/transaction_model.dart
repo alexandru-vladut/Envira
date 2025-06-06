@@ -6,14 +6,12 @@ class TransactionModel {
   final int value;
   final String userUid;
   final dynamic timestamp;
-  final String type;
 
   TransactionModel({
     this.docId,
     required this.value,
     required this.userUid,
     required this.timestamp,
-    required this.type,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,7 +19,6 @@ class TransactionModel {
       'value': value,
       'userUid': userUid,
       'timestamp': timestamp,
-      'type': type,
     };
   }
 
@@ -40,7 +37,6 @@ class TransactionModel {
         value: data['value'],
         userUid: data['userUid'],
         timestamp: data['timestamp'],
-        type: data['type'],
       );
     } catch (e) {
       throw Exception('Error converting document snapshot fields to TransacionModel fields: $e');

@@ -1,0 +1,16 @@
+Map<String, String> partnerLogos = {
+  "Altex": "assets/images/partners/altex.png",
+  "Animawings": "assets/images/partners/anima_wings.png",
+  "Bolt": "assets/images/partners/bolt.png",
+  "Bringo": "assets/images/partners/bringo.png",
+  "Carturesti": "assets/images/partners/carturesti.png",
+  "eMAG": "assets/images/partners/emag.png",
+  "Fashion Days": "assets/images/partners/fashion_days.png",
+  "Glovo": "assets/images/partners/glovo.png",
+  "I'Velo": "assets/images/partners/ivelo.png",
+  "Mega Image": "assets/images/partners/mega_image.png",
+  "Nespresso": "assets/images/partners/nespresso.png",
+  "Uber": "assets/images/partners/uber.png",
+  "World Class": "assets/images/partners/world_class.png",
+  "Default": "assets/images/partners/default.png",
+};
