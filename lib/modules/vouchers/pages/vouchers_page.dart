@@ -1,13 +1,13 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
-import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
-import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
-import 'package:flutter_app_base/modules/vouchers/utils/constants.dart';
+import 'package:flutter_app_base/modules/vouchers/widgets/animated_voucher_card.dart';
+import 'package:flutter_app_base/modules/vouchers/widgets/empty_vouchers_placeholder.dart';
+import 'package:flutter_app_base/modules/vouchers/widgets/points_indicator.dart';
+import 'package:flutter_app_base/modules/vouchers/widgets/section_header.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,31 @@ class VouchersPage extends StatefulWidget {
   State<VouchersPage> createState() => _VouchersPageState();
 }
 
-class _VouchersPageState extends State<VouchersPage> {
+class _VouchersPageState extends State<VouchersPage> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    );
+
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeOut,
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,164 +60,118 @@ class _VouchersPageState extends State<VouchersPage> {
       !(currentUser?.myVouchersIds.contains(voucher.docId) ?? false)
     ).toList();
 
-
     return Scaffold(
       backgroundColor: HomeAppTheme.background,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Set the background color to transparent
-        elevation: 0, // Remove the shadow
-        title: Text(
-          (currentUser != null) ? 'Vouchers - Credits: ${currentUser.credits}' : 'Vouchers - Credits:',
-          style: TextStyle(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: const Text(
+          'Vouchers',
+          style: TextStyle(
+            color: Color(0xFF333333),
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
-      ),
-      body: ListView(
-        padding: const EdgeInsets.all(20),
-        children: [
-          
-          if (myVouchers.isNotEmpty) ...[
-            const Divider(),
-            const Text(
-              "My Vouchers",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Column(
-              children: myVouchers.map((voucher) {
-                return voucherListCard(voucher: voucher, isAdded: true, currentUser: currentUser);
-              }).toList(),
-            ),
-            const SizedBox(height: 20),
-          ],
-
-          if (availableVouchers.isNotEmpty) ...[
-            const Text(
-              "Available Vouchers",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Column(
-              children: availableVouchers.map((voucher) {
-                return voucherListCard(voucher: voucher, isAdded: false, currentUser: currentUser);
-              }).toList(),
-            ),
-          ]
-        ],
-      ),
-    );
-  }
-
-  Widget voucherListCard({required VoucherModel voucher, required bool isAdded, required UserModel? currentUser}) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.only(bottom: 15),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
-            spreadRadius: 0,
-            blurRadius: 2,
-            offset: const Offset(0, 1),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.help_outline, color: Color(0xFF666666)),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (_) => AlertDialog(
+                  title: const Text("About Vouchers"),
+                  content: const Text("Vouchers can be claimed using points you earn. You can refund a voucher to get your points back."),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Got it"),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
         ],
       ),
-      child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Expanded(
-            child: Row(
+      body: SafeArea(
+        child: FadeTransition(
+          opacity: _animation,
+          child: SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 0.1),
+              end: Offset.zero,
+            ).animate(_animation),
+            child: ListView(
+              padding: const EdgeInsets.all(20),
               children: [
-                SizedBox(
-                  width: 60,
-                  height: 60,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12), // Adjust the radius as needed
-                    child: Image.asset(
-                      partnerLogos[voucher.partner] ?? partnerLogos['Default']!,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                // Points indicator
+                if (currentUser != null)
+                  PointsIndicator(points: currentUser.credits),
+                
+                // My Vouchers Section
+                SectionHeader(
+                  title: "My Vouchers",
+                  icon: Icons.card_giftcard,
+                  color: const Color(0xFF3881E0),
+                  itemCount: myVouchers.length,
                 ),
-                const SizedBox(width: 15),
-                Flexible(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        voucher.name,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        voucher.description,
-                        style: TextStyle(color: Colors.grey[500]),
-                      ),
-                    ],
+                
+                if (myVouchers.isEmpty)
+                  const EmptyVouchersPlaceholder(
+                    title: "No Vouchers Yet",
+                    message: "You haven't claimed any vouchers yet. Browse the available vouchers below and claim some!",
+                    icon: Icons.card_giftcard,
+                    color: Color(0xFF3881E0),
+                  )
+                else
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: myVouchers.length,
+                    itemBuilder: (context, index) {
+                      return AnimatedVoucherCard(
+                        voucher: myVouchers[index],
+                        isAdded: true,
+                        currentUser: currentUser,
+                      );
+                    },
                   ),
+                
+                const SizedBox(height: 24),
+                
+                // Available Vouchers Section
+                SectionHeader(
+                  title: "Available Vouchers",
+                  icon: Icons.storefront,
+                  color: const Color(0xFF4CAF50),
+                  itemCount: availableVouchers.length,
                 ),
+                
+                if (availableVouchers.isEmpty)
+                  const EmptyVouchersPlaceholder(
+                    title: "All Claimed!",
+                    message: "You've claimed all available vouchers. Check back later for new offers!",
+                    icon: Icons.inventory_2,
+                    color: Color(0xFF4CAF50),
+                  )
+                else
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: availableVouchers.length,
+                    itemBuilder: (context, index) {
+                      return AnimatedVoucherCard(
+                        voucher: availableVouchers[index],
+                        isAdded: false,
+                        currentUser: currentUser,
+                      );
+                    },
+                  ),
               ],
             ),
           ),
-          const SizedBox(width: 15,),
-          Column(
-            children: [
-              Text(
-                voucher.cost.toString(),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              const Text(
-                'Pts',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              SizedBox(height: 20),
-              GestureDetector(
-                onTap: () async {
-                  if (!isAdded) {
-                    await voucherService.purchaseVoucher(context, currentUser, voucher);
-                  } else {
-                    confirmDialog(
-                      context: context,
-                      title: "Confirm Refund",
-                      message: "Are you sure you want to refund this voucher? You will receive ${voucher.cost} points back.",
-                      confirmText: "Refund",
-                      confirmColor: Colors.red,
-                      confirmIcon: Icons.restore,
-                      onConfirm: () async {
-                        await voucherService.refundVoucher(context, currentUser, voucher);
-                      },
-                    );
-                  }
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: isAdded ? Colors.red : Colors.green,
-                  ),
-                  child: Icon(
-                    isAdded ? Icons.remove : Icons.add,
-                    color: Colors.white,
-                    size: 20,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }
