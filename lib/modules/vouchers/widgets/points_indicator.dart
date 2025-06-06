@@ -130,7 +130,7 @@ class _PointsIndicatorState extends State<PointsIndicator> with SingleTickerProv
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "Your Points",
+                        "Your Wallet",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 16,
@@ -158,7 +158,7 @@ class _PointsIndicatorState extends State<PointsIndicator> with SingleTickerProv
                           ),
                           const SizedBox(width: 4),
                           const Text(
-                            "pts",
+                            "credits",
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 16,

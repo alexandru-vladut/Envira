@@ -80,8 +80,8 @@ class LeaderboardProvider extends StatelessWidget {
     final allTimeRanked = List<UserModel>.from(companyUsers)
       ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
 
-    final topThreeUsers = allTimeRanked.take(3).toList();
-    final otherUsers = allTimeRanked.skip(3).toList();
+    final topThreeUsersAllTime = allTimeRanked.take(3).toList();
+    final otherUsersAllTime = allTimeRanked.skip(3).toList();
 
     // Goal-based leaderboard
     final goalBasedUsers = companyUsers.map((user) {
@@ -90,14 +90,14 @@ class LeaderboardProvider extends StatelessWidget {
     }).toList()
       ..sort((a, b) => b.goalPoints.compareTo(a.goalPoints));
 
-    final topThreeGoalUsers = goalBasedUsers.take(3).map((u) => u.user).toList();
-    final otherGoalUsers = goalBasedUsers.skip(3).map((u) => u.user).toList();
+    final topThreeUsersGoal = goalBasedUsers.take(3).toList();
+    final otherUsersGoal = goalBasedUsers.skip(3).toList();
 
     return LeaderboardData(
-      topThreeUsersAllTime: topThreeUsers,
-      otherUsersAllTime: otherUsers,
-      topThreeUsersGoal: topThreeGoalUsers,
-      otherUsersGoal: otherGoalUsers,
+      topThreeUsersAllTime: topThreeUsersAllTime,
+      otherUsersAllTime: otherUsersAllTime,
+      topThreeUsersGoal: topThreeUsersGoal,
+      otherUsersGoal: otherUsersGoal,
     );
   }
 
@@ -132,8 +132,8 @@ class UserWithGoalPoints {
 class LeaderboardData {
   final List<UserModel> topThreeUsersAllTime;
   final List<UserModel> otherUsersAllTime;
-  final List<UserModel> topThreeUsersGoal;
-  final List<UserModel> otherUsersGoal;
+  final List<UserWithGoalPoints> topThreeUsersGoal;
+  final List<UserWithGoalPoints> otherUsersGoal;
 
   const LeaderboardData({
     required this.topThreeUsersAllTime,

@@ -272,7 +272,7 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                             ),
                             const SizedBox(width: 4),
                             Text(
-                              "${widget.voucher.cost} pts",
+                              "${widget.voucher.cost} credits",
                               style: TextStyle(
                                 fontSize: 13, // Reduced from 14
                                 fontWeight: FontWeight.w600,
