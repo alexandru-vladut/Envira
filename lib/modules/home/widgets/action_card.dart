@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/modules/action_work_log/pages/calendar_page.dart';
-import 'package:flutter_app_base/modules/challenges/screens/challenges_page.dart';
+import 'package:flutter_app_base/modules/work_log/pages/calendar_page.dart';
+import 'package:flutter_app_base/modules/challenges/pages/challenges_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
-import 'package:flutter_app_base/modules/action_recycle/services/recycle_service.dart';
 
 class ActionCard extends StatefulWidget {
   const ActionCard({
@@ -111,7 +111,7 @@ class ActionsView extends StatelessWidget {
               onTap: () async {
                 String title = actionListData!.titleTxt;
                 if (title == 'Recycle') {
-                  await RecycleService.scanBarcode(context);
+                  await recycleService.scanBarcode(context);
                 } else if (title == 'Work') {
                   AppNavigator.navigateTo(page: CalendarPage());
                 } else if (title == 'Challenges') {

@@ -1,19 +1,30 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
+import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
+import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
-import 'package:flutter_app_base/modules/action_recycle/pages/barcode_scanner_page.dart';
-import 'package:flutter_app_base/modules/action_recycle/pages/scan_product_result.dart';
-import 'package:flutter_app_base/modules/action_recycle/products.dart';
+import 'package:flutter_app_base/modules/recycle/pages/barcode_scanner_page.dart';
+import 'package:flutter_app_base/modules/recycle/pages/scan_product_result.dart';
+import 'package:flutter_app_base/modules/recycle/products.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
 class RecycleService {
-  static Future<void> scanBarcode(BuildContext context) async {
+  // Inject repositories
+  final UserRepository _userRepository;
+  final TransactionRepository _transactionRepository;
+
+  // Regular constructor
+  RecycleService(
+    this._userRepository,
+    this._transactionRepository,
+  );
+
+  Future<void> scanBarcode(BuildContext context) async {
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => BarcodeScannerPage(
@@ -35,7 +46,7 @@ class RecycleService {
     }
   }
 
-  static Future<void> recycleProduct(BuildContext context, String barcode) async {
+  Future<void> recycleProduct(BuildContext context, String barcode) async {
     
     loadingDialog(context: context);
 
@@ -76,7 +87,7 @@ class RecycleService {
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
 
       // Update user's total points
-      await userRepository.updateDocumentField(
+      await _userRepository.updateDocumentField(
         currentUser.docId!,
         'totalPoints',
         updatedTotalPoints,
@@ -91,7 +102,7 @@ class RecycleService {
         voucherId: null,
       );
 
-      await transactionRepository.addDocument(transaction);
+      await _transactionRepository.addDocument(transaction);
 
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog

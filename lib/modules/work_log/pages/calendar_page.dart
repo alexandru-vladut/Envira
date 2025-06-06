@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/modules/action_work_log/services/work_log_service.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarPage extends StatefulWidget {
@@ -102,7 +102,7 @@ class _CalendarPageState extends State<CalendarPage> {
                   width: double.infinity, // Makes the button take the full width
                   height: 50, // Set the height of the button
                   child: ElevatedButton(
-                    onPressed: () => WorkLogService.logWork(context),
+                    onPressed: () => workLogService.logWork(context),
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: const Color.fromARGB(255, 50, 69, 146), // Text color

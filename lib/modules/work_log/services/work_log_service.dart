@@ -1,16 +1,27 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
+import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
+import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
 class WorkLogService {
-  static Future<void> logWork(BuildContext context) async {
+  // Inject repositories
+  final UserRepository _userRepository;
+  final TransactionRepository _transactionRepository;
+
+  // Regular constructor
+  WorkLogService(
+    this._userRepository,
+    this._transactionRepository,
+  );
+  
+  Future<void> logWork(BuildContext context) async {
     loadingDialog(context: context);
 
     try {
@@ -35,7 +46,7 @@ class WorkLogService {
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
 
       // Update user's total points
-      await userRepository.updateDocumentField(
+      await _userRepository.updateDocumentField(
         currentUser.docId!,
         'totalPoints',
         updatedTotalPoints,
@@ -49,7 +60,7 @@ class WorkLogService {
         voucherId: null,
       );
 
-      await transactionRepository.addDocument(transaction);
+      await _transactionRepository.addDocument(transaction);
 
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog

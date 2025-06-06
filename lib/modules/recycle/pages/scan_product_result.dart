@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/modules/action_recycle/products.dart';
-import 'package:flutter_app_base/modules/action_recycle/services/recycle_service.dart';
-import 'package:flutter_app_base/modules/action_recycle/widgets/bottom_bar_element.dart';
+import 'package:flutter_app_base/modules/recycle/products.dart';
+import 'package:flutter_app_base/modules/recycle/widgets/bottom_bar_element.dart';
 
 class ScanProductResultPage extends StatefulWidget {
   final String barcode;
@@ -243,7 +243,7 @@ class _ScanProductResultPageState extends State<ScanProductResultPage> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: GestureDetector(
-                      onTap: () => RecycleService.recycleProduct(context, widget.barcode),
+                      onTap: () => recycleService.recycleProduct(context, widget.barcode),
                       child: Container(
                         color: darkColor,
                         width: 120,

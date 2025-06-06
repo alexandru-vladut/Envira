@@ -51,3 +51,20 @@ flutter:
     - assets/placeholders/
     - assets/fitness_app/
     - assets/challenges/
+    - assets/leaderboard/
+    - assets/memoji/
+
+  fonts:
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans_Regular.ttf
+        - asset: assets/fonts/DMSans_Medium.ttf
+        - asset: assets/fonts/DMSans_Bold.ttf
+
+    - family: IconlyBold
+      fonts:
+        - asset: assets/fonts/Iconly_Bold.ttf
+
+    - family: IconlyBroken
+      fonts:
+        - asset: assets/fonts/Iconly_Light.ttf

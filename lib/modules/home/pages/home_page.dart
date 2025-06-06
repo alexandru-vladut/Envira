@@ -11,10 +11,10 @@ class HomePage extends StatefulWidget {
 
   final AnimationController? animationController;
   @override
-  HomePageState createState() => HomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class HomePageState extends State<HomePage> with TickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -31,62 +31,62 @@ class HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     const int listViewCount = 5;
 
-    return Scaffold(
-      backgroundColor: HomeAppTheme.background,
-      body: HomeDataProvider(
-        builder:
-            (data) => ListView(
-              padding: const EdgeInsets.only(top: 60),
-              children: [
-                HomeHeader(userData: data.currentUser),
-                const SizedBox(height: 20),
-                TitleView(
-                  titleTxt: 'Overview',
-                  animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
-                      parent: widget.animationController!,
-                      curve: const Interval((1 / listViewCount) * 0, 1.0, curve: Curves.fastOutSlowIn),
-                    ),
+    return HomeDataProvider(
+      builder: (data) =>
+        Scaffold(
+          backgroundColor: HomeAppTheme.background,
+          body: ListView(
+            padding: const EdgeInsets.only(top: 60),
+            children: [
+              HomeHeader(userData: data.currentUser),
+              const SizedBox(height: 20),
+              TitleView(
+                titleTxt: 'Overview',
+                animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: widget.animationController!,
+                    curve: const Interval((1 / listViewCount) * 0, 1.0, curve: Curves.fastOutSlowIn),
                   ),
-                  animationController: widget.animationController!,
                 ),
-                const SizedBox(height: 12),
-                OverviewCard(
-                  animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
-                      parent: widget.animationController!,
-                      curve: const Interval((1 / listViewCount) * 1, 1.0, curve: Curves.fastOutSlowIn),
-                    ),
+                animationController: widget.animationController!,
+              ),
+              const SizedBox(height: 12),
+              OverviewCard(
+                animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: widget.animationController!,
+                    curve: const Interval((1 / listViewCount) * 1, 1.0, curve: Curves.fastOutSlowIn),
                   ),
-                  animationController: widget.animationController!,
-                  thisMonthPoints: data.calculatedData.thisMonthPoints,
-                  userData: data.currentUser,
-                  userRank: data.calculatedData.userRank,
-                  thisMonthPercentage: data.calculatedData.thisMonthPercentage,
                 ),
-                const SizedBox(height: 24),
-                TitleView(
-                  titleTxt: 'Actions',
-                  animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
-                      parent: widget.animationController!,
-                      curve: const Interval((1 / listViewCount) * 2, 1.0, curve: Curves.fastOutSlowIn),
-                    ),
+                animationController: widget.animationController!,
+                thisMonthPoints: data.calculatedData.thisMonthPoints,
+                userData: data.currentUser,
+                userRank: data.calculatedData.userRank,
+                thisMonthPercentage: data.calculatedData.thisMonthPercentage,
+              ),
+              const SizedBox(height: 24),
+              TitleView(
+                titleTxt: 'Actions',
+                animation: Tween<double>(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: widget.animationController!,
+                    curve: const Interval((1 / listViewCount) * 2, 1.0, curve: Curves.fastOutSlowIn),
                   ),
-                  animationController: widget.animationController!,
                 ),
-                ActionCard(
-                  mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(
-                      parent: widget.animationController!,
-                      curve: const Interval((1 / listViewCount) * 3, 1.0, curve: Curves.fastOutSlowIn),
-                    ),
+                animationController: widget.animationController!,
+              ),
+              ActionCard(
+                mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
+                  CurvedAnimation(
+                    parent: widget.animationController!,
+                    curve: const Interval((1 / listViewCount) * 3, 1.0, curve: Curves.fastOutSlowIn),
                   ),
-                  mainScreenAnimationController: widget.animationController,
                 ),
-              ],
-            ),
-      ),
+                mainScreenAnimationController: widget.animationController,
+              ),
+            ],
+          ),
+        ),
     );
   }
 }

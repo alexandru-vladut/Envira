@@ -1,10 +1,10 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
-import 'package:flutter_app_base/modules/vouchers/services/voucher_service.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -110,7 +110,9 @@ class _VouchersPageState extends State<VouchersPage> {
                       (voucher.partner == 'Altex') ? 'assets/images/altex.png' :
                       (voucher.partner == 'Ivelo') ? 'assets/images/velo.png' :
                       (voucher.partner == 'Tazz') ? 'assets/images/tazz.png' :
-                      'assets/images/nespresso.png',
+                      (voucher.partner == 'Nespresso') ? 'assets/images/nespresso.png' :
+                      (voucher.partner == 'Bolt') ? 'assets/images/bolt.png' :
+                      'assets/images/logomic.png',
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -162,7 +164,9 @@ class _VouchersPageState extends State<VouchersPage> {
               GestureDetector(
                 onTap: () async {
                   if (!isAdded) {
-                    await VoucherService.purchaseVoucher(context, currentUser, voucher);
+                    await voucherService.purchaseVoucher(context, currentUser, voucher);
+                  } else {
+                    await voucherService.refundVoucher(context, currentUser, voucher);
                   }
                 },
                 child: Container(

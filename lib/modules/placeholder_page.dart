@@ -6,7 +6,6 @@ import 'package:flutter_app_base/core/theme/login_theme.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
-import 'package:flutter_app_base/modules/user_list_page.dart';
 import 'package:provider/provider.dart';
 
 class PlaceholderPage extends StatefulWidget {
@@ -56,14 +55,6 @@ class _PlaceholderPageState extends State<PlaceholderPage> {
               Text('User Email: ${currentUser.email}'),
               Text('User Pin: ${currentUser.pin ?? 'Not Set'}'),
             ],
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => const UserListPage()),
-                );
-              },
-              child: const Text("View All Users"),
-            ),
           ],
         ),
       ),
