@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
+import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
@@ -36,6 +37,7 @@ class _VouchersPageState extends State<VouchersPage> {
 
 
     return Scaffold(
+      backgroundColor: HomeAppTheme.background,
       appBar: AppBar(
         backgroundColor: Colors.transparent, // Set the background color to transparent
         elevation: 0, // Remove the shadow
