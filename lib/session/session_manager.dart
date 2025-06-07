@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/context_utils.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/providers/companies_provider.dart';
+import 'package:flutter_app_base/data/providers/products_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
@@ -23,16 +24,19 @@ class SessionManager {
     final vouchersProvider = Provider.of<VouchersProvider>(ctx, listen: false);
     final transactionsProvider = Provider.of<TransactionsProvider>(ctx, listen: false);
     final companiesProvider = Provider.of<CompaniesProvider>(ctx, listen: false);
+    final productsProvider = Provider.of<ProductsProvider>(ctx, listen: false);
 
     usersProvider.startListening();
     vouchersProvider.startListening();
     transactionsProvider.startListening();
     companiesProvider.startListening();
+    productsProvider.startListening();
 
     await usersProvider.initializationCompleter.future;
     await vouchersProvider.initializationCompleter.future;
     await transactionsProvider.initializationCompleter.future;
     await companiesProvider.initializationCompleter.future;
+    await productsProvider.initializationCompleter.future;
     
     logger.i('[INFO - SessionManager] Providers initialized.');
   }
@@ -51,6 +55,7 @@ class SessionManager {
     Provider.of<VouchersProvider>(ctx, listen: false).stopListening();
     Provider.of<TransactionsProvider>(ctx, listen: false).stopListening();
     Provider.of<CompaniesProvider>(ctx, listen: false).stopListening();
+    Provider.of<ProductsProvider>(ctx, listen: false).stopListening();
 
     logger.i('[INFO - SessionManager] Providers stopped.');
   }

@@ -11,7 +11,6 @@ Map<String, Map<String, dynamic>> products = {
       'CO2e' : 2,
       'Water Waste': 50,
       'Disposal Recommendations': 'Dispose of packaging in general waste. Tobacco residue should be treated as hazardous waste due to chemicals.'
-      
     },
 
     '59492573': {
@@ -27,20 +26,19 @@ Map<String, Map<String, dynamic>> products = {
       'Disposal Recommendations': 'Rinse and recycle in a plastic recycling bin. Cap and label can be left on.'
     },
 
-    '59489181': {
-      'name': 'Ipad',
-      'redgreen': 'green',
-      'cardboard': 0.3,
-      'gold': 0.05,
-      'plastic': 0.15,
-      'silver': 0.01,
-      'copper': 0.2,
-      'aluminium': 0.4,
-      'glass': 0.2,
-      'lithium-ion': 0.2,
-      'points': 3500,
-      'CO2e' : 150,
-      'Disposal Recommendations': 'Do not dispose of in general waste. Use an electronics recycling program or return to an electronics retailer for proper handling.'
-
-    },
+    // '59489181': {
+    //   'name': 'Ipad',
+    //   'redgreen': 'green',
+    //   'cardboard': 0.3,
+    //   'gold': 0.05,
+    //   'plastic': 0.15,
+    //   'silver': 0.01,
+    //   'copper': 0.2,
+    //   'aluminium': 0.4,
+    //   'glass': 0.2,
+    //   'lithium-ion': 0.2,
+    //   'points': 3500,
+    //   'CO2e' : 150,
+    //   'Disposal Recommendations': 'Do not dispose of in general waste. Use an electronics recycling program or return to an electronics retailer for proper handling.'
+    // },
   };

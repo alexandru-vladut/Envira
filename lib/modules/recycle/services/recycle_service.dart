@@ -38,7 +38,7 @@ class RecycleService {
     if (result != null) {
       String barcodeScanRes = result;
       
-      if (barcodeScanRes == '59489184' || barcodeScanRes == '59492573') {
+      if (products.keys.contains(barcodeScanRes)) {
         AppNavigator.navigateTo(page: ScanProductResultPage(barcode: barcodeScanRes));
       } else {
         scanBarcode(context);

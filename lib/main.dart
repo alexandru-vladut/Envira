@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/data/providers/companies_provider.dart';
+import 'package:flutter_app_base/data/providers/products_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
@@ -44,6 +45,9 @@ void main() async {
         ),
         ChangeNotifierProvider<CompaniesProvider>(
           create: (_) => CompaniesProvider(companyRepository),
+        ),
+        ChangeNotifierProvider<ProductsProvider>(
+          create: (_) => ProductsProvider(productRepository),
         ),
       ],
       child: const MyApp(),

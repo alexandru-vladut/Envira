@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/data/repositories/company_repository.dart';
+import 'package:flutter_app_base/data/repositories/product_repository.dart';
 import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
 import 'package:flutter_app_base/data/repositories/voucher_repository.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycle_service.dart';
@@ -15,6 +16,7 @@ final UserRepository userRepository = UserRepository();
 final VoucherRepository voucherRepository = VoucherRepository();
 final TransactionRepository transactionRepository = TransactionRepository();
 final CompanyRepository companyRepository = CompanyRepository();
+final ProductRepository productRepository = ProductRepository();
 
 /// 🛠 Services
 final SessionManager sessionManager = SessionManager();
