@@ -5,32 +5,32 @@ List<Map<String, String>> jobListGlobal = [
   {
     'title': 'No Car Week',
     'duration': '7 days',
-    'imagePath': 'assets/challenges/no-car.png',
+    'imagePath': 'assets/images/challenges/no-car.png',
   },
   {
     'title': 'Zero Waste Challenge',
     'duration': '30 days',
-    'imagePath': 'assets/challenges/no-waste.png',
+    'imagePath': 'assets/images/challenges/no-waste.png',
   },
   {
     'title': 'Plant-Based Power: Embrace vegetarian meals for a week',
     'duration': '7 days',
-    'imagePath': 'assets/challenges/vegetarian.png',
+    'imagePath': 'assets/images/challenges/vegetarian.png',
   },
   {
     'title': 'Sustainable Commute Sprint: Compete for the greenest route',
     'duration': '15 days',
-    'imagePath': 'assets/challenges/bike.png',
+    'imagePath': 'assets/images/challenges/bike.png',
   },
   {
     'title': 'Thrift Shop Challenge: Outfit your week with second-hand finds',
     'duration': '7 days',
-    'imagePath': 'assets/challenges/second-hand.png',
+    'imagePath': 'assets/images/challenges/second-hand.png',
   },
   {
     'title': 'Green Thumb Project: Plant greenery at work or community spaces',
     'duration': '60 days',
-    'imagePath': 'assets/challenges/plant.png',
+    'imagePath': 'assets/images/challenges/plant.png',
   },
 ];
 

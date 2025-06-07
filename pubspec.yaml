@@ -35,7 +35,7 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: true
-  image_path_android: "assets/placeholders/app_icon.png"
+  image_path_android: "assets/app_icons/app_icon.png"
   # adaptive_icon_background: "#d5dde2" # only available for Android 8.0 devices and above
   # adaptive_icon_foreground: "assets/images/finexa/launcher_foreground.png" # only available for Android 8.0 devices and above
 
@@ -49,11 +49,10 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/
     - assets/images/partners/
-    - assets/placeholders/
-    - assets/fitness_app/
-    - assets/challenges/
-    - assets/leaderboard/
-    - assets/memoji/
+    - assets/images/memoji/
+    - assets/images/challenges/
+    - assets/images/home/
+    - assets/app_icons/
 
   fonts:
     - family: DMSans

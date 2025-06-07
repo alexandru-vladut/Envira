@@ -3,7 +3,7 @@ import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/modules/profile/providers/profile_provider.dart';
-import 'package:flutter_app_base/modules/profile/utils/assets.dart';
+import 'package:flutter_app_base/core/utils/memojis.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -91,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(55),
                     child: Image.asset(
-                      Assets.memoji6,
+                      Memojis.memoji1,
                       fit: BoxFit.cover,
                     ),
                   ),

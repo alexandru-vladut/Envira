@@ -4,17 +4,7 @@ import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/modules/leaderboard/providers/leaderboard_provider.dart';
 import 'dart:math' as math;
 
-List memojiPaths = [
-  'assets/memoji/1.png',
-  'assets/memoji/2.png',
-  'assets/memoji/3.png',
-  'assets/memoji/4.png',
-  'assets/memoji/5.png',
-  'assets/memoji/6.png',
-  'assets/memoji/7.png',
-  'assets/memoji/8.png',
-  'assets/memoji/9.png',
-];
+import 'package:flutter_app_base/core/utils/memojis.dart';
 
 class LeaderboardPage extends StatefulWidget {
   const LeaderboardPage({super.key});
@@ -512,7 +502,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: const CircleAvatar(
                 radius: 38,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage('assets/memoji/1.png'),
+                foregroundImage: AssetImage(Memojis.memoji1),
               ),
             ),
             // First place badge
@@ -643,7 +633,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage(rank == 2 ? 'assets/memoji/2.png' : 'assets/memoji/3.png'),
+                foregroundImage: AssetImage(rank == 2 ? Memojis.memoji2 : Memojis.memoji3),
               ),
             ),
             

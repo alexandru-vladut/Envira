@@ -129,7 +129,7 @@ class OverviewCard extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                    "assets/fitness_app/eaten.png",
+                                                    "assets/images/home/eaten.png",
                                                   ),
                                                 ),
                                                 Padding(
@@ -229,7 +229,7 @@ class OverviewCard extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                    "assets/fitness_app/burned.png",
+                                                    "assets/images/home/burned.png",
                                                   ),
                                                 ),
                                                 Padding(

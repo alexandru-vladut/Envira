@@ -15,28 +15,28 @@ class ActionListData {
 
   static List<ActionListData> tabIconsList = <ActionListData>[
     ActionListData(
-      imagePath: 'assets/fitness_app/recycle.png',
+      imagePath: 'assets/images/home/recycle.png',
       titleTxt: 'Recycle',
       actions: <String>['Products,', 'RetuRO'],
       startColor: '#94A885',
       endColor: '#72B794',
     ),
     ActionListData(
-      imagePath: 'assets/fitness_app/working-at-home.png',
+      imagePath: 'assets/images/home/working-at-home.png',
       titleTxt: 'Work',
       actions: <String>['Remote,', 'Office'],
       startColor: '#738AE6',
       endColor: '#5C5EDD',
     ),
     ActionListData(
-      imagePath: 'assets/fitness_app/challenge.png',
+      imagePath: 'assets/images/home/challenge.png',
       titleTxt: 'Challenges',
       actions: <String>['Join,', 'Give up'],
       startColor: '#FFC53C',
       endColor: '#FF9200',
     ),
     ActionListData(
-      imagePath: 'assets/fitness_app/info.png',
+      imagePath: 'assets/images/home/info.png',
       titleTxt: 'Info',
       actions: <String>['Waste', 'Management'],
       startColor: '#FE95B6',
