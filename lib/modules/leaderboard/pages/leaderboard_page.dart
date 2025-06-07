@@ -28,12 +28,10 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
   late AnimationController _animationController;
   late Animation<double> _animation;
   
-  // Colors for the vibrant design
+  // Colors for the unified design
   final Color _primaryBlue = const Color(0xFF3881E0);
   final Color _accentGold = const Color(0xFFFFBF00);
-  final Color _vibrantPurple = const Color(0xFF8B5CF6);
   final Color _darkBlue = const Color(0xFF1A56DB);
-  final Color _lightBlue = const Color(0xFFEBF5FF);
 
   @override
   void initState() {
@@ -68,82 +66,63 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
     return LeaderboardProvider(
       builder: (data) =>
         Scaffold(
+          backgroundColor: HomeAppTheme.white,
           body: Stack(
             children: [
-              // Gradient background
-              Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      _lightBlue,
-                      Colors.white,
-                      HomeAppTheme.background.withOpacity(0.5),
-                    ],
-                    stops: const [0.0, 0.6, 1.0],
-                  ),
-                ),
-              ),
-              
-              // Decorative shapes
-              Positioned(
-                top: -30,
-                right: -30,
-                child: Transform.rotate(
-                  angle: math.pi / 10,
-                  child: Container(
-                    height: 120,
-                    width: 120,
-                    decoration: BoxDecoration(
-                      color: _primaryBlue.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(24),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                top: 70,
-                left: -15,
-                child: Container(
-                  height: 60,
-                  width: 60,
-                  decoration: BoxDecoration(
-                    color: _accentGold.withOpacity(0.1),
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ),
-              
-              // List of other users with colorful card design
+              // List of other users with gradient background
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  height: 350,
+                  height: 330,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF3881E0), Color(0xFF6C5CE7)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(32),
                       topLeft: Radius.circular(32),
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: _darkBlue.withOpacity(0.1),
-                        blurRadius: 20,
+                        color: _primaryBlue.withOpacity(0.3),
+                        blurRadius: 15,
                         offset: const Offset(0, -5),
-                        spreadRadius: 1,
                       ),
                     ],
                   ),
-                  child: FadeTransition(
-                    opacity: _animation,
-                    child: SlideTransition(
-                      position: Tween<Offset>(
-                        begin: const Offset(0, 0.2),
-                        end: Offset.zero,
-                      ).animate(_animation),
-                      child: Column(
+                  child: Stack(
+                    children: [
+                      // Decorative circles
+                      Positioned(
+                        top: -20,
+                        left: -20,
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white.withOpacity(0.1),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        bottom: -40,
+                        right: -10,
+                        child: Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white.withOpacity(0.1),
+                          ),
+                        ),
+                      ),
+                      
+                      // Content
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
@@ -153,22 +132,22 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                 Container(
                                   padding: const EdgeInsets.all(8),
                                   decoration: BoxDecoration(
-                                    color: _primaryBlue.withOpacity(0.1),
+                                    color: Colors.white.withOpacity(0.2),
                                     borderRadius: BorderRadius.circular(12),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.people_alt_rounded, 
-                                    color: _primaryBlue,
+                                    color: Colors.white,
                                     size: 20,
                                   ),
                                 ),
                                 const SizedBox(width: 12),
-                                Text(
+                                const Text(
                                   "Competitors",
                                   style: TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w700,
-                                    color: _darkBlue,
+                                    color: Colors.white,
                                     letterSpacing: 0.3,
                                   ),
                                 ),
@@ -179,23 +158,23 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                     vertical: 6,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: _lightBlue,
+                                    color: Colors.white.withOpacity(0.2),
                                     borderRadius: BorderRadius.circular(30),
                                   ),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.military_tech,
-                                        color: _primaryBlue,
+                                        color: Colors.white,
                                         size: 14,
                                       ),
                                       const SizedBox(width: 4),
                                       Text(
                                         _showAllTime ? "All Time" : "Goal",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w600,
-                                          color: _primaryBlue,
+                                          color: Colors.white,
                                         ),
                                       ),
                                     ],
@@ -204,6 +183,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                               ],
                             ),
                           ),
+                          
                           Expanded(
                             child: ListView.builder(
                               padding: const EdgeInsets.only(top: 0, bottom: 16),
@@ -215,20 +195,14 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                 final item = _showAllTime 
                                   ? data.otherUsersAllTime[index]
                                   : data.otherUsersGoal[index];
-                                  
-                                // Alternating card colors
-                                final isEven = index % 2 == 0;
-                                final cardColor = isEven 
-                                  ? _lightBlue 
-                                  : Colors.white;
                                 
                                 return Container(
                                   margin: const EdgeInsets.fromLTRB(16, 4, 16, 4),
                                   decoration: BoxDecoration(
-                                    color: cardColor,
+                                    color: Colors.white.withOpacity(0.15),
                                     borderRadius: BorderRadius.circular(16),
                                     border: Border.all(
-                                      color: isEven ? _primaryBlue.withOpacity(0.1) : Colors.grey.shade100,
+                                      color: Colors.white.withOpacity(0.2),
                                       width: 1,
                                     ),
                                   ),
@@ -240,28 +214,14 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                     leading: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        // Rank indicator with gradient background
+                                        // Rank indicator
                                         Container(
                                           width: 32,
                                           height: 32,
                                           alignment: Alignment.center,
                                           decoration: BoxDecoration(
-                                            gradient: LinearGradient(
-                                              begin: Alignment.topLeft,
-                                              end: Alignment.bottomRight,
-                                              colors: [
-                                                _primaryBlue.withOpacity(0.8),
-                                                _vibrantPurple.withOpacity(0.8),
-                                              ],
-                                            ),
+                                            color: Colors.white.withOpacity(0.2),
                                             shape: BoxShape.circle,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                color: _primaryBlue.withOpacity(0.3),
-                                                blurRadius: 8,
-                                                offset: const Offset(0, 2),
-                                              ),
-                                            ],
                                           ),
                                           child: Text(
                                             (index + 4).toString(),
@@ -273,12 +233,12 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                           ),
                                         ),
                                         const SizedBox(width: 12),
-                                        // Avatar with decorative border
+                                        // Avatar
                                         Container(
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                             border: Border.all(
-                                              color: isEven ? _primaryBlue.withOpacity(0.3) : Colors.grey.shade300,
+                                              color: Colors.white,
                                               width: 2,
                                             ),
                                           ),
@@ -294,29 +254,22 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                                       _showAllTime 
                                         ? (item as UserModel).name 
                                         : (item as UserWithGoalPoints).user.name,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w600,
-                                        color: _darkBlue,
+                                        color: Colors.white,
                                       ),
                                     ),
                                     trailing: Container(
                                       height: 36,
                                       padding: const EdgeInsets.symmetric(horizontal: 14),
                                       decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          begin: Alignment.topLeft,
-                                          end: Alignment.bottomRight,
-                                          colors: [
-                                            _accentGold,
-                                            const Color(0xFFE6A800),
-                                          ],
-                                        ),
+                                        color: _accentGold,
                                         borderRadius: BorderRadius.circular(20),
                                         boxShadow: [
                                           BoxShadow(
                                             color: _accentGold.withOpacity(0.3),
-                                            blurRadius: 8,
+                                            blurRadius: 4,
                                             offset: const Offset(0, 2),
                                           ),
                                         ],
@@ -350,12 +303,12 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
               
-              // Header with custom painted background
+              // Header with clean design
               Positioned(
                 top: 0,
                 left: 0,
@@ -366,45 +319,27 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                     bottom: 16,
                   ),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        _primaryBlue,
-                        _vibrantPurple,
-                      ],
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(24),
-                      bottomRight: Radius.circular(24),
-                    ),
+                    color: HomeAppTheme.white,
                     boxShadow: [
                       BoxShadow(
-                        color: _darkBlue.withOpacity(0.2),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4),
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 4,
+                        offset: const Offset(0, 2),
                       ),
                     ],
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Title with shadow
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16),
+                      // Title
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         child: Text(
                           "Leaderboard",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            shadows: [
-                              Shadow(
-                                color: Colors.black26,
-                                offset: Offset(0, 2),
-                                blurRadius: 4,
-                              ),
-                            ],
+                            color: Colors.black,
                           ),
                         ),
                       ),
@@ -432,13 +367,13 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                     // Second place
                     Positioned(
                       top: 170,
-                      left: 45,
+                      left: 35,
                       child: _buildRunnerUp(data, 1, 2),
                     ),
                     // Third place
                     Positioned(
-                      top: 190,
-                      right: 45,
+                      top: 180,
+                      right: 35,
                       child: _buildRunnerUp(data, 2, 3),
                     ),
                   ],
@@ -456,7 +391,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
       height: 36,
       padding: const EdgeInsets.all(3),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
+        color: _primaryBlue.withOpacity(0.1),
         borderRadius: BorderRadius.circular(30),
       ),
       child: Row(
@@ -467,7 +402,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: Container(
                 decoration: BoxDecoration(
                   color: _showAllTime 
-                    ? Colors.white
+                    ? _primaryBlue
                     : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -477,7 +412,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: _showAllTime ? _primaryBlue : Colors.white,
+                    color: _showAllTime ? Colors.white : _primaryBlue,
                   ),
                 ),
               ),
@@ -489,7 +424,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: Container(
                 decoration: BoxDecoration(
                   color: !_showAllTime 
-                    ? Colors.white
+                    ? _primaryBlue
                     : Colors.transparent,
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -499,7 +434,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                   style: TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: !_showAllTime ? _primaryBlue : Colors.white,
+                    color: !_showAllTime ? Colors.white : _primaryBlue,
                   ),
                 ),
               ),
@@ -594,14 +529,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
                       spreadRadius: 1,
                     ),
                   ],
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      _accentGold,
-                      const Color(0xFFE6A800),
-                    ],
-                  ),
+                  color: _accentGold,
                 ),
                 child: const CircleAvatar(
                   radius: 16,
@@ -648,23 +576,16 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
         
         const SizedBox(height: 10),
         
-        // Points with gradient background
+        // Points with gold background
         Container(
           height: 36,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                _accentGold,
-                const Color(0xFFE6A800),
-              ],
-            ),
+            color: _accentGold,
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
-                color: _accentGold.withOpacity(0.4),
+                color: _accentGold.withOpacity(0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 3),
               ),
@@ -697,7 +618,6 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
   Widget _buildRunnerUp(LeaderboardData data, int index, int rank) {
     final name = _getTopUserName(data, index);
     final points = _getTopUserPoints(data, index);
-    final isSecond = rank == 2;
     
     return Column(
       children: [
@@ -709,12 +629,12 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSecond ? _primaryBlue : _vibrantPurple,
+                  color: _primaryBlue,
                   width: 2,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: (isSecond ? _primaryBlue : _vibrantPurple).withOpacity(0.3),
+                    color: _primaryBlue.withOpacity(0.3),
                     blurRadius: 10,
                     spreadRadius: 1,
                   ),
@@ -723,7 +643,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage(isSecond ? 'assets/memoji/2.png' : 'assets/memoji/3.png'),
+                foregroundImage: AssetImage(rank == 2 ? 'assets/memoji/2.png' : 'assets/memoji/3.png'),
               ),
             ),
             
@@ -731,16 +651,10 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: isSecond ? 
-                    [_primaryBlue, const Color(0xFF2563EB)] : 
-                    [_vibrantPurple, const Color(0xFF7C3AED)],
-                ),
+                color: _primaryBlue,
                 boxShadow: [
                   BoxShadow(
-                    color: (isSecond ? _primaryBlue : _vibrantPurple).withOpacity(0.3),
+                    color: _primaryBlue.withOpacity(0.3),
                     blurRadius: 6,
                     spreadRadius: 1,
                   ),
@@ -783,7 +697,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
-              color: isSecond ? _primaryBlue : _vibrantPurple,
+              color: _primaryBlue,
             ),
           ),
         ),
@@ -795,17 +709,11 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
           height: 30,
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: isSecond ? 
-                [_primaryBlue, const Color(0xFF2563EB)] : 
-                [_vibrantPurple, const Color(0xFF7C3AED)],
-            ),
+            color: _primaryBlue,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: (isSecond ? _primaryBlue : _vibrantPurple).withOpacity(0.3),
+                color: _primaryBlue.withOpacity(0.3),
                 blurRadius: 6,
                 offset: const Offset(0, 2),
               ),
