@@ -7,8 +7,11 @@ class ProductModel {
   final String description;
   final String category; //
   final String brand;
-  final String material; //
+  final String material; // might be determined with AI
   final String imageUrl; //
+
+  final bool isRecyclable;
+  final int points;
 
   ProductModel({
     this.docId,
@@ -19,6 +22,8 @@ class ProductModel {
     required this.brand,
     required this.material,
     required this.imageUrl,
+    required this.isRecyclable,
+    required this.points,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,6 +35,8 @@ class ProductModel {
       'brand': brand,
       'material': material,
       'imageUrl': imageUrl,
+      'isRecyclable': isRecyclable,
+      'points': points,
     };
   }
 
@@ -54,6 +61,8 @@ class ProductModel {
         brand: data['brand'],
         material: data['material'],
         imageUrl: data['imageUrl'],
+        isRecyclable: data['isRecyclable'],
+        points: data['points'],
       );
     } catch (e) {
       throw Exception(

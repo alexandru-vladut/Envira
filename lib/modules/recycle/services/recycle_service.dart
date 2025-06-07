@@ -2,14 +2,14 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
+import 'package:flutter_app_base/data/models/product_model.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
 import 'package:flutter_app_base/modules/recycle/pages/barcode_scanner_page.dart';
-import 'package:flutter_app_base/modules/recycle/pages/scan_product_result.dart';
-import 'package:flutter_app_base/modules/recycle/products.dart';
+import 'package:flutter_app_base/modules/recycle/pages/product_page.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -19,35 +19,30 @@ class RecycleService {
   final TransactionRepository _transactionRepository;
 
   // Regular constructor
-  RecycleService(
-    this._userRepository,
-    this._transactionRepository,
-  );
+  RecycleService(this._userRepository, this._transactionRepository);
 
   Future<void> scanBarcode(BuildContext context) async {
     final result = await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => BarcodeScannerPage(
-          onBarcodeDetected: (String barcode) {
-            Navigator.of(context).pop(barcode);
-          },
-        ),
+        builder:
+            (context) => BarcodeScannerPage(
+              onBarcodeDetected: (String barcode) {
+                Navigator.of(context).pop(barcode);
+              },
+            ),
       ),
     );
 
     if (result != null) {
       String barcodeScanRes = result;
-      
-      if (products.keys.contains(barcodeScanRes)) {
-        AppNavigator.navigateTo(page: ScanProductResultPage(barcode: barcodeScanRes));
-      } else {
-        scanBarcode(context);
-      }
+      AppNavigator.navigateTo(page: ProductPage(barcode: barcodeScanRes));
     }
   }
 
-  Future<void> recycleProduct(BuildContext context, String barcode) async {
-    
+  Future<void> recycleProduct(
+    BuildContext context,
+    ProductModel product,
+  ) async {
     loadingDialog(context: context);
 
     try {
@@ -55,38 +50,22 @@ class RecycleService {
       final currentUserUid = context.read<AuthStateProvider>().uid;
       if (currentUserUid == null) {
         AppNavigator.pop(); // Close loading dialog
-        errorDialog(
-          context: context,
-          title: 'User not authenticated'
-        );
+        errorDialog(context: context, title: 'User not authenticated');
         return;
       }
 
       // Get current user data from users provider
-      final currentUser = context.read<UsersProvider>().items
-          .firstWhereOrNull((u) => u.uid == currentUserUid);
-      
+      final currentUser = context.read<UsersProvider>().items.firstWhereOrNull(
+        (u) => u.uid == currentUserUid,
+      );
+
       if (currentUser == null) {
         AppNavigator.pop(); // Close loading dialog
-        errorDialog(
-          context: context,
-          title: 'User data not found'
-        );
+        errorDialog(context: context, title: 'User data not found');
         return;
       }
 
-      // Get product data
-      final product = products[barcode];
-      if (product == null) {
-        AppNavigator.pop(); // Close loading dialog
-        errorDialog(
-          context: context,
-          title: 'Product not found'
-        );
-        return;
-      }
-
-      final newPoints = product['points'] as int;
+      final newPoints = product.points;
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
       final updatedCredits = currentUser.credits + newPoints;
 
@@ -116,13 +95,9 @@ class RecycleService {
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog
       AppNavigator.navigateTo(page: BottomNavBar());
-
     } catch (error) {
       AppNavigator.pop(); // Close loading dialog
-      errorDialog(
-        context: context,
-        title: 'Error processing recycle: $error'
-      );
+      errorDialog(context: context, title: 'Error processing recycle: $error');
     }
   }
 }
