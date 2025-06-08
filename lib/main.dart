@@ -5,6 +5,7 @@ import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/data/providers/companies_provider.dart';
 import 'package:flutter_app_base/data/providers/products_provider.dart';
+import 'package:flutter_app_base/data/providers/recycle_points_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
 import 'package:flutter_app_base/modules/recycle/services/gemini_service.dart';
@@ -52,6 +53,9 @@ void main() async {
         ),
         ChangeNotifierProvider<ProductsProvider>(
           create: (_) => ProductsProvider(productRepository),
+        ),
+        ChangeNotifierProvider<RecyclePointsProvider>(
+          create: (_) => RecyclePointsProvider(recyclePointRepository),
         ),
       ],
       child: const MyApp(),
