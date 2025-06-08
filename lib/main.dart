@@ -7,6 +7,7 @@ import 'package:flutter_app_base/data/providers/companies_provider.dart';
 import 'package:flutter_app_base/data/providers/products_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
+import 'package:flutter_app_base/modules/recycle/services/gemini_service.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/session/connection_gate.dart';
 import 'package:flutter_app_base/session/connection_state_provider.dart';
@@ -23,6 +24,9 @@ void main() async {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  
+  // Initialize AI Service
+  GeminiService.initialize();
 
   runApp(
     MultiProvider(

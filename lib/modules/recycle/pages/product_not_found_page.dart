@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 
 class ProductNotFoundPage extends StatelessWidget {
@@ -56,10 +57,7 @@ class ProductNotFoundPage extends StatelessWidget {
               ),
               const SizedBox(height: 32),
               ElevatedButton.icon(
-                onPressed: () {
-                  // TODO: Implement web search functionality
-                  print('Search web for barcode: $barcode');
-                },
+                onPressed: () => productService.searchAndCreateProduct(context, barcode),
                 icon: const Icon(Icons.search),
                 label: const Text('Search the Web'),
                 style: ElevatedButton.styleFrom(

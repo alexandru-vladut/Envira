@@ -3,6 +3,7 @@ import 'package:flutter_app_base/data/repositories/company_repository.dart';
 import 'package:flutter_app_base/data/repositories/product_repository.dart';
 import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
 import 'package:flutter_app_base/data/repositories/voucher_repository.dart';
+import 'package:flutter_app_base/modules/recycle/services/product_service.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycle_service.dart';
 import 'package:flutter_app_base/modules/work_log/services/work_log_service.dart';
 import 'package:flutter_app_base/modules/vouchers/services/voucher_service.dart';
@@ -22,6 +23,7 @@ final ProductRepository productRepository = ProductRepository();
 final SessionManager sessionManager = SessionManager();
 final AuthService authService = AuthService(userRepository);
 final RecycleService recycleService = RecycleService(userRepository, transactionRepository);
+final ProductService productService = ProductService(productRepository);
 final VoucherService voucherService = VoucherService(userRepository);
 final WorkLogService workLogService = WorkLogService(userRepository, transactionRepository);
 

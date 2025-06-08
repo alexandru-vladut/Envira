@@ -12,6 +12,7 @@ class ProductModel {
 
   final bool isRecyclable;
   final int points;
+  final String reasoning;
 
   ProductModel({
     this.docId,
@@ -24,6 +25,7 @@ class ProductModel {
     required this.imageUrl,
     required this.isRecyclable,
     required this.points,
+    required this.reasoning,
   });
 
   Map<String, dynamic> toMap() {
@@ -37,6 +39,7 @@ class ProductModel {
       'imageUrl': imageUrl,
       'isRecyclable': isRecyclable,
       'points': points,
+      'reasoning': reasoning,
     };
   }
 
@@ -63,6 +66,7 @@ class ProductModel {
         imageUrl: data['imageUrl'],
         isRecyclable: data['isRecyclable'],
         points: data['points'],
+        reasoning: data['reasoning'],
       );
     } catch (e) {
       throw Exception(
