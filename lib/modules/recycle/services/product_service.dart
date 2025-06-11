@@ -7,6 +7,7 @@ import 'package:flutter_app_base/data/models/product_model.dart';
 import 'package:flutter_app_base/data/repositories/product_repository.dart';
 import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/modules/recycle/services/gemini_service.dart';
+import 'package:flutter_app_base/modules/recycle/services/image_upload_service.dart';
 import 'package:http/http.dart' as http;
 
 class ProductService {
@@ -148,5 +149,36 @@ class ProductService {
         AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
       },
     );
+  }
+
+  Future<void> uploadProductImage({
+    required BuildContext context,
+    required ProductModel product,
+  }) async {
+    try {
+      // Upload image and get URL
+      final String? imageUrl = await ImageUploadService.uploadProductImage(
+        productBarcode: product.barcode,
+        context: context,
+      );
+
+      if (imageUrl != null && product.docId != null) {
+        // Update product's imageUrl in Firestore
+        await _productRepository.updateDocumentField(product.docId!, 'imageUrl', imageUrl);
+        
+        AppNavigator.pop(); // Close loading dialog (opened in uploadProductImage)
+        successDialog(
+          context: context,
+          title: 'Product image uploaded successfully.'
+        );
+      }
+    } catch (error) {
+      // Close loading dialog and show error
+      AppNavigator.pop();
+      errorDialog(
+        context: context,
+        title: 'Image upload failed. Please try again.',
+      );
+    }
   }
 }

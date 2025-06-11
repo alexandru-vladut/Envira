@@ -94,7 +94,15 @@ class RecycleService {
 
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog
-      AppNavigator.navigateTo(page: CustomNavBar());
+      successDialog(
+        context: context,
+        title: 'Recycle successful',
+        text: 'You earned $newPoints points!',
+        onConfirm: () {
+          AppNavigator.pop(); // Close success dialog
+          AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
+        },
+      );
     } catch (error) {
       AppNavigator.pop(); // Close loading dialog
       errorDialog(context: context, title: 'Error processing recycle: $error');

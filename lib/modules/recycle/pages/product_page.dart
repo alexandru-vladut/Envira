@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
-import 'package:flutter_app_base/core/utils/app_navigator.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/product_model.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/recycle/pages/product_not_found_page.dart';
 import 'package:flutter_app_base/modules/recycle/providers/product_data_provider.dart';
 
@@ -15,6 +16,8 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
+  bool showReasoning = false;
+
   @override
   Widget build(BuildContext context) {
     return ProductDataProvider(
@@ -32,256 +35,408 @@ class _ProductPageState extends State<ProductPage> {
     }
 
     // Determine colors based on recyclability
-    Color lightColor;
-    Color darkColor;
-
-    if (product.isRecyclable) {
-      lightColor = const Color.fromARGB(255, 99, 210, 102);
-      darkColor = const Color.fromARGB(255, 83, 161, 86);
-    } else {
-      lightColor = const Color.fromARGB(255, 251, 87, 75);
-      darkColor = const Color.fromARGB(255, 181, 43, 33);
-    }
-
+    final recyclableColor = CustomTheme.primaryGreen;
+    final nonRecyclableColor = const Color(0xFFE94F37); // Vibrant red for non-recyclable
+    final accentColor = product.isRecyclable ? recyclableColor : nonRecyclableColor;
+    
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: _buildAppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Center(
-            child: product.imageUrl.isNotEmpty
-                ? Image.network(product.imageUrl, height: 200)
-                : Container(
-                    height: 200,
-                    width: 200,
-                    color: Colors.grey[300],
-                    child: const Icon(Icons.image, size: 50),
+      backgroundColor: CustomTheme.white,
+      appBar: CustomAppBar(title: 'Product Details'),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Product image section with status indicator
+            Stack(
+              children: [
+                // Image container
+                _buildProductImageSection(product, accentColor),
+                
+                // Recyclability badge
+                Positioned(
+                  top: 20,
+                  right: 20,
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: product.isRecyclable 
+                          ? recyclableColor.withOpacity(0.9)
+                          : nonRecyclableColor.withOpacity(0.9),
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 4,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(
+                          product.isRecyclable ? Icons.check_circle : Icons.do_not_disturb,
+                          color: Colors.white,
+                          size: 16,
+                        ),
+                        const SizedBox(width: 6),
+                        Text(
+                          product.isRecyclable ? 'Recyclable' : 'Not Recyclable',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-          ),
-          _buildProductInfo(product, lightColor),
-        ],
-      ),
-      bottomNavigationBar: _buildBottomBar(product, lightColor, darkColor),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: GestureDetector(
-        onTap: () => AppNavigator.pop(context: context),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.grey,
+                ),
+              ],
             ),
-            child: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 20,
+            
+            // Product info cards
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title and basic info
+                  _buildTitleSection(product, accentColor),
+                  const SizedBox(height: 24),
+                  
+                  // Points and action card
+                  _buildPointsCard(product, accentColor),
+                  const SizedBox(height: 24),
+                  
+                  // Product details card
+                  _buildDetailsCard(product, accentColor),
+                  const SizedBox(height: 24),
+                  
+                  // Reasoning section
+                  _buildReasoningSection(product, accentColor),
+                  const SizedBox(height: 40),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
   }
+  
+  Widget _buildProductImageSection(ProductModel product, Color accentColor) {
+    if (product.imageUrl.isNotEmpty) {
+      return Container(
+        width: double.infinity,
+        height: 280,
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 8,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
+        child: Image.network(
+          product.imageUrl,
+          fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress == null) return child;
+            return Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                    : null,
+                color: accentColor,
+              ),
+            );
+          },
+          errorBuilder: (context, error, stackTrace) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.broken_image, size: 48, color: Colors.grey[400]),
+                  const SizedBox(height: 8),
+                  Text(
+                    'Image failed to load',
+                    style: TextStyle(color: Colors.grey[600]),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      );
+    } else {
+      // No image available
+      return Container(
+        width: double.infinity,
+        height: 280,
+        color: Colors.grey[100],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.image_not_supported_outlined,
+              size: 80,
+              color: Colors.grey[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'No product image available',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey[600],
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Help by adding a photo of this product',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[500],
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () async {
+                await productService.uploadProductImage(
+                  context: context,
+                  product: product,
+                );
+              },
+              icon: const Icon(Icons.add_a_photo),
+              label: const Text('Upload Photo'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: accentColor,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+  }
 
-  Widget _buildProductInfo(ProductModel product, Color lightColor) {
+  Widget _buildTitleSection(ProductModel product, Color accentColor) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Text(
-            product.title,
-            style: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-            ),
-            overflow: TextOverflow.ellipsis,
+        // Product title
+        Text(
+          product.title,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: CustomTheme.black87,
           ),
         ),
         const SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: RichText(
-            text: TextSpan(
-              children: <TextSpan>[
-                const TextSpan(
-                  text: 'Description: ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-                TextSpan(
-                  text: product.description,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
+        
+        // Brand
+        Row(
+          children: [
+            Icon(Icons.business, size: 16, color: accentColor),
+            const SizedBox(width: 8),
+            Text(
+              product.brand,
+              style: TextStyle(
+                fontSize: 16,
+                color: CustomTheme.grey800,
+                fontWeight: FontWeight.w500,
+              ),
             ),
+          ],
+        ),
+      ],
+    );
+  }
+  
+  Widget _buildPointsCard(ProductModel product, Color accentColor) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.only(left: 16, right: 16, top: 20, bottom: 20),
+      decoration: BoxDecoration(
+        color: accentColor.withOpacity(0.1),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: accentColor.withOpacity(0.3)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Points information
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  Icon(
+                    Icons.eco,
+                    color: accentColor,
+                    size: 24,
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    product.points == 1 ? '1 Point' : '${product.points} Points',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: accentColor,
+                    ),
+                  ),
+                ],
+              ),
+              if (product.isRecyclable)
+                ElevatedButton.icon(
+                  onPressed: () => recycleService.recycleProduct(context, product),
+                  icon: const Icon(Icons.recycling),
+                  label: const Text('Recycle Now'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: accentColor,
+                    foregroundColor: Colors.white,
+                    elevation: 0,
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildDetailRow(String label, String value, Color accentColor) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            color: accentColor,
+            fontWeight: FontWeight.w500,
           ),
         ),
-        const SizedBox(height: 5),
-        Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: RichText(
-            text: TextSpan(
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Category: ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: lightColor,
-                    fontSize: 16,
-                  ),
-                ),
-                TextSpan(
-                  text: product.category,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: 5),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: RichText(
-            text: TextSpan(
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Material: ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: lightColor,
-                    fontSize: 16,
-                  ),
-                ),
-                TextSpan(
-                  text: product.material,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SizedBox(height: 5),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, right: 20),
-          child: RichText(
-            text: TextSpan(
-              children: <TextSpan>[
-                TextSpan(
-                  text: 'Brand: ',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: lightColor,
-                    fontSize: 16,
-                  ),
-                ),
-                TextSpan(
-                  text: product.brand,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
+        const SizedBox(height: 6),
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 16,
+            color: CustomTheme.black87,
           ),
         ),
       ],
     );
   }
-
-  Widget _buildBottomBar(ProductModel product, Color lightColor, Color darkColor) {
-    return ClipRRect(
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(40),
-        topRight: Radius.circular(40),
+  
+  Widget _buildDetailsCard(ProductModel product, Color accentColor) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: CustomTheme.grey200),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.05),
+            blurRadius: 10,
+            spreadRadius: 0,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
-      child: Container(
-        color: lightColor,
-        height: 200,
-        padding: const EdgeInsets.only(
-          left: 40,
-          right: 40,
-          top: 20,
-          bottom: 20,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Text(
-              product.isRecyclable 
-                  ? "This product is recyclable!" 
-                  : "This product is not recyclable",
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
-              ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Section title
+          const Text(
+            'Product Details',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: CustomTheme.black87,
             ),
-            Row(
+          ),
+          const SizedBox(height: 16),
+          
+          // Description
+          _buildDetailRow('Description', product.description, accentColor),
+          const Divider(height: 24),
+          
+          // Category
+          _buildDetailRow('Category', product.category, accentColor),
+          const Divider(height: 24),
+          
+          // Material
+          _buildDetailRow('Material', product.material, accentColor),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildReasoningSection(ProductModel product, Color accentColor) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: CustomTheme.grey100,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header with toggle
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                showReasoning = !showReasoning;
+              });
+            },
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
+              children: [
                 Text(
-                  (product.points != 1)
-                      ? "${product.points} Points"
-                      : "1 Point",
+                  'Why is this ${product.isRecyclable ? '' : 'not '}recyclable?',
                   style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 28,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: CustomTheme.black87,
                   ),
-                  overflow: TextOverflow.ellipsis,
                 ),
-                if (product.isRecyclable)
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: GestureDetector(
-                      onTap: () => recycleService.recycleProduct(context, product),
-                      child: Container(
-                        color: darkColor,
-                        width: 120,
-                        height: 60,
-                        alignment: Alignment.center,
-                        child: const Text(
-                          'Recycle Now',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                Icon(
+                  showReasoning ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
+                  color: CustomTheme.grey600,
+                ),
               ],
             ),
+          ),
+          
+          // Reasoning content
+          if (showReasoning) ...[
+            const SizedBox(height: 16),
+            Text(
+              product.reasoning,
+              style: const TextStyle(
+                fontSize: 14,
+                color: CustomTheme.grey800,
+                height: 1.5,
+              ),
+            ),
           ],
-        ),
+        ],
       ),
     );
   }
