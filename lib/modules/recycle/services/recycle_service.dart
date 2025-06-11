@@ -7,7 +7,7 @@ import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/repositories/transaction_repository.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
-import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/modules/recycle/pages/barcode_scanner_page.dart';
 import 'package:flutter_app_base/modules/recycle/pages/product_page.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
@@ -94,7 +94,7 @@ class RecycleService {
 
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog
-      AppNavigator.navigateTo(page: BottomNavBar());
+      AppNavigator.navigateTo(page: CustomNavBar());
     } catch (error) {
       AppNavigator.pop(); // Close loading dialog
       errorDialog(context: context, title: 'Error processing recycle: $error');

@@ -5,7 +5,7 @@ import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/product_model.dart';
 import 'package:flutter_app_base/data/repositories/product_repository.dart';
-import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/modules/recycle/services/gemini_service.dart';
 import 'package:http/http.dart' as http;
 
@@ -132,7 +132,7 @@ class ProductService {
       title: 'Product not found in external database',
       onConfirm: () {
         AppNavigator.pop(); // Close error dialog
-        AppNavigator.navigateTo(page: BottomNavBar()); // Go to home
+        AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
       },
     );
   }
@@ -145,7 +145,7 @@ class ProductService {
       title: 'Error searching for product: $error',
       onConfirm: () {
         AppNavigator.pop(); // Close error dialog
-        AppNavigator.navigateTo(page: BottomNavBar()); // Go to home
+        AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
       },
     );
   }

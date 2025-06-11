@@ -5,7 +5,7 @@ import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/context_utils.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
-import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/session/auth_state_provider.dart';
 import 'package:flutter_app_base/data/repositories/user_repository.dart';
 import 'package:flutter_app_base/modules/landing/pages/forget_email_sent.dart';
@@ -54,7 +54,7 @@ class AuthService {
 
       if (AppConfig.emailVerificationEnabled == false && AppConfig.pinCodeEnabled == false) {
         await sessionManager.startListeningToProviders();
-        AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
+        AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
         return;
       }
 
@@ -66,7 +66,7 @@ class AuthService {
           return;
         } else if (AppConfig.pinCodeEnabled == false) {
           await sessionManager.startListeningToProviders();
-          AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
+          AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
           return;
         }
       }
@@ -188,7 +188,7 @@ class AuthService {
 
       if (AppConfig.emailVerificationEnabled == false) {
         await sessionManager.startListeningToProviders();
-        AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
+        AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
         return;
       }
 
@@ -232,7 +232,7 @@ class AuthService {
       );
 
       await sessionManager.startListeningToProviders();
-      AppNavigator.navigateAndRemoveAll(page: const BottomNavBar());
+      AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
 
     } catch (error) {
       logger.e('[ERROR - createPinCode()] ${error.toString()}');

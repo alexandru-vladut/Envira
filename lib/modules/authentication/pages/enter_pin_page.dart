@@ -6,7 +6,7 @@ import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/modules/landing/pages/wrong_pin.dart';
-import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 
@@ -76,7 +76,7 @@ class _EnterPinState extends State<EnterPin> {
               }
               
               await sessionManager.startListeningToProviders(contextOverride: context);
-              AppNavigator.navigateAndRemoveAll(page: const BottomNavBar(), context: context);
+              AppNavigator.navigateAndRemoveAll(page: const CustomNavBar(), context: context);
 
             } else {
               resetProcess();

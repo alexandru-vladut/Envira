@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/utils/app_navigator.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycling_points_service.dart';
 
 class RecyclingLocationListPage extends StatelessWidget {
@@ -14,41 +15,9 @@ class RecyclingLocationListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: _buildAppBar(context),
+      backgroundColor: CustomTheme.white,
+      appBar: CustomAppBar(title: 'All Locations (${allPoints.length})'),
       body: _buildPointsList(),
-    );
-  }
-
-  AppBar _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      title: Text(
-        'All Locations (${allPoints.length})',
-        style: const TextStyle(
-          color: Colors.black,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      leading: GestureDetector(
-        onTap: () => AppNavigator.pop(context: context),
-        child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: Container(
-            decoration: const BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.grey,
-            ),
-            child: const Icon(
-              Icons.arrow_back_rounded,
-              color: Colors.white,
-              size: 20,
-            ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -72,15 +41,15 @@ class RecyclingLocationListPage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: isClosest ? const Color(0xFF3881E0).withOpacity(0.05) : Colors.white,
+        color: isClosest ? CustomTheme.primaryGreen.withOpacity(0.05) : CustomTheme.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: isClosest ? const Color(0xFF3881E0) : Colors.grey[200]!,
+          color: isClosest ? CustomTheme.primaryGreen : CustomTheme.grey200,
           width: isClosest ? 2 : 1,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: CustomTheme.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 4,
             offset: const Offset(0, 1),
@@ -103,13 +72,13 @@ class RecyclingLocationListPage extends StatelessWidget {
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
-                              color: const Color(0xFF3881E0),
+                              color: CustomTheme.primaryGreen,
                               borderRadius: BorderRadius.circular(8),
                             ),
                             child: const Text(
                               'CLOSEST',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: CustomTheme.white,
                                 fontSize: 10,
                                 fontWeight: FontWeight.bold,
                               ),
@@ -123,7 +92,7 @@ class RecyclingLocationListPage extends StatelessWidget {
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              color: CustomTheme.black87,
                             ),
                           ),
                         ),
@@ -135,7 +104,7 @@ class RecyclingLocationListPage extends StatelessWidget {
                         point.subheading,
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey[600],
+                          color: CustomTheme.grey600,
                         ),
                       ),
                     ],
@@ -145,13 +114,13 @@ class RecyclingLocationListPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF3881E0).withOpacity(0.1),
+                  color: CustomTheme.primaryGreen.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   point.formattedDistance,
                   style: const TextStyle(
-                    color: Color(0xFF3881E0),
+                    color: CustomTheme.successGreenDark,
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
                   ),
@@ -167,7 +136,7 @@ class RecyclingLocationListPage extends StatelessWidget {
               Icon(
                 Icons.location_on,
                 size: 14,
-                color: Colors.grey[600],
+                color: CustomTheme.grey600,
               ),
               const SizedBox(width: 4),
               Expanded(
@@ -175,7 +144,7 @@ class RecyclingLocationListPage extends StatelessWidget {
                   point.address.isNotEmpty ? point.address : 'Address not available',
                   style: TextStyle(
                     fontSize: 12,
-                    color: Colors.grey[600],
+                    color: CustomTheme.grey600,
                   ),
                 ),
               ),
@@ -190,9 +159,9 @@ class RecyclingLocationListPage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                   decoration: BoxDecoration(
-                    color: Colors.green[50],
+                    color: CustomTheme.lightGreenAccent,
                     borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.green[200]!),
+                    border: Border.all(color: CustomTheme.lightGreenBorder),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -200,14 +169,14 @@ class RecyclingLocationListPage extends StatelessWidget {
                       Icon(
                         Icons.attach_money,
                         size: 12,
-                        color: Colors.green[700],
+                        color: CustomTheme.successGreenDark,
                       ),
                       const SizedBox(width: 2),
                       Text(
                         'Offers money',
                         style: TextStyle(
                           fontSize: 10,
-                          color: Colors.green[700],
+                          color: CustomTheme.successGreenDark,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -226,8 +195,12 @@ class RecyclingLocationListPage extends StatelessWidget {
                 ),
                 label: const Text('Directions'),
                 style: TextButton.styleFrom(
-                  foregroundColor: const Color(0xFF3881E0),
+                  foregroundColor: CustomTheme.white,
+                  backgroundColor: CustomTheme.primaryGreen,
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
                 ),
               ),
             ],

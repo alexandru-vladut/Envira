@@ -5,7 +5,7 @@ import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/modules/authentication/pages/login_page.dart';
 import 'package:flutter_app_base/modules/authentication/pages/enter_pin_page.dart';
-import 'package:flutter_app_base/modules/bottom_nav_bar.dart';
+import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 class AuthGate extends StatelessWidget {
@@ -47,7 +47,7 @@ class AuthGate extends StatelessWidget {
     if (AppConfig.pinCodeEnabled == false) {
       // Ensure data required by the home page is loaded here
       sessionManager.startListeningToProviders();
-      return const BottomNavBar();
+      return const CustomNavBar();
     }
 
     // Get user's PIN code

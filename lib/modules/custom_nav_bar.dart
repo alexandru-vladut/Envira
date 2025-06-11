@@ -4,14 +4,14 @@ import 'package:flutter_app_base/modules/leaderboard/pages/leaderboard_page.dart
 import 'package:flutter_app_base/modules/profile/pages/profile_page.dart';
 import 'package:flutter_app_base/modules/vouchers/pages/vouchers_page.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+class CustomNavBar extends StatefulWidget {
+  const CustomNavBar({super.key});
 
   @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
+  State<CustomNavBar> createState() => _CustomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> with TickerProviderStateMixin {
+class _CustomNavBarState extends State<CustomNavBar> with TickerProviderStateMixin {
   int _selectedIndex = 0;
 
   List<Widget> widgetOptions = [];
