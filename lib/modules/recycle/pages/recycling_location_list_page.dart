@@ -3,6 +3,7 @@ import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
 import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycling_points_service.dart';
+import 'package:flutter_app_base/modules/recycle/widgets/recycling_point_detail_modal.dart';
 
 class RecyclingLocationListPage extends StatelessWidget {
   final List<RecyclingPointModel> allPoints;
@@ -31,7 +32,10 @@ class RecyclingLocationListPage extends StatelessWidget {
         
         return Padding(
           padding: const EdgeInsets.only(bottom: 12),
-          child: _buildPointListItem(context, point, isClosest),
+          child: GestureDetector(
+            onTap: () => RecyclingPointDetailModal.show(context, point),
+            child: _buildPointListItem(context, point, isClosest),
+          ),
         );
       },
     );

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
 import 'package:flutter_app_base/modules/recycle/pages/recycling_location_list_page.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycling_points_service.dart';
+import 'package:flutter_app_base/modules/recycle/widgets/recycling_point_detail_modal.dart';
 
 class RecyclePage extends StatefulWidget {
   const RecyclePage({super.key});
@@ -58,7 +60,6 @@ class _RecyclePageState extends State<RecyclePage> {
       final points = await RecyclingPointsService.getNearbyPoints(
         userLat: position.latitude,
         userLng: position.longitude,
-        radiusKm: 1.0,
       );
 
       setState(() {
@@ -142,10 +143,7 @@ class _RecyclePageState extends State<RecyclePage> {
               const SizedBox(width: 8),
               Text(
                 'Find recycling points near you',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: CustomTheme.grey600,
-                ),
+                style: TextStyle(fontSize: 15, color: CustomTheme.grey600),
               ),
             ],
           ),
@@ -231,10 +229,7 @@ class _RecyclePageState extends State<RecyclePage> {
                     SizedBox(height: 4),
                     Text(
                       'Scan products to recycle and earn points',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: CustomTheme.white,
-                      ),
+                      style: TextStyle(fontSize: 14, color: CustomTheme.white),
                     ),
                   ],
                 ),
@@ -408,7 +403,7 @@ class _RecyclePageState extends State<RecyclePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Text(
-                'No recycling points found within 1km of your location.',
+                'No recycling points found within ${AppConfig.recyclingPointsRadiusKm}km of your location.',
                 style: TextStyle(fontSize: 14, color: CustomTheme.grey600),
                 textAlign: TextAlign.center,
               ),
@@ -495,7 +490,10 @@ class _RecyclePageState extends State<RecyclePage> {
         const SizedBox(height: 12),
 
         // Closest point card with enhanced styling
-        _buildPointCard(closestPoint),
+        GestureDetector(
+          onTap: () => RecyclingPointDetailModal.show(context, closestPoint),
+          child: _buildPointCard(closestPoint),
+        ),
 
         const SizedBox(height: 20),
 

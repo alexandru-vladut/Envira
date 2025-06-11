@@ -5,4 +5,5 @@ class AppConfig {
   static const bool pinCodeEnabled = false;
   static const String geminiApiKey = 'AIzaSyDRUDGxGqdmLhZH_H_8u7CeG7itN5moeKg';
   static const String barcodeLookupApiKey = '4p9i06zpselyxdg07fwr349zzybma4';
+  static const double recyclingPointsRadiusKm = 0.5;
 }

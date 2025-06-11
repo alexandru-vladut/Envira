@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,7 +42,6 @@ class RecyclingPointsService {
   static Future<List<RecyclingPointModel>> getNearbyPoints({
     required double userLat,
     required double userLng,
-    double radiusKm = 3.0,
   }) async {
 
     final allPoints = await _getAllRecyclingPoints(); // Get all cached points
@@ -50,7 +50,7 @@ class RecyclingPointsService {
     for (final point in allPoints) {
       final distance = _calculateDistance(userLat, userLng, point.latitude, point.longitude);
       
-      if (distance <= radiusKm) {
+      if (distance <= AppConfig.recyclingPointsRadiusKm) {
         nearbyPoints.add(point.copyWithDistance(distance));
       }
     }
