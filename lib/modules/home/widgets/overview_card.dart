@@ -37,11 +37,7 @@ class OverviewCard extends StatelessWidget {
         return FadeTransition(
           opacity: animation!,
           child: Transform(
-            transform: Matrix4.translationValues(
-              0.0,
-              30 * (1.0 - animation!.value),
-              0.0,
-            ),
+            transform: Matrix4.translationValues(0.0, 30 * (1.0 - animation!.value), 0.0),
             child: Padding(
               padding: const EdgeInsets.only(left: 24, right: 24),
               child: Container(
@@ -64,20 +60,12 @@ class OverviewCard extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 16,
-                        left: 12,
-                        right: 12,
-                      ),
+                      padding: const EdgeInsets.only(top: 16, left: 12, right: 12),
                       child: Row(
                         children: <Widget>[
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 8,
-                                // right: 8,
-                                top: 4,
-                              ),
+                              padding: const EdgeInsets.only(left: 8, top: 4),
                               child: Column(
                                 children: <Widget>[
                                   Row(
@@ -95,7 +83,7 @@ class OverviewCard extends StatelessWidget {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.only(left: 4, right: 8, top: 8, bottom: 8),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
@@ -195,7 +183,7 @@ class OverviewCard extends StatelessWidget {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.all(8.0),
+                                        padding: const EdgeInsets.only(left: 4, right: 8, top: 8, bottom: 8),
                                         child: Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,

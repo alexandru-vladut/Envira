@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
-import 'package:flutter_app_base/modules/recycle/pages/recycling_location_page.dart';
+import 'package:flutter_app_base/modules/recycle/pages/recycle_page.dart';
 import 'package:flutter_app_base/modules/work_log/pages/calendar_page.dart';
 import 'package:flutter_app_base/modules/challenges/pages/challenges_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
@@ -112,8 +111,7 @@ class ActionsView extends StatelessWidget {
               onTap: () async {
                 String title = actionListData!.titleTxt;
                 if (title == 'Recycle') {
-                  AppNavigator.navigateTo(page: RecyclingLocationPage());
-                  // await recycleService.scanBarcode(context);
+                  AppNavigator.navigateTo(page: RecyclePage());
                 } else if (title == 'Work') {
                   AppNavigator.navigateTo(page: CalendarPage());
                 } else if (title == 'Challenges') {
