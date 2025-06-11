@@ -4,6 +4,7 @@ import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/recycle/pages/recycling_location_list_page.dart';
 import 'package:flutter_app_base/modules/recycle/services/recycling_points_service.dart';
 import 'package:flutter_app_base/modules/recycle/widgets/recycling_point_detail_modal.dart';
@@ -78,7 +79,7 @@ class _RecyclePageState extends State<RecyclePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: CustomTheme.white,
-      appBar: _buildAppBar(context),
+      appBar: CustomAppBar(title: 'Recycling Locations'),
       body: Column(
         children: [
           // First section - Recycling locations (scrollable)
@@ -91,37 +92,6 @@ class _RecyclePageState extends State<RecyclePage> {
           // Second section - Barcode scanner (fixed)
           _buildBarcodeScannerSection(),
         ],
-      ),
-    );
-  }
-
-  AppBar _buildAppBar(BuildContext context) {
-    return AppBar(
-      backgroundColor: CustomTheme.transparent,
-      elevation: 0,
-      centerTitle: true,
-      title: const Text(
-        'Recycling Locations',
-        style: TextStyle(
-          color: CustomTheme.black,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      leading: GestureDetector(
-        onTap: () => AppNavigator.pop(context: context),
-        child: Container(
-          margin: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: CustomTheme.grey200,
-          ),
-          child: const Icon(
-            Icons.arrow_back_rounded,
-            color: CustomTheme.black87,
-            size: 20,
-          ),
-        ),
       ),
     );
   }
