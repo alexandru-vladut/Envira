@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/modules/profile/providers/profile_provider.dart';
 import 'package:flutter_app_base/core/utils/memojis.dart';
@@ -40,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
   Widget build(BuildContext context) {
     return ProfileProvider(
       builder: (data) => Scaffold(
-        backgroundColor: HomeAppTheme.background,
+        backgroundColor: CustomTheme.white,
         body: SafeArea(
           child: FadeTransition(
             opacity: _animation,
@@ -101,11 +102,11 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               // Edit Button
               Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: CustomTheme.primaryGreen,
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: Theme.of(context).primaryColor.withOpacity(0.3),
+                      color: CustomTheme.primaryGreen.withOpacity(0.3),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     ),
@@ -161,7 +162,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor.withOpacity(0.1),
+              color: CustomTheme.primaryGreen.withOpacity(0.1),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Row(
@@ -170,7 +171,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                 Icon(
                   Icons.verified_user,
                   size: 16,
-                  color: Theme.of(context).primaryColor,
+                  color: CustomTheme.primaryGreen,
                 ),
                 const SizedBox(width: 8),
                 Text(
@@ -178,7 +179,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   style: TextStyle(
                     fontSize: 13,
                     fontWeight: FontWeight.w600,
-                    color: Theme.of(context).primaryColor,
+                    color: CustomTheme.primaryGreen,
                   ),
                 ),
               ],
@@ -217,7 +218,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
+                  color: Colors.black.withOpacity(0.1),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),
@@ -324,7 +325,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
               borderRadius: BorderRadius.circular(16),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
+                  color: Colors.black.withOpacity(0.1),
                   blurRadius: 12,
                   offset: const Offset(0, 4),
                 ),

@@ -17,16 +17,16 @@ class ActionListData {
     ActionListData(
       imagePath: 'assets/images/home/recycle.png',
       titleTxt: 'Recycle',
-      actions: <String>['Products,', 'RetuRO'],
-      startColor: '#94A885',
-      endColor: '#72B794',
+      actions: <String>['Locations,', 'Products'],
+      startColor: '#52D980',
+      endColor: '#2DA757',
     ),
     ActionListData(
       imagePath: 'assets/images/home/working-at-home.png',
       titleTxt: 'Work',
       actions: <String>['Remote,', 'Office'],
-      startColor: '#738AE6',
-      endColor: '#5C5EDD',
+      startColor: '#3881E0',
+      endColor: '#6C5CE7',
     ),
     ActionListData(
       imagePath: 'assets/images/home/challenge.png',

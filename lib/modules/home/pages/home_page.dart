@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_card.dart';
-import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/modules/home/providers/home_data_provider.dart';
 import 'package:flutter_app_base/modules/home/widgets/home_header.dart';
 import 'package:flutter_app_base/modules/home/widgets/overview_card.dart';
@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     return HomeDataProvider(
       builder: (data) =>
         Scaffold(
-          backgroundColor: HomeAppTheme.background,
+          backgroundColor: CustomTheme.white,
           body: ListView(
             padding: const EdgeInsets.only(top: 60),
             children: [

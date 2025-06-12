@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/modules/home/pages/home_page.dart';
 import 'package:flutter_app_base/modules/leaderboard/pages/leaderboard_page.dart';
 import 'package:flutter_app_base/modules/profile/pages/profile_page.dart';
@@ -101,8 +103,8 @@ class _CustomNavBarState extends State<CustomNavBar> with TickerProviderStateMix
                 fontWeight: FontWeight.w400,
               ),
               type: BottomNavigationBarType.fixed,
-              selectedItemColor: Theme.of(context).primaryColor,
-              unselectedItemColor: Colors.grey.withOpacity(0.7),
+              selectedItemColor: CustomTheme.primaryGreenDark,
+              unselectedItemColor: HomeAppTheme.lightText,
               items: [
                 _buildNavItem(Icons.home_rounded, 'Home', 0),
                 _buildNavItem(Icons.redeem_rounded, 'Vouchers', 1),
@@ -135,7 +137,7 @@ class _CustomNavBarState extends State<CustomNavBar> with TickerProviderStateMix
                 padding: const EdgeInsets.all(6),
                 decoration: BoxDecoration(
                   color: isSelected 
-                      ? Theme.of(context).primaryColor.withOpacity(0.1) 
+                      ? CustomTheme.primaryGreenDark.withOpacity(0.1) 
                       : Colors.transparent,
                   borderRadius: BorderRadius.circular(10),
                 ),

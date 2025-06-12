@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/providers/users_provider.dart';
 import 'package:flutter_app_base/data/providers/vouchers_provider.dart';
@@ -61,7 +61,7 @@ class _VouchersPageState extends State<VouchersPage> with SingleTickerProviderSt
     ).toList();
 
     return Scaffold(
-      backgroundColor: HomeAppTheme.background,
+      backgroundColor: CustomTheme.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -79,15 +79,78 @@ class _VouchersPageState extends State<VouchersPage> with SingleTickerProviderSt
             onPressed: () {
               showDialog(
                 context: context,
-                builder: (_) => AlertDialog(
-                  title: const Text("About Vouchers"),
-                  content: const Text("Vouchers can be claimed using points you earn. You can refund a voucher to get your points back."),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: const Text("Got it"),
+                builder: (_) => Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Title with icon
+                        Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: CustomTheme.primaryGreen.withOpacity(0.1),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: const Icon(
+                                Icons.card_giftcard,
+                                color: CustomTheme.primaryGreen,
+                                size: 20,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            const Text(
+                              'About Vouchers',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: CustomTheme.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                        
+                        const SizedBox(height: 16),
+                        
+                        // Content
+                        const Text(
+                          "Vouchers can be claimed using points you earn. You can refund a voucher to get your points back.",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: CustomTheme.grey800,
+                            height: 1.4,
+                          ),
+                        ),
+                        
+                        const SizedBox(height: 20),
+                        
+                        // Button
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            style: TextButton.styleFrom(
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              foregroundColor: CustomTheme.primaryGreen,
+                            ),
+                            child: const Text(
+                              'Got it',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               );
             },
@@ -144,7 +207,7 @@ class _VouchersPageState extends State<VouchersPage> with SingleTickerProviderSt
                 SectionHeader(
                   title: "Available Vouchers",
                   icon: Icons.storefront,
-                  color: const Color(0xFF4CAF50),
+                  color: CustomTheme.primaryGreen,
                   itemCount: availableVouchers.length,
                 ),
                 
@@ -153,7 +216,7 @@ class _VouchersPageState extends State<VouchersPage> with SingleTickerProviderSt
                     title: "All Claimed!",
                     message: "You've claimed all available vouchers. Check back later for new offers!",
                     icon: Icons.inventory_2,
-                    color: Color(0xFF4CAF50),
+                    color: CustomTheme.primaryGreen,
                   )
                 else
                   ListView.builder(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/voucher_model.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
@@ -213,12 +214,12 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                             margin: const EdgeInsets.only(left: 8),
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: widget.isAdded ? Colors.red.shade400 : Colors.green.shade400,
+                              color: widget.isAdded ? Colors.red.shade400 : CustomTheme.primaryGreen.withOpacity(0.9),
                               boxShadow: [
                                 BoxShadow(
                                   color: widget.isAdded
                                       ? Colors.red.withOpacity(0.2)
-                                      : Colors.green.withOpacity(0.2),
+                                      : CustomTheme.primaryGreen.withOpacity(0.2),
                                   spreadRadius: 1,
                                   blurRadius: 4,
                                   offset: const Offset(0, 2),
@@ -257,7 +258,7 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                         decoration: BoxDecoration(
                           color: widget.isAdded
                               ? const Color(0xFF3881E0).withOpacity(0.1)
-                              : const Color(0xFF4CAF50).withOpacity(0.1),
+                              : CustomTheme.primaryGreen.withOpacity(0.1),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Row(
@@ -268,7 +269,7 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                               size: 14, // Reduced from 16
                               color: widget.isAdded
                                   ? const Color(0xFF3881E0)
-                                  : const Color(0xFF4CAF50),
+                                  : CustomTheme.primaryGreen,
                             ),
                             const SizedBox(width: 4),
                             Text(
@@ -278,7 +279,7 @@ class _AnimatedVoucherCardState extends State<AnimatedVoucherCard> with SingleTi
                                 fontWeight: FontWeight.w600,
                                 color: widget.isAdded
                                     ? const Color(0xFF3881E0)
-                                    : const Color(0xFF4CAF50),
+                                    : CustomTheme.primaryGreen,
                               ),
                             ),
                           ],

@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
-import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/providers/companies_provider.dart';
 import 'package:flutter_app_base/data/providers/products_provider.dart';
 import 'package:flutter_app_base/data/providers/transactions_provider.dart';
@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey, // 👈 Plug in your global navigator key here
       theme: ThemeData(
         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme),
-        scaffoldBackgroundColor: HomeAppTheme.background,
+        scaffoldBackgroundColor: CustomTheme.white,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),

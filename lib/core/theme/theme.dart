@@ -32,6 +32,7 @@ class CustomTheme {
   static const Color grey800 = Color(0xFF424242);
 
   static const Color primaryGreen = Color(0xFF39BD65);
+  static const Color primaryGreenDark = Color.fromARGB(255, 56, 170, 94); // green[700]
 
   static const Color lightBlue = Color(0xFFE3F2FD); // blue[50]
   static const Color lightBlueAccent = Color(0xFFBBDEFB); // blue[100]

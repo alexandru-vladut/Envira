@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
+import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/modules/leaderboard/providers/leaderboard_provider.dart';
 import 'dart:math' as math;
@@ -13,15 +14,14 @@ class LeaderboardPage extends StatefulWidget {
   State<LeaderboardPage> createState() => _LeaderboardPageState();
 }
 
-class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProviderStateMixin {
+class _LeaderboardPageState extends State<LeaderboardPage>
+    with SingleTickerProviderStateMixin {
   bool _showAllTime = true;
   late AnimationController _animationController;
   late Animation<double> _animation;
-  
+
   // Colors for the unified design
-  final Color _primaryBlue = const Color(0xFF3881E0);
   final Color _accentGold = const Color(0xFFFFBF00);
-  final Color _darkBlue = const Color(0xFF1A56DB);
 
   @override
   void initState() {
@@ -54,335 +54,246 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
   @override
   Widget build(BuildContext context) {
     return LeaderboardProvider(
-      builder: (data) =>
-        Scaffold(
-          backgroundColor: HomeAppTheme.white,
-          body: Stack(
-            children: [
-              // List of other users with gradient background
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  height: 330,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF3881E0), Color(0xFF6C5CE7)],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(32),
-                      topLeft: Radius.circular(32),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: _primaryBlue.withOpacity(0.3),
-                        blurRadius: 15,
-                        offset: const Offset(0, -5),
+      builder:
+          (data) => Scaffold(
+            backgroundColor: HomeAppTheme.white,
+            body: Stack(
+              children: [
+                // List of other users with gradient background
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    height: 330,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      color: CustomTheme.white,
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(32),
+                        topLeft: Radius.circular(32),
                       ),
-                    ],
-                  ),
-                  child: Stack(
-                    children: [
-                      // Decorative circles
-                      Positioned(
-                        top: -20,
-                        left: -20,
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(0.1),
-                          ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: CustomTheme.black.withOpacity(0.1),
+                          blurRadius: 15,
+                          offset: const Offset(0, -5),
                         ),
-                      ),
-                      Positioned(
-                        bottom: -40,
-                        right: -10,
-                        child: Container(
-                          width: 120,
-                          height: 120,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.white.withOpacity(0.1),
-                          ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(24, 16, 24, 16),
+                          child: _buildToggleSwitch(),
                         ),
-                      ),
-                      
-                      // Content
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
-                            child: Row(
-                              children: [
-                                Container(
-                                  padding: const EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: const Icon(
-                                    Icons.people_alt_rounded, 
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
+
+                        Expanded(
+                          child: ListView.builder(
+                            padding: const EdgeInsets.only(top: 0, bottom: 16),
+                            physics: const BouncingScrollPhysics(),
+                            itemCount:
+                                _showAllTime
+                                    ? data.otherUsersAllTime.length
+                                    : data.otherUsersGoal.length,
+                            itemBuilder: (context, index) {
+                              final item =
+                                  _showAllTime
+                                      ? data.otherUsersAllTime[index]
+                                      : data.otherUsersGoal[index];
+
+                              return Container(
+                                margin: const EdgeInsets.fromLTRB(16, 4, 16, 4),
+                                decoration: BoxDecoration(
+                                  color: CustomTheme.white,
+                                  borderRadius: BorderRadius.circular(16),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: CustomTheme.black.withOpacity(0.1),
+                                      blurRadius: 2,
+                                      offset: const Offset(0, 2),
+                                    ),
+                                  ],
                                 ),
-                                const SizedBox(width: 12),
-                                const Text(
-                                  "Competitors",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white,
-                                    letterSpacing: 0.3,
+                                child: ListTile(
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16,
+                                    vertical: 8,
                                   ),
-                                ),
-                                const Spacer(),
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, 
-                                    vertical: 6,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
-                                  child: Row(
+                                  leading: Row(
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Icon(
-                                        Icons.military_tech,
-                                        color: Colors.white,
-                                        size: 14,
-                                      ),
-                                      const SizedBox(width: 4),
+                                      // Rank indicator
                                       Text(
-                                        _showAllTime ? "All Time" : "Goal",
+                                        "${index + 4}.",
                                         style: const TextStyle(
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w600,
-                                          color: Colors.white,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                          color: HomeAppTheme.lightText,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                      // Avatar
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color: CustomTheme.white,
+                                            width: 2,
+                                          ),
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 20,
+                                          backgroundColor:
+                                              CustomTheme.transparent,
+                                          foregroundImage: AssetImage(
+                                            memojiPaths[(index + 3) % 9],
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          
-                          Expanded(
-                            child: ListView.builder(
-                              padding: const EdgeInsets.only(top: 0, bottom: 16),
-                              physics: const BouncingScrollPhysics(),
-                              itemCount: _showAllTime 
-                                ? data.otherUsersAllTime.length 
-                                : data.otherUsersGoal.length,
-                              itemBuilder: (context, index) {
-                                final item = _showAllTime 
-                                  ? data.otherUsersAllTime[index]
-                                  : data.otherUsersGoal[index];
-                                
-                                return Container(
-                                  margin: const EdgeInsets.fromLTRB(16, 4, 16, 4),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white.withOpacity(0.15),
-                                    borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(
-                                      color: Colors.white.withOpacity(0.2),
-                                      width: 1,
+                                  title: Text(
+                                    _showAllTime
+                                        ? (item as UserModel).name
+                                        : (item as UserWithGoalPoints)
+                                            .user
+                                            .name,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: CustomTheme.black,
                                     ),
                                   ),
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.symmetric(
-                                      horizontal: 16, 
-                                      vertical: 8,
+                                  trailing: Container(
+                                    height: 36,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 14,
                                     ),
-                                    leading: Row(
+                                    decoration: BoxDecoration(
+                                      color: HomeAppTheme.lightText,
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: HomeAppTheme.lightText
+                                              .withOpacity(0.3),
+                                          blurRadius: 4,
+                                          offset: const Offset(0, 2),
+                                        ),
+                                      ],
+                                    ),
+                                    child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        // Rank indicator
-                                        Container(
-                                          width: 32,
-                                          height: 32,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white.withOpacity(0.2),
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Text(
-                                            (index + 4).toString(),
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                            ),
-                                          ),
+                                        const Icon(
+                                          Icons.token,
+                                          color: CustomTheme.white,
+                                          size: 18,
                                         ),
-                                        const SizedBox(width: 12),
-                                        // Avatar
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color: Colors.white,
-                                              width: 2,
-                                            ),
-                                          ),
-                                          child: CircleAvatar(
-                                            radius: 20,
-                                            backgroundColor: Colors.white,
-                                            foregroundImage: AssetImage(memojiPaths[(index + 3) % 9]),
+                                        const SizedBox(width: 6),
+                                        Text(
+                                          _showAllTime
+                                              ? (item as UserModel).totalPoints
+                                                  .toString()
+                                              : (item as UserWithGoalPoints)
+                                                  .goalPoints
+                                                  .toString(),
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 14,
+                                            color: CustomTheme.white,
                                           ),
                                         ),
                                       ],
                                     ),
-                                    title: Text(
-                                      _showAllTime 
-                                        ? (item as UserModel).name 
-                                        : (item as UserWithGoalPoints).user.name,
-                                      style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    trailing: Container(
-                                      height: 36,
-                                      padding: const EdgeInsets.symmetric(horizontal: 14),
-                                      decoration: BoxDecoration(
-                                        color: _accentGold,
-                                        borderRadius: BorderRadius.circular(20),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: _accentGold.withOpacity(0.3),
-                                            blurRadius: 4,
-                                            offset: const Offset(0, 2),
-                                          ),
-                                        ],
-                                      ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          const Icon(
-                                            Icons.token,
-                                            color: Colors.white,
-                                            size: 18,
-                                          ),
-                                          const SizedBox(width: 6),
-                                          Text(
-                                            _showAllTime 
-                                              ? (item as UserModel).totalPoints.toString()
-                                              : (item as UserWithGoalPoints).goalPoints.toString(),
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 14,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                   ),
-                                );
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              
-              // Header with clean design
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top + 16,
-                    bottom: 16,
-                  ),
-                  decoration: BoxDecoration(
-                    color: HomeAppTheme.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // Title
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          "Leaderboard",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+                                ),
+                              );
+                            },
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Header with clean design
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      top: MediaQuery.of(context).padding.top + 10,
+                      bottom: 16,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        // Title
+                        Text(
+                          "Leaderboard",
+                          style: TextStyle(
+                            color: Color(0xFF333333),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                        // Toggle switch
+                        // _buildToggleSwitch(),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Top three with animations and decorative elements
+                FadeTransition(
+                  opacity: _animation,
+                  child: Stack(
+                    children: [
+                      // First place winner with special effects
+                      Positioned(
+                        top: 110,
+                        left: 0,
+                        right: 0,
+                        child: Center(child: _buildFirstPlace(data)),
                       ),
-                      // Toggle switch
-                      _buildToggleSwitch(),
+                      // Second place
+                      Positioned(
+                        top: 170,
+                        left: 35,
+                        child: _buildRunnerUp(data, 1, 2),
+                      ),
+                      // Third place
+                      Positioned(
+                        top: 180,
+                        right: 35,
+                        child: _buildRunnerUp(data, 2, 3),
+                      ),
                     ],
                   ),
                 ),
-              ),
-              
-              // Top three with animations and decorative elements
-              FadeTransition(
-                opacity: _animation,
-                child: Stack(
-                  children: [
-                    // First place winner with special effects
-                    Positioned(
-                      top: 110,
-                      left: 0,
-                      right: 0,
-                      child: Center(
-                        child: _buildFirstPlace(data),
-                      ),
-                    ),
-                    // Second place
-                    Positioned(
-                      top: 170,
-                      left: 35,
-                      child: _buildRunnerUp(data, 1, 2),
-                    ),
-                    // Third place
-                    Positioned(
-                      top: 180,
-                      right: 35,
-                      child: _buildRunnerUp(data, 2, 3),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
     );
   }
 
   Widget _buildToggleSwitch() {
     return Container(
-      width: 160,
-      height: 36,
-      padding: const EdgeInsets.all(3),
+      height: 52,
+      padding: const EdgeInsets.all(0),
       decoration: BoxDecoration(
-        color: _primaryBlue.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(30),
+        color: CustomTheme.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: CustomTheme.black.withOpacity(0.15),
+            blurRadius: 6,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Row(
         children: [
@@ -391,19 +302,31 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               onTap: _showAllTime ? null : _toggleLeaderboard,
               child: Container(
                 decoration: BoxDecoration(
-                  color: _showAllTime 
-                    ? _primaryBlue
-                    : Colors.transparent,
-                  borderRadius: BorderRadius.circular(30),
+                  color:
+                      _showAllTime
+                          ? CustomTheme.primaryGreen
+                          : Colors.transparent,
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 alignment: Alignment.center,
-                child: Text(
-                  "All Time",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: _showAllTime ? Colors.white : _primaryBlue,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.history_rounded,
+                      color: _showAllTime ? Colors.white : CustomTheme.black,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "All Time",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: _showAllTime ? Colors.white : CustomTheme.black,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -413,19 +336,31 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               onTap: _showAllTime ? _toggleLeaderboard : null,
               child: Container(
                 decoration: BoxDecoration(
-                  color: !_showAllTime 
-                    ? _primaryBlue
-                    : Colors.transparent,
-                  borderRadius: BorderRadius.circular(30),
+                  color:
+                      !_showAllTime
+                          ? CustomTheme.primaryGreen
+                          : Colors.transparent,
+                  borderRadius: BorderRadius.circular(16),
                 ),
                 alignment: Alignment.center,
-                child: Text(
-                  "Goal",
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: !_showAllTime ? Colors.white : _primaryBlue,
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.flag_rounded,
+                      color: !_showAllTime ? Colors.white : CustomTheme.black,
+                      size: 20,
+                    ),
+                    const SizedBox(width: 6),
+                    Text(
+                      "Goal",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: !_showAllTime ? Colors.white : CustomTheme.black,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -438,7 +373,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
   Widget _buildFirstPlace(LeaderboardData data) {
     final name = _getTopUserName(data, 0);
     final points = _getTopUserPoints(data, 0);
-    
+
     return Column(
       children: [
         // Profile picture with glow and decoration
@@ -487,10 +422,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: _accentGold,
-                  width: 3,
-                ),
+                border: Border.all(color: _accentGold, width: 3),
                 boxShadow: [
                   BoxShadow(
                     color: _accentGold.withOpacity(0.4),
@@ -537,9 +469,9 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             ),
           ],
         ),
-        
+
         const SizedBox(height: 10),
-        
+
         // Name with special style
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
@@ -559,13 +491,13 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: _darkBlue,
+              color: CustomTheme.black,
             ),
           ),
         ),
-        
+
         const SizedBox(height: 10),
-        
+
         // Points with gold background
         Container(
           height: 36,
@@ -584,11 +516,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.token,
-                color: Colors.white,
-                size: 20,
-              ),
+              const Icon(Icons.token, color: Colors.white, size: 20),
               const SizedBox(width: 8),
               Text(
                 points,
@@ -608,7 +536,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
   Widget _buildRunnerUp(LeaderboardData data, int index, int rank) {
     final name = _getTopUserName(data, index);
     final points = _getTopUserPoints(data, index);
-    
+
     return Column(
       children: [
         // Avatar with border
@@ -618,13 +546,10 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(
-                  color: _primaryBlue,
-                  width: 2,
-                ),
+                border: Border.all(color: HomeAppTheme.lightText, width: 2),
                 boxShadow: [
                   BoxShadow(
-                    color: _primaryBlue.withOpacity(0.3),
+                    color: HomeAppTheme.lightText.withOpacity(0.3),
                     blurRadius: 10,
                     spreadRadius: 1,
                   ),
@@ -633,18 +558,20 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage(rank == 2 ? Memojis.memoji2 : Memojis.memoji3),
+                foregroundImage: AssetImage(
+                  rank == 2 ? Memojis.memoji2 : Memojis.memoji3,
+                ),
               ),
             ),
-            
+
             // Rank badge
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _primaryBlue,
+                color: HomeAppTheme.lightText,
                 boxShadow: [
                   BoxShadow(
-                    color: _primaryBlue.withOpacity(0.3),
+                    color: HomeAppTheme.lightText.withOpacity(0.3),
                     blurRadius: 6,
                     spreadRadius: 1,
                   ),
@@ -665,9 +592,9 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             ),
           ],
         ),
-        
+
         const SizedBox(height: 8),
-        
+
         // Name
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
@@ -687,23 +614,23 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
-              color: _primaryBlue,
+              color: CustomTheme.black,
             ),
           ),
         ),
-        
+
         const SizedBox(height: 8),
-        
+
         // Points
         Container(
           height: 30,
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            color: _primaryBlue,
+            color: HomeAppTheme.lightText,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: _primaryBlue.withOpacity(0.3),
+                color: HomeAppTheme.lightText,
                 blurRadius: 6,
                 offset: const Offset(0, 2),
               ),
@@ -712,11 +639,7 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.token,
-                color: Colors.white,
-                size: 16,
-              ),
+              const Icon(Icons.token, color: Colors.white, size: 16),
               const SizedBox(width: 6),
               Text(
                 points,
@@ -763,4 +686,3 @@ class _LeaderboardPageState extends State<LeaderboardPage> with SingleTickerProv
     return "0";
   }
 }
-

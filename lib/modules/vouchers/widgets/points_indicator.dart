@@ -61,7 +61,7 @@ class _PointsIndicatorState extends State<PointsIndicator> with SingleTickerProv
             height: 120,
             decoration: BoxDecoration(
               gradient: const LinearGradient(
-                colors: [Color(0xFF3881E0), Color(0xFF6C5CE7)],
+                colors: [Color.fromARGB(255, 88, 228, 135), Color.fromARGB(255, 42, 146, 77)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               ),

@@ -74,9 +74,7 @@ class OverviewCard extends StatelessWidget {
                                         height: 48,
                                         width: 2,
                                         decoration: BoxDecoration(
-                                          color: HexColor(
-                                            '#87A0E5',
-                                          ).withOpacity(0.5),
+                                          color: CustomTheme.primaryGreen.withOpacity(0.8),
                                           borderRadius: const BorderRadius.all(
                                             Radius.circular(4.0),
                                           ),
@@ -85,16 +83,11 @@ class OverviewCard extends StatelessWidget {
                                       Padding(
                                         padding: const EdgeInsets.only(left: 4, right: 8, top: 8, bottom: 8),
                                         child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
                                             Padding(
-                                              padding: const EdgeInsets.only(
-                                                left: 4,
-                                                bottom: 2,
-                                              ),
+                                              padding: const EdgeInsets.only(left: 4, bottom: 2),
                                               child: Text(
                                                 'Active Goal',
                                                 textAlign: TextAlign.center,
@@ -102,23 +95,18 @@ class OverviewCard extends StatelessWidget {
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 16,
                                                   letterSpacing: -0.1,
-                                                  color: HomeAppTheme.grey
-                                                      .withOpacity(0.5),
+                                                  color: HomeAppTheme.grey.withOpacity(0.7),
                                                 ),
                                               ),
                                             ),
                                             Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.end,
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.end,
                                               children: <Widget>[
-                                                SizedBox(
-                                                  width: 28,
-                                                  height: 28,
-                                                  child: Image.asset(
-                                                    "assets/images/home/eaten.png",
-                                                  ),
+                                                Icon(
+                                                  Icons.stars,
+                                                  size: 24,
+                                                  color: CustomTheme.primaryGreen.withOpacity(0.8),
                                                 ),
                                                 Padding(
                                                   padding:
@@ -155,8 +143,7 @@ class OverviewCard extends StatelessWidget {
                                                           FontWeight.w600,
                                                       fontSize: 12,
                                                       letterSpacing: -0.2,
-                                                      color: HomeAppTheme.grey
-                                                          .withOpacity(0.5),
+                                                      color: HomeAppTheme.grey.withOpacity(0.7),
                                                     ),
                                                   ),
                                                 ),
@@ -174,9 +161,7 @@ class OverviewCard extends StatelessWidget {
                                         height: 48,
                                         width: 2,
                                         decoration: BoxDecoration(
-                                          color: HexColor(
-                                            '#F56E98',
-                                          ).withOpacity(0.5),
+                                          color: HexColor('#F56E98').withOpacity(0.8),
                                           borderRadius: const BorderRadius.all(
                                             Radius.circular(4.0),
                                           ),
@@ -202,8 +187,7 @@ class OverviewCard extends StatelessWidget {
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 16,
                                                   letterSpacing: -0.1,
-                                                  color: HomeAppTheme.grey
-                                                      .withOpacity(0.5),
+                                                  color: HomeAppTheme.grey.withOpacity(0.7),
                                                 ),
                                               ),
                                             ),
@@ -213,12 +197,10 @@ class OverviewCard extends StatelessWidget {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
                                               children: <Widget>[
-                                                SizedBox(
-                                                  width: 28,
-                                                  height: 28,
-                                                  child: Image.asset(
-                                                    "assets/images/home/burned.png",
-                                                  ),
+                                                Icon(
+                                                  Icons.stars,
+                                                  size: 24,
+                                                  color: HexColor('#F56E98').withOpacity(0.8),
                                                 ),
                                                 Padding(
                                                   padding:
@@ -256,8 +238,7 @@ class OverviewCard extends StatelessWidget {
                                                           FontWeight.w600,
                                                       fontSize: 12,
                                                       letterSpacing: -0.2,
-                                                      color: HomeAppTheme.grey
-                                                          .withOpacity(0.5),
+                                                      color: HomeAppTheme.grey.withOpacity(0.7),
                                                     ),
                                                   ),
                                                 ),
@@ -273,7 +254,7 @@ class OverviewCard extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(right: 16),
+                            padding: const EdgeInsets.only(right: 8),
                             child: Center(
                               child: Stack(
                                 clipBehavior: Clip.none,
@@ -290,15 +271,12 @@ class OverviewCard extends StatelessWidget {
                                         ),
                                         border: Border.all(
                                           width: 4,
-                                          color: HomeAppTheme.nearlyDarkBlue
-                                              .withOpacity(0.2),
+                                          color: CustomTheme.primaryGreen.withOpacity(0.2),
                                         ),
                                       ),
                                       child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         children: <Widget>[
                                           Text(
                                             (goalCompletedPercentage != -1)
@@ -309,8 +287,7 @@ class OverviewCard extends StatelessWidget {
                                               fontWeight: FontWeight.normal,
                                               fontSize: 24,
                                               letterSpacing: 0.0,
-                                              color:
-                                                  HomeAppTheme.nearlyDarkBlue,
+                                              color: CustomTheme.primaryGreen,
                                             ),
                                           ),
                                           Text(
@@ -320,8 +297,7 @@ class OverviewCard extends StatelessWidget {
                                               fontWeight: FontWeight.bold,
                                               fontSize: 12,
                                               letterSpacing: 0.0,
-                                              color: HomeAppTheme.grey
-                                                  .withOpacity(0.5),
+                                              color: HomeAppTheme.grey.withOpacity(0.7),
                                             ),
                                           ),
                                         ],
@@ -333,9 +309,9 @@ class OverviewCard extends StatelessWidget {
                                     child: CustomPaint(
                                       painter: CurvePainter(
                                         colors: [
-                                          HomeAppTheme.nearlyDarkBlue,
-                                          HexColor("#8A98E8"),
-                                          HexColor("#8A98E8"),
+                                          CustomTheme.primaryGreen,
+                                          HexColor("#5cd889"),
+                                          HexColor("#5cd889"),
                                         ],
                                         angle:
                                             (goalCompletedPercentage != -1)
@@ -406,9 +382,7 @@ class OverviewCard extends StatelessWidget {
                                     height: 4,
                                     width: 70,
                                     decoration: BoxDecoration(
-                                      color: HexColor(
-                                        '#87A0E5',
-                                      ).withOpacity(0.2),
+                                      color: CustomTheme.primaryGreen.withOpacity(0.2),
                                       borderRadius: const BorderRadius.all(
                                         Radius.circular(4.0),
                                       ),
@@ -422,10 +396,8 @@ class OverviewCard extends StatelessWidget {
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
                                               colors: [
-                                                HexColor('#87A0E5'),
-                                                HexColor(
-                                                  '#87A0E5',
-                                                ).withOpacity(0.5),
+                                                CustomTheme.primaryGreen,
+                                                CustomTheme.primaryGreen.withOpacity(0.5),
                                               ],
                                             ),
                                             borderRadius:
@@ -448,7 +420,7 @@ class OverviewCard extends StatelessWidget {
                                     style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 12,
-                                      color: HomeAppTheme.grey.withOpacity(0.5),
+                                      color: HomeAppTheme.grey.withOpacity(0.6),
                                     ),
                                   ),
                                 ),
@@ -525,9 +497,7 @@ class OverviewCard extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: HomeAppTheme.grey.withOpacity(
-                                            0.5,
-                                          ),
+                                          color: HomeAppTheme.grey.withOpacity(0.6),
                                         ),
                                       ),
                                     ),
@@ -614,9 +584,7 @@ class OverviewCard extends StatelessWidget {
                                         style: TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 12,
-                                          color: HomeAppTheme.grey.withOpacity(
-                                            0.5,
-                                          ),
+                                          color: HomeAppTheme.grey.withOpacity(0.6),
                                         ),
                                       ),
                                     ),
