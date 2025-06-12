@@ -8,6 +8,7 @@ import 'package:flutter_app_base/data/repositories/product_repository.dart';
 import 'package:flutter_app_base/modules/custom_nav_bar.dart';
 import 'package:flutter_app_base/modules/recycle/services/gemini_service.dart';
 import 'package:flutter_app_base/modules/recycle/services/image_upload_service.dart';
+import 'package:flutter_app_base/modules/recycle/widgets/manual_product_entry_modal.dart';
 import 'package:http/http.dart' as http;
 
 class ProductService {
@@ -38,11 +39,19 @@ class ProductService {
         AppNavigator.pop();
       } else {
         // Product not found in API
-        _handleProductNotFound(context);
+        AppNavigator.pop(); // Close loading dialog
+        await _showManualEntryModal(context, barcode);
       }
     } catch (error) {
-      // Handle any errors
-      _handleError(context, error);
+      AppNavigator.pop(); // Close loading dialog
+      errorDialog(
+        context: context,
+        title: 'Error searching for product: $error',
+        onConfirm: () {
+          AppNavigator.pop(); // Close error dialog
+          AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
+        },
+      );
     }
   }
 
@@ -125,32 +134,6 @@ class ProductService {
     return input.trim();
   }
 
-  void _handleProductNotFound(BuildContext context) {
-    AppNavigator.pop(); // Close loading dialog
-
-    errorDialog(
-      context: context,
-      title: 'Product not found in external database',
-      onConfirm: () {
-        AppNavigator.pop(); // Close error dialog
-        AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
-      },
-    );
-  }
-
-  void _handleError(BuildContext context, dynamic error) {
-    AppNavigator.pop(); // Close loading dialog
-
-    errorDialog(
-      context: context,
-      title: 'Error searching for product: $error',
-      onConfirm: () {
-        AppNavigator.pop(); // Close error dialog
-        AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
-      },
-    );
-  }
-
   Future<void> uploadProductImage({
     required BuildContext context,
     required ProductModel product,
@@ -180,5 +163,58 @@ class ProductService {
         title: 'Image upload failed. Please try again.',
       );
     }
+  }
+
+  Future<void> _showManualEntryModal(BuildContext context, String barcode) async {
+    await ManualProductEntryModal.show(
+      context: context,
+      barcode: barcode,
+      onSubmit: (title, brand) => _handleManualProductSubmit(context, barcode, title, brand),
+      onCancel: () => _handleManualProductCancel(),
+    );
+  }
+
+  Future<void> _handleManualProductSubmit(
+    BuildContext context,
+    String barcode,
+    String title,
+    String brand,
+  ) async {
+    loadingDialog(context: context);
+    
+    try {
+      final Map<String, dynamic> manualProductData = {
+        'title': title,
+        'brand': brand,
+        'description': '',
+        'category': '',
+        'material': '',
+        'images': [],
+      };
+      
+      await _createProductInFirestore(manualProductData, barcode);
+      
+      AppNavigator.pop();
+      successDialog(
+        context: context,
+        title: 'Product added successfully!',
+        onConfirm: () => AppNavigator.pop(),
+      );
+    } catch (error) {
+      AppNavigator.pop();
+      errorDialog(
+        context: context,
+        title: 'Failed to add product: $error',
+        onConfirm: () {
+          AppNavigator.pop();
+          AppNavigator.navigateTo(page: CustomNavBar());
+        },
+      );
+    }
+  }
+
+  void _handleManualProductCancel() {
+    AppNavigator.pop(); // Close the manual entry modal
+    AppNavigator.pop(); // Pop to Reycle Page
   }
 }
