@@ -69,7 +69,7 @@ class GeminiService {
     required String category,
     required String material,
     required String description,
-    String region = 'US', // US, EU, Global
+    String region = 'EU', // US, EU, Global
   }) {
     // Build dynamic product info section
     String productInfo = '''
@@ -178,7 +178,7 @@ Each point represents approximately 0.2 kg CO2e savings based on:
 
 OUTPUT FORMAT - Respond with ONLY this JSON:
 {
-  "isRecyclable": [true if points >= 6, false otherwise],
+  "isRecyclable": [true if points >= 3, false otherwise],
   "points": [0-20 following scientific guidelines above],
   "category": "[Product category from research]",
   "material": "[Primary materials - both product and packaging]",
@@ -211,7 +211,7 @@ REMEMBER: Base all calculations on actual 2024-2025 environmental science data a
       
       return GeminiResult(
         isRecyclable: jsonData['isRecyclable'] ?? false,
-        points: jsonData['isRecyclable'] == false ? 0 : (jsonData['points'] ?? 0).clamp(0, 20),
+        points: (jsonData['points'] as num?)?.round() ?? 0,
         category: jsonData['category'] ?? 'Unknown',
         material: jsonData['material'] ?? 'Unknown',
         description: jsonData['description'] ?? 'No description available',

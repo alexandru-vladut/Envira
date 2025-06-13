@@ -12,6 +12,8 @@ class UserModel {
   final String companyId; // this is the firestore documentId of the company
   final String role;
   final List<String> myVouchersIds;
+  final String transportMethod;
+  final int distanceToOffice;
 
   UserModel({
     this.docId,
@@ -24,6 +26,8 @@ class UserModel {
     required this.companyId,
     required this.role,
     required this.myVouchersIds,
+    this.transportMethod = 'not set', // default transport method
+    this.distanceToOffice = -1, // default distance to office
   });
 
   Map<String, dynamic> toMap() {
@@ -37,6 +41,8 @@ class UserModel {
       "companyId": companyId,
       "role": role,
       "myVouchersIds": myVouchersIds,
+      "transportMethod": transportMethod,
+      "distanceToOffice": distanceToOffice,
     };
   }
 
@@ -68,6 +74,8 @@ class UserModel {
         companyId: data["companyId"],
         role: data["role"],
         myVouchersIds: myVouchersIds,
+        transportMethod: data["transportMethod"],
+        distanceToOffice: data["distanceToOffice"],
       );
     } catch (e) {
       throw Exception(

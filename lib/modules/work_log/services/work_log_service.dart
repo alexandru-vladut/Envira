@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
@@ -22,7 +21,7 @@ class WorkLogService {
     this._transactionRepository,
   );
   
-  Future<void> logWork(BuildContext context, DateTime date) async {
+  Future<void> logWork(BuildContext context, DateTime date, int newPoints) async {
     loadingDialog(context: context);
 
     try {
@@ -45,7 +44,6 @@ class WorkLogService {
         return;
       }
 
-      final newPoints = AppConfig.workFromHomePoints;
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
       final updatedCredits = currentUser.credits + newPoints;
 
@@ -86,6 +84,57 @@ class WorkLogService {
     } catch (error) {
       AppNavigator.pop(); // Close loading dialog
       errorDialog(context: context, title: 'Error processing work log: $error');
+    }
+  }
+
+  Future<void> updateUserTransportAndDistance({
+    required BuildContext context,
+    required String transportMethod,
+    required int distanceToOffice,
+  }) async {
+    loadingDialog(context: context);
+
+    try {
+      // Get current user UID from auth provider
+      final currentUserUid = context.read<AuthStateProvider>().uid;
+      if (currentUserUid == null) {
+        AppNavigator.pop();
+        errorDialog(context: context, title: 'User not authenticated');
+        return;
+      }
+
+      // Get current user data from users provider
+      final currentUser = context.read<UsersProvider>().items.firstWhereOrNull(
+        (u) => u.uid == currentUserUid,
+      );
+
+      if (currentUser == null) {
+        AppNavigator.pop();
+        errorDialog(context: context, title: 'User data not found');
+        return;
+      }
+
+      // Update user's transport method and distance
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'transportMethod',
+        transportMethod,
+      );
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'distanceToOffice',
+        distanceToOffice,
+      );
+
+      AppNavigator.pop();
+      successDialog(
+        context: context,
+        title: 'Profile updated!',
+        text: 'You can now log your work and earn points.',
+      );
+    } catch (error) {
+      AppNavigator.pop();
+      errorDialog(context: context, title: 'Error updating profile: $error');
     }
   }
 }

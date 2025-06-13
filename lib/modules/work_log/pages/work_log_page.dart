@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/modules/custom_app_bar.dart';
@@ -20,6 +19,11 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
   int? _selectedCheckbox;
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
+
+  // For transport method and distance input
+  String? _selectedTransportMethod;
+  final TextEditingController _distanceController = TextEditingController();
+  bool _isSubmittingTransport = false;
 
   @override
   void initState() {
@@ -49,37 +53,438 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     return WorkLogProvider(
-      builder: (data) => Scaffold(
-        backgroundColor: CustomTheme.white,
-        appBar: CustomAppBar(title: 'Work'),
-        body: SizedBox(
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 20),
-                  _buildCalendarHeader(),
-                  const SizedBox(height: 16),
-                  _buildCalendar(data.loggedDates),
-                  const SizedBox(height: 16),
-                  _buildCalendarLegend(),
-                  const SizedBox(height: 24),
-                  if (_selectedDay != null) ...[
-                    _buildSelectedDayInfo(),
+      builder: (data) {
+        // If newPoints is null, show the setup page
+        if (data.newPoints == null) {
+          return _buildTransportSetupPage(context);
+        }
+
+        return Scaffold(
+          backgroundColor: CustomTheme.white,
+          appBar: CustomAppBar(title: 'Work'),
+          body: SizedBox(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 20),
+                    _buildCalendarHeader(),
                     const SizedBox(height: 16),
-                    _buildWorkOptions(),
+                    _buildCalendar(data.loggedDates),
                     const SizedBox(height: 16),
-                    if (_selectedCheckbox != null) _buildPointsInfo(),
+                    _buildCalendarLegend(),
                     const SizedBox(height: 24),
-                    if (_selectedCheckbox != null) _buildSubmitButton(),
+                    if (_selectedDay != null) ...[
+                      _buildSelectedDayInfo(),
+                      const SizedBox(height: 16),
+                      _buildWorkOptions(),
+                      const SizedBox(height: 16),
+                      if (_selectedCheckbox != null) _buildPointsInfo(data),
+                      const SizedBox(height: 24),
+                      if (_selectedCheckbox != null) _buildSubmitButton(data),
+                    ],
+                    const SizedBox(height: 30),
                   ],
-                  const SizedBox(height: 30),
-                ],
+                ),
               ),
             ),
+          ),
+        );
+      }
+    );
+  }
+
+  Widget _buildTransportSetupPage(BuildContext context) {
+    final transportOptions = [
+      {'method': 'car', 'icon': Icons.directions_car, 'color': CustomTheme.errorRed},
+      {'method': 'public transit', 'icon': Icons.directions_bus, 'color': CustomTheme.mediumBlue},
+      {'method': 'bike', 'icon': Icons.directions_bike, 'color': CustomTheme.successGreen},
+      {'method': 'walk', 'icon': Icons.directions_walk, 'color': CustomTheme.primaryGreen},
+      {'method': 'mixed', 'icon': Icons.shuffle, 'color': CustomTheme.darkBlue1},
+    ];
+
+    // Initialize distance value for slider
+    double _distance = double.tryParse(_distanceController.text) ?? 5.0;
+    
+    return Scaffold(
+      backgroundColor: CustomTheme.white,
+      appBar: CustomAppBar(title: 'Set Up Work Log'),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Header with icon
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: CustomTheme.lightGreenAccent,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: CustomTheme.primaryGreen,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.eco_rounded,
+                        color: CustomTheme.white,
+                        size: 28,
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Complete your profile',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: CustomTheme.darkGrey,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            'Tell us how you usually commute to earn points for working from home',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: CustomTheme.grey600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              
+              const SizedBox(height: 32),
+              
+              // Transport method section
+              Text(
+                'How do you usually get to work?',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: CustomTheme.darkGrey,
+                ),
+              ),
+              const SizedBox(height: 16),
+              
+              // Transport options as cards
+              GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 3,
+                  childAspectRatio: 0.9,
+                  crossAxisSpacing: 12,
+                  mainAxisSpacing: 12,
+                ),
+                itemCount: transportOptions.length,
+                itemBuilder: (context, index) {
+                  final option = transportOptions[index];
+                  final isSelected = _selectedTransportMethod == option['method'];
+                  
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedTransportMethod = option['method'] as String;
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      decoration: BoxDecoration(
+                        color: isSelected 
+                            ? (option['color'] as Color).withOpacity(0.1) 
+                            : CustomTheme.white,
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          color: isSelected 
+                              ? option['color'] as Color
+                              : CustomTheme.grey200,
+                          width: isSelected ? 2 : 1,
+                        ),
+                        boxShadow: [
+                          if (isSelected)
+                            BoxShadow(
+                              color: (option['color'] as Color).withOpacity(0.2),
+                              blurRadius: 8,
+                              spreadRadius: 0,
+                              offset: const Offset(0, 2),
+                            )
+                          else
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.05),
+                              blurRadius: 4,
+                              spreadRadius: 0,
+                              offset: const Offset(0, 2),
+                            ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: isSelected 
+                                  ? option['color'] as Color
+                                  : (option['color'] as Color).withOpacity(0.1),
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              option['icon'] as IconData,
+                              color: isSelected 
+                                  ? CustomTheme.white
+                                  : option['color'] as Color,
+                              size: 24,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            (option['method'] as String)
+                                .split(' ')
+                                .map((word) => word[0].toUpperCase() + word.substring(1))
+                                .join(' '),
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                              color: isSelected 
+                                  ? option['color'] as Color
+                                  : CustomTheme.darkGrey,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+              
+              const SizedBox(height: 32),
+              
+              // Distance section with slider
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Distance to office (km)',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: CustomTheme.darkGrey,
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                    decoration: BoxDecoration(
+                      color: CustomTheme.primaryGreen,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: StatefulBuilder(
+                      builder: (context, setStateLocal) {
+                        return Text(
+                          '${_distance.toInt()} km',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: CustomTheme.white,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              
+              // Slider for distance
+              StatefulBuilder(
+                builder: (context, setStateLocal) {
+                  return Column(
+                    children: [
+                      SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: CustomTheme.primaryGreen,
+                          inactiveTrackColor: CustomTheme.lightGrey,
+                          thumbColor: CustomTheme.primaryGreen,
+                          overlayColor: CustomTheme.primaryGreen.withOpacity(0.2),
+                          trackHeight: 6,
+                          thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 12),
+                          overlayShape: const RoundSliderOverlayShape(overlayRadius: 24),
+                        ),
+                        child: Slider(
+                          min: 1,
+                          max: 100,
+                          divisions: 99,
+                          value: _distance,
+                          onChanged: (value) {
+                            setStateLocal(() {
+                              _distance = value;
+                              _distanceController.text = value.toInt().toString();
+                            });
+                          },
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '1 km',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: CustomTheme.grey600,
+                            ),
+                          ),
+                          Text(
+                            '100 km',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: CustomTheme.grey600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 8),
+                      // Manual input option
+                      TextField(
+                        controller: _distanceController,
+                        keyboardType: TextInputType.number,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: CustomTheme.darkGrey,
+                        ),
+                        decoration: InputDecoration(
+                          labelText: 'Or enter exact distance',
+                          labelStyle: TextStyle(
+                            fontSize: 14,
+                            color: CustomTheme.grey600,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(color: CustomTheme.grey200),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12),
+                            borderSide: BorderSide(color: CustomTheme.primaryGreen, width: 2),
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                          suffixText: 'km',
+                          suffixStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: CustomTheme.grey600,
+                          ),
+                        ),
+                        onChanged: (value) {
+                          final distance = double.tryParse(value);
+                          if (distance != null && distance > 0 && distance <= 100) {
+                            setStateLocal(() {
+                              _distance = distance;
+                            });
+                          }
+                        },
+                      ),
+                    ],
+                  );
+                },
+              ),
+              
+              const SizedBox(height: 40),
+              
+              // Submit button
+              SizedBox(
+                width: double.infinity,
+                height: 56,
+                child: ElevatedButton(
+                  onPressed: _isSubmittingTransport
+                      ? null
+                      : () async {
+                          final distance = int.tryParse(_distanceController.text.trim());
+                          if (_selectedTransportMethod == null ||
+                              distance == null ||
+                              distance <= 0) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Row(
+                                  children: [
+                                    const Icon(Icons.error_outline, color: Colors.white),
+                                    const SizedBox(width: 12),
+                                    const Expanded(
+                                      child: Text(
+                                        'Please select a transport method and enter a valid distance.',
+                                        style: TextStyle(fontSize: 14),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                backgroundColor: CustomTheme.errorRed,
+                                behavior: SnackBarBehavior.floating,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                margin: const EdgeInsets.all(16),
+                              ),
+                            );
+                            return;
+                          }
+                          setState(() => _isSubmittingTransport = true);
+                          await workLogService.updateUserTransportAndDistance(
+                            context: context,
+                            transportMethod: _selectedTransportMethod!,
+                            distanceToOffice: distance,
+                          );
+                          setState(() => _isSubmittingTransport = false);
+                        },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: CustomTheme.white,
+                    backgroundColor: CustomTheme.primaryGreen,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                  ),
+                  child: _isSubmittingTransport
+                      ? const SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: CircularProgressIndicator(
+                            color: CustomTheme.white,
+                            strokeWidth: 2,
+                          ),
+                        )
+                      : Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Icon(Icons.check_circle_outline, size: 24),
+                            const SizedBox(width: 12),
+                            const Text(
+                              'Complete Setup',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -552,7 +957,7 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
     );
   }
 
-  Widget _buildPointsInfo() {
+  Widget _buildPointsInfo(WorkLogData data) {
     final isWorkFromHome = _selectedCheckbox == 1;
     final backgroundColor = isWorkFromHome
         ? CustomTheme.lightGreenAccent
@@ -567,7 +972,7 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
         ? Icons.eco_rounded
         : Icons.do_not_disturb_rounded;
     final message = isWorkFromHome
-        ? 'You will gain ${AppConfig.workFromHomePoints} points!'
+        ? 'You will gain ${data.newPoints} points!'
         : 'You won\'t gain any points.';
     final description = isWorkFromHome
         ? 'Thank you for saving office resources!'
@@ -628,14 +1033,14 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
     );
   }
 
-  Widget _buildSubmitButton() {
+  Widget _buildSubmitButton(WorkLogData data) {
     return FadeTransition(
       opacity: _fadeAnimation,
       child: SizedBox(
         width: double.infinity,
         height: 56,
         child: ElevatedButton(
-          onPressed: () => workLogService.logWork(context, _selectedDay!),
+          onPressed: () => workLogService.logWork(context, _selectedDay!, data.newPoints!),
           style: ElevatedButton.styleFrom(
             foregroundColor: CustomTheme.white,
             backgroundColor: CustomTheme.primaryGreen,
