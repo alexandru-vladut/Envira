@@ -39,8 +39,8 @@ class _CustomNavBarState extends State<CustomNavBar> with TickerProviderStateMix
     setState(() {
       widgetOptions = <Widget>[
         HomePage(animationController: animationController),
-        const VouchersPage(),
         const LeaderboardPage(),
+        const VouchersPage(),
         const ProfilePage()
       ];
     });
@@ -107,8 +107,8 @@ class _CustomNavBarState extends State<CustomNavBar> with TickerProviderStateMix
               unselectedItemColor: HomeAppTheme.lightText,
               items: [
                 _buildNavItem(Icons.home_rounded, 'Home', 0),
-                _buildNavItem(Icons.redeem_rounded, 'Vouchers', 1),
-                _buildNavItem(Icons.leaderboard_rounded, 'Leaderboard', 2),
+                _buildNavItem(Icons.leaderboard_rounded, 'Leaderboard', 1),
+                _buildNavItem(Icons.redeem_rounded, 'Vouchers', 2),
                 _buildNavItem(Icons.person_rounded, 'Profile', 3),
               ],
               currentIndex: _selectedIndex,

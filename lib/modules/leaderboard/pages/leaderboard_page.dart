@@ -115,20 +115,22 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                   ],
                                 ),
                                 child: ListTile(
-                                  contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 16,
-                                    vertical: 8,
+                                  contentPadding: const EdgeInsets.only(
+                                    left: 4,
+                                    right: 16,
+                                    top: 8,
+                                    bottom: 8,
                                   ),
                                   leading: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       // Rank indicator
                                       Text(
-                                        "${index + 4}.",
-                                        style: const TextStyle(
-                                          fontSize: 20,
+                                        "${index + 4}",
+                                        style: TextStyle(
+                                          fontSize: 48,
                                           fontWeight: FontWeight.bold,
-                                          color: HomeAppTheme.lightText,
+                                          color: const Color.fromARGB(255, 210, 215, 217),
                                         ),
                                       ),
                                       const SizedBox(width: 12),

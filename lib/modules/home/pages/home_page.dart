@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
         Scaffold(
           backgroundColor: CustomTheme.white,
           body: ListView(
-            padding: const EdgeInsets.only(top: 60),
+            padding: const EdgeInsets.only(top: 50),
             children: [
               HomeHeader(userName: data.userName),
               const SizedBox(height: 20),
