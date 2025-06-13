@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/theme/home_theme.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/modules/authentication/pages/signin_page.dart';
 import 'package:flutter_app_base/modules/authentication/pages/signup_page.dart';
@@ -11,6 +12,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: HomeAppTheme.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
