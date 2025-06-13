@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/core/utils/dialog_widgets/dialog_widgets.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
@@ -44,14 +45,22 @@ class WorkLogService {
         return;
       }
 
-      final newPoints = 10;
+      final newPoints = AppConfig.workFromHomePoints;
       final updatedTotalPoints = currentUser.totalPoints + newPoints;
+      final updatedCredits = currentUser.credits + newPoints;
 
       // Update user's total points
       await _userRepository.updateDocumentField(
         currentUser.docId!,
         'totalPoints',
         updatedTotalPoints,
+      );
+
+      // Update user's credits
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'credits',
+        updatedCredits,
       );
 
       TransactionModel transaction = TransactionModel(
@@ -64,8 +73,15 @@ class WorkLogService {
 
       // Success - navigate to home
       AppNavigator.pop(); // Close loading dialog
-      AppNavigator.navigateTo(page: CustomNavBar());
-      
+      successDialog(
+        context: context,
+        title: 'Work log successful',
+        text: 'You earned $newPoints points!',
+        onConfirm: () {
+          AppNavigator.pop(); // Close success dialog
+          AppNavigator.navigateTo(page: CustomNavBar()); // Go to home
+        },
+      );
     } catch (error) {
       AppNavigator.pop(); // Close loading dialog
       errorDialog(context: context, title: 'Error processing work log: $error');
