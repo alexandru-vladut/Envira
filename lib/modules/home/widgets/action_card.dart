@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/modules/recycle/pages/recycle_page.dart';
-import 'package:flutter_app_base/modules/work_log/pages/calendar_page.dart';
+import 'package:flutter_app_base/modules/work_log/pages/work_log_page.dart';
 import 'package:flutter_app_base/modules/challenges/pages/challenges_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
@@ -113,7 +113,7 @@ class ActionsView extends StatelessWidget {
                 if (title == 'Recycle') {
                   AppNavigator.navigateTo(page: RecyclePage());
                 } else if (title == 'Work') {
-                  AppNavigator.navigateTo(page: CalendarPage());
+                  AppNavigator.navigateTo(page: WorkLogPage());
                 } else if (title == 'Challenges') {
                   AppNavigator.navigateTo(page: ChallengesPage());
                 }

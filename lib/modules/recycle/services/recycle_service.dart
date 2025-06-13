@@ -88,6 +88,7 @@ class RecycleService {
         value: newPoints,
         userUid: currentUserUid,
         timestamp: DateTime.now(),
+        workLogDate: null, // Not used for recycle
       );
 
       await _transactionRepository.addDocument(transaction);

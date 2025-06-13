@@ -22,7 +22,7 @@ class WorkLogService {
     this._transactionRepository,
   );
   
-  Future<void> logWork(BuildContext context) async {
+  Future<void> logWork(BuildContext context, DateTime date) async {
     loadingDialog(context: context);
 
     try {
@@ -67,6 +67,7 @@ class WorkLogService {
         value: newPoints,
         userUid: currentUserUid,
         timestamp: DateTime.now(),
+        workLogDate: date,
       );
 
       await _transactionRepository.addDocument(transaction);

@@ -3,32 +3,23 @@ import 'package:flutter_app_base/core/app_config.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/modules/custom_app_bar.dart';
+import 'package:flutter_app_base/modules/work_log/providers/work_log_provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:intl/intl.dart';
 
-class CalendarPage extends StatefulWidget {
-  const CalendarPage({super.key});
+class WorkLogPage extends StatefulWidget {
+  const WorkLogPage({super.key});
 
   @override
-  State<CalendarPage> createState() => _CalendarPageState();
+  State<WorkLogPage> createState() => _WorkLogPageState();
 }
 
-class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderStateMixin {
+class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStateMixin {
   DateTime? _selectedDay;
   DateTime _focusedDay = DateTime.now();
   int? _selectedCheckbox;
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
-  
-  // List of dates that have already been logged
-  final List<DateTime> _loggedDates = [
-    DateTime.now().subtract(const Duration(days: 1)),
-    DateTime.now().subtract(const Duration(days: 3)),
-    DateTime.now().subtract(const Duration(days: 5)),
-    DateTime.now().subtract(const Duration(days: 8)),
-    DateTime.now().subtract(const Duration(days: 14)),
-    DateTime.now().subtract(const Duration(days: 21)),
-  ];
 
   @override
   void initState() {
@@ -49,43 +40,45 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
   }
 
   // Check if a date has already been logged
-  bool _isDateLogged(DateTime day) {
-    return _loggedDates.any((loggedDate) => 
+  bool _isDateLogged(DateTime day, List<DateTime> loggedDates) {
+    return loggedDates.any((loggedDate) => 
       isSameDay(loggedDate, day)
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: CustomTheme.white,
-      appBar: CustomAppBar(title: 'Work'),
-      body: SizedBox(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 20),
-                _buildCalendarHeader(),
-                const SizedBox(height: 16),
-                _buildCalendar(),
-                const SizedBox(height: 16),
-                _buildCalendarLegend(),
-                const SizedBox(height: 24),
-                if (_selectedDay != null) ...[
-                  _buildSelectedDayInfo(),
+    return WorkLogProvider(
+      builder: (data) => Scaffold(
+        backgroundColor: CustomTheme.white,
+        appBar: CustomAppBar(title: 'Work'),
+        body: SizedBox(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 20),
+                  _buildCalendarHeader(),
                   const SizedBox(height: 16),
-                  _buildWorkOptions(),
+                  _buildCalendar(data.loggedDates),
                   const SizedBox(height: 16),
-                  if (_selectedCheckbox != null) _buildPointsInfo(),
+                  _buildCalendarLegend(),
                   const SizedBox(height: 24),
-                  if (_selectedCheckbox != null) _buildSubmitButton(),
+                  if (_selectedDay != null) ...[
+                    _buildSelectedDayInfo(),
+                    const SizedBox(height: 16),
+                    _buildWorkOptions(),
+                    const SizedBox(height: 16),
+                    if (_selectedCheckbox != null) _buildPointsInfo(),
+                    const SizedBox(height: 24),
+                    if (_selectedCheckbox != null) _buildSubmitButton(),
+                  ],
+                  const SizedBox(height: 30),
                 ],
-                const SizedBox(height: 30),
-              ],
+              ),
             ),
           ),
         ),
@@ -192,7 +185,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildCalendar() {
+  Widget _buildCalendar(List<DateTime> loggedDates) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
@@ -222,7 +215,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
           },
           onDaySelected: (selectedDay, focusedDay) {
             // Only process selection if the day is not already logged
-            if (!_isDateLogged(selectedDay)) {
+            if (!_isDateLogged(selectedDay, loggedDates)) {
               setState(() {
                 _selectedDay = selectedDay;
                 _focusedDay = focusedDay;
@@ -237,7 +230,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
           },
           enabledDayPredicate: (day) {
             // Return false for logged dates to make them appear disabled
-            return !_isDateLogged(day);
+            return !_isDateLogged(day, loggedDates);
           },
           headerStyle: HeaderStyle(
             titleCentered: true,
@@ -296,7 +289,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
           calendarBuilders: CalendarBuilders(
             // Custom builder for disabled days (already logged)
             disabledBuilder: (context, day, focusedDay) {
-              if (_isDateLogged(day)) {
+              if (_isDateLogged(day, loggedDates)) {
                 return Container(
                   margin: const EdgeInsets.all(4),
                   alignment: Alignment.center,
@@ -642,7 +635,7 @@ class _CalendarPageState extends State<CalendarPage> with SingleTickerProviderSt
         width: double.infinity,
         height: 56,
         child: ElevatedButton(
-          onPressed: () => workLogService.logWork(context),
+          onPressed: () => workLogService.logWork(context, _selectedDay!),
           style: ElevatedButton.styleFrom(
             foregroundColor: CustomTheme.white,
             backgroundColor: CustomTheme.primaryGreen,
