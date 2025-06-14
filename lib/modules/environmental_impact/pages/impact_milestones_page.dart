@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/environmental_impact/providers/env_impact_provider.dart';
 
 class ImpactMilestonesPage extends StatelessWidget {
-  const ImpactMilestonesPage({Key? key}) : super(key: key);
+  const ImpactMilestonesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +15,13 @@ class ImpactMilestonesPage extends StatelessWidget {
         final milestones = projections['milestones'] as List<dynamic>;
         
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Your Eco Milestones'),
+          appBar: CustomAppBar(
+            title: 'Milestones',
             backgroundColor: CustomTheme.primaryGreen,
-            elevation: 0,
+            titleColor: CustomTheme.white,
+            titleFontSize: 24,
+            leadingIconColor: CustomTheme.white,
+            leadingIconBackgroundColor: CustomTheme.grey200.withOpacity(0.3),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -158,7 +162,7 @@ class ImpactMilestonesPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
-            'Track your progress towards environmental achievements',
+            'Track your progress towards environmental achievements.',
             style: TextStyle(
               fontSize: 14,
               color: CustomTheme.grey600,
@@ -285,7 +289,7 @@ class ImpactMilestonesPage extends StatelessWidget {
 
   Widget _buildMotivationalSection(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(24),
+      margin: const EdgeInsets.only(top: 0, bottom: 24, left: 24, right: 24),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: CustomTheme.lightBlue,
@@ -325,7 +329,7 @@ class ImpactMilestonesPage extends StatelessWidget {
             ),
             child: const Text(
               'Continue Your Eco Journey',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: TextStyle(color: CustomTheme.white, fontSize: 16, fontWeight: FontWeight.w600),
             ),
           ),
         ],

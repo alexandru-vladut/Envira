@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/environmental_impact/providers/env_impact_provider.dart';
 
 class ImpactDetailsPage extends StatelessWidget {
-  const ImpactDetailsPage({Key? key}) : super(key: key);
+  const ImpactDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +17,13 @@ class ImpactDetailsPage extends StatelessWidget {
         final co2eSavedKg = impactData['co2eSavedKg'] as double;
         
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Impact Details'),
+          appBar: CustomAppBar(
+            title: 'Your Impact',
             backgroundColor: CustomTheme.primaryGreen,
-            elevation: 0,
+            titleColor: CustomTheme.white,
+            titleFontSize: 24,
+            leadingIconColor: CustomTheme.white,
+            leadingIconBackgroundColor: CustomTheme.grey200.withOpacity(0.3),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -47,37 +51,24 @@ class ImpactDetailsPage extends StatelessWidget {
           end: Alignment.bottomCenter,
         ),
       ),
-      child: Column(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Your Lifetime Impact',
-            style: TextStyle(
-              fontSize: 24,
+          Text(
+            '${co2eSavedKg.toStringAsFixed(1)} kg CO₂e',
+            style: const TextStyle(
+              fontSize: 28,
               fontWeight: FontWeight.bold,
               color: CustomTheme.white,
             ),
           ),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '${co2eSavedKg.toStringAsFixed(1)} kg CO₂e',
-                style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: CustomTheme.white,
-                ),
-              ),
-              const SizedBox(width: 8),
-              const Text(
-                'saved',
-                style: TextStyle(
-                  fontSize: 18,
-                  color: CustomTheme.white,
-                ),
-              ),
-            ],
+          const SizedBox(width: 8),
+          const Text(
+            'saved',
+            style: TextStyle(
+              fontSize: 18,
+              color: CustomTheme.white,
+            ),
           ),
         ],
       ),
@@ -100,7 +91,7 @@ class ImpactDetailsPage extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           const Text(
-            'Your impact expressed in everyday terms',
+            'Your impact, expressed in everyday terms.',
             style: TextStyle(
               fontSize: 14,
               color: CustomTheme.grey600,
@@ -112,7 +103,7 @@ class ImpactDetailsPage extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 1.2,
+              childAspectRatio: 0.9,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
@@ -129,7 +120,7 @@ class ImpactDetailsPage extends StatelessWidget {
 
   Widget _buildEquivalentGridItem(Map<String, dynamic> equivalent) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: CustomTheme.white,
         borderRadius: BorderRadius.circular(16),
@@ -207,7 +198,7 @@ class ImpactDetailsPage extends StatelessWidget {
               ),
               Expanded(
                 child: _buildComparisonItem(
-                  'Your Daily Savings',
+                  'Your Savings',
                   '${comparisons['yourDailySavingsRate']} kg',
                   'CO₂e saved/day',
                 ),

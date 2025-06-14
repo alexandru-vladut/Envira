@@ -42,7 +42,7 @@ class EnvironmentalImpactCalculator {
     );
     
     // Generate projections
-    Map<String, dynamic> projections = _calculateProjections(dailyRate);
+    Map<String, dynamic> projections = _calculateProjections(dailyRate, totalCO2eSaved);
     
     // Create user-friendly impact summary
     String impactSummary = _generateImpactSummary(
@@ -125,7 +125,7 @@ class EnvironmentalImpactCalculator {
     };
   }
   
-  static Map<String, dynamic> _calculateProjections(double dailyRate) {
+  static Map<String, dynamic> _calculateProjections(double dailyRate, double totalCO2eSaved) {
     if (dailyRate <= 0) {
       return {
         'weeklyProjection': 0,
@@ -145,29 +145,29 @@ class EnvironmentalImpactCalculator {
         'title': 'Eco Starter',
         'threshold': 25, // kg CO2e per year
         'description': 'Like planting 1 tree',
-        'achieved': yearlyProjection >= 25,
-        'progress': yearlyProjection >= 25 ? 100 : (yearlyProjection / 25 * 100).round(),
+        'achieved': totalCO2eSaved >= 25,
+        'progress': totalCO2eSaved >= 25 ? 100 : (totalCO2eSaved / 25 * 100).round(),
       },
       {
         'title': 'Climate Conscious',
         'threshold': 100,
         'description': 'Like not driving 500+ km',
-        'achieved': yearlyProjection >= 100,
-        'progress': yearlyProjection >= 100 ? 100 : (yearlyProjection / 100 * 100).round(),
+        'achieved': totalCO2eSaved >= 100,
+        'progress': totalCO2eSaved >= 100 ? 100 : (totalCO2eSaved / 100 * 100).round(),
       },
       {
         'title': 'Sustainability Champion',
         'threshold': 500,
         'description': 'Like planting 20+ trees',
-        'achieved': yearlyProjection >= 500,
-        'progress': yearlyProjection >= 500 ? 100 : (yearlyProjection / 500 * 100).round(),
+        'achieved': totalCO2eSaved >= 500,
+        'progress': totalCO2eSaved >= 500 ? 100 : (totalCO2eSaved / 500 * 100).round(),
       },
       {
         'title': 'Eco Hero',
         'threshold': 1000,
         'description': '5%+ of average yearly footprint',
-        'achieved': yearlyProjection >= 1000,
-        'progress': yearlyProjection >= 1000 ? 100 : (yearlyProjection / 1000 * 100).round(),
+        'achieved': totalCO2eSaved >= 1000,
+        'progress': totalCO2eSaved >= 1000 ? 100 : (totalCO2eSaved / 1000 * 100).round(),
       },
     ];
     

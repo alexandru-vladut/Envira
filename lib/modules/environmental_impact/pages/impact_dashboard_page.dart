@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
+import 'package:flutter_app_base/modules/custom_app_bar.dart';
 import 'package:flutter_app_base/modules/environmental_impact/pages/impact_details_page.dart';
 import 'package:flutter_app_base/modules/environmental_impact/pages/impact_milestones_page.dart';
 import 'package:flutter_app_base/modules/environmental_impact/providers/env_impact_provider.dart';
 
 class ImpactDashboardPage extends StatelessWidget {
-  const ImpactDashboardPage({Key? key}) : super(key: key);
+  const ImpactDashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +20,13 @@ class ImpactDashboardPage extends StatelessWidget {
         final percentOfAverageFootprint = impactData['percentOfAverageFootprint'] as double;
         
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('Your Environmental Impact'),
+          appBar: CustomAppBar(
+            title: 'Your Impact',
             backgroundColor: CustomTheme.primaryGreen,
-            elevation: 0,
+            titleColor: CustomTheme.white,
+            titleFontSize: 24,
+            leadingIconColor: CustomTheme.white,
+            leadingIconBackgroundColor: CustomTheme.grey200.withOpacity(0.3),
           ),
           body: SingleChildScrollView(
             child: Column(
@@ -52,15 +56,6 @@ class ImpactDashboardPage extends StatelessWidget {
       padding: const EdgeInsets.all(24.0),
       child: Column(
         children: [
-          const Text(
-            'Your Lifetime Impact',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: CustomTheme.white,
-            ),
-          ),
-          const SizedBox(height: 16),
           Stack(
             alignment: Alignment.center,
             children: [
@@ -135,11 +130,11 @@ class ImpactDashboardPage extends StatelessWidget {
     final topEquivalents = [
       equivalents['kilometersNotDriven'],
       equivalents['treesPlantedYearEquivalent'],
-      equivalents['smartphoneCharges'],
+      equivalents['plasticBottlesNotProduced'],
     ];
 
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -228,14 +223,15 @@ class ImpactDashboardPage extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text(
-            'Your annual impact is equivalent to',
+          Text(
+            'Your daily impact is equivalent to',
             style: TextStyle(
               fontSize: 16,
               color: CustomTheme.darkGrey,
-            ),
+              ),
+            textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Text(
             '${percentOfAverageFootprint.toStringAsFixed(1)}%',
             style: const TextStyle(
@@ -244,12 +240,14 @@ class ImpactDashboardPage extends StatelessWidget {
               color: CustomTheme.mediumBlue,
             ),
           ),
+          const SizedBox(height: 8),
           const Text(
-            'of an average person\'s carbon footprint',
+            'of an average person\'s carbon footprint.',
             style: TextStyle(
               fontSize: 16,
               color: CustomTheme.darkGrey,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
@@ -279,7 +277,11 @@ class ImpactDashboardPage extends StatelessWidget {
             ),
             child: const Text(
               'View Detailed Breakdown',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                color: CustomTheme.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w600
+              ),
             ),
           ),
           const SizedBox(height: 16),
