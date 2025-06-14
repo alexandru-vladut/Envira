@@ -51,7 +51,7 @@ class WFHCalculator {
     required int distanceToOfficeKm,
     required TransportMethod transportMethod,
     required String companyType,
-    String region = 'EU',
+    String region = 'default',
   }) {
     
     // 1. Calculate office energy savings (VERIFIED from Cornell study)

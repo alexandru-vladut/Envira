@@ -6,6 +6,7 @@ class CompanyModel {
   final dynamic goalCreatedTimestamp;
   final dynamic goalDeadlineTimestamp;
   final String type;
+  final String region;
 
   CompanyModel({
     this.docId,
@@ -13,6 +14,7 @@ class CompanyModel {
     required this.goalCreatedTimestamp,
     required this.goalDeadlineTimestamp,
     required this.type,
+    required this.region,
   });
 
   Map<String, dynamic> toMap() {
@@ -21,6 +23,7 @@ class CompanyModel {
       'goalCreatedTimestamp': goalCreatedTimestamp,
       'goalDeadlineTimestamp': goalDeadlineTimestamp,
       'type': type,
+      'region': region,
     };
   }
 
@@ -42,6 +45,7 @@ class CompanyModel {
         goalCreatedTimestamp: data['goalCreatedTimestamp'],
         goalDeadlineTimestamp: data['goalDeadlineTimestamp'],
         type: data['type'],
+        region: data['region'],
       );
     } catch (e) {
       throw Exception(

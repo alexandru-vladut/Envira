@@ -50,6 +50,7 @@ class WorkLogProvider extends StatelessWidget {
         distanceToOfficeKm: currentUser.distanceToOffice,
         transportMethod: WFHCalculator.parseTransportMethod(currentUser.transportMethod),
         companyType: company!.type,
+        region: company.region,
       );
     }
 
@@ -57,8 +58,6 @@ class WorkLogProvider extends StatelessWidget {
       loggedDates: loggedDates,
       newPoints: newPoints,
     );
-
-    print('WorkLogProvider: New Points: $newPoints');
 
     return builder(workLogData);
   }
