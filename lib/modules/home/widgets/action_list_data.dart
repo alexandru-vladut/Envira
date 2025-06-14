@@ -30,8 +30,8 @@ class ActionListData {
     ),
     ActionListData(
       imagePath: 'assets/images/home/challenge.png',
-      titleTxt: 'Challenges',
-      actions: <String>['Join,', 'Give up'],
+      titleTxt: 'Impact',
+      actions: <String>['Environment,', 'Stats'],
       startColor: '#FFC53C',
       endColor: '#FF9200',
     ),

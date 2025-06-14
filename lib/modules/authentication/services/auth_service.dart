@@ -179,6 +179,7 @@ class AuthService {
         companyId: "355aInOtLhMaQm6fyMCh",
         role: "user",
         myVouchersIds: [],
+        createdAt: DateTime.now(),
       );
   
       _userRepository.addDocument(newUser);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
+import 'package:flutter_app_base/modules/environmental_impact/pages/impact_dashboard_page.dart';
 import 'package:flutter_app_base/modules/recycle/pages/recycle_page.dart';
 import 'package:flutter_app_base/modules/work_log/pages/work_log_page.dart';
-import 'package:flutter_app_base/modules/challenges/pages/challenges_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/theme/home_theme.dart';
@@ -111,11 +111,11 @@ class ActionsView extends StatelessWidget {
               onTap: () async {
                 String title = actionListData!.titleTxt;
                 if (title == 'Recycle') {
-                  AppNavigator.navigateTo(page: RecyclePage());
+                  AppNavigator.navigateTo(page: const RecyclePage());
                 } else if (title == 'Work') {
-                  AppNavigator.navigateTo(page: WorkLogPage());
-                } else if (title == 'Challenges') {
-                  AppNavigator.navigateTo(page: ChallengesPage());
+                  AppNavigator.navigateTo(page: const WorkLogPage());
+                } else if (title == 'Impact') {
+                  AppNavigator.navigateTo(page: const ImpactDashboardPage());
                 }
               },
               child: SizedBox(

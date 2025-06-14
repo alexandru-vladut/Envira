@@ -7,10 +7,10 @@ class CustomLoadingIndicator extends StatefulWidget {
   final double size;
 
   const CustomLoadingIndicator({
-    Key? key,
+    super.key,
     this.color = Colors.blue,
     this.size = 40.0,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomLoadingIndicator> createState() => _CustomLoadingIndicatorState();

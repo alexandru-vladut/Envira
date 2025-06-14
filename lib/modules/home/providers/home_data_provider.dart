@@ -1,5 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_base/core/utils/calculators/env_impact_calculator.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/models/company_model.dart';
@@ -17,14 +18,11 @@ class HomeDataProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Get current user UID
-    final currentUserUid = context.select<AuthStateProvider, String?>(
-      (auth) => auth.uid,
-    );
+    final currentUserUid = context.select<AuthStateProvider, String?>((auth) => auth.uid);
 
     // Get current user data
     final currentUser = context.select<UsersProvider, UserModel?>(
-      (provider) =>
-          provider.items.firstWhereOrNull((u) => u.uid == currentUserUid),
+      (provider) => provider.items.firstWhereOrNull((u) => u.uid == currentUserUid),
     );
 
     // Get all users for ranking calculation
@@ -33,20 +31,15 @@ class HomeDataProvider extends StatelessWidget {
     );
 
     // Get current user's transactions
-    final userTransactions = context
-        .select<TransactionsProvider, List<TransactionModel>>(
-          (provider) =>
-              provider.items.where((t) => t.userUid == currentUserUid).toList(),
-        );
+    final userTransactions = context.select<TransactionsProvider, List<TransactionModel>>(
+      (provider) =>provider.items.where((t) => t.userUid == currentUserUid).toList(),
+    );
 
     // Get company data
     final company = context.select<CompaniesProvider, CompanyModel?>(
-      (provider) =>
-          currentUser != null
-              ? provider.items.firstWhereOrNull(
-                (c) => c.docId == currentUser.companyId,
-              )
-              : null,
+      (provider) => currentUser != null
+        ? provider.items.firstWhereOrNull((c) => c.docId == currentUser.companyId)
+        : null,
     );
 
     // Calculate derived data
@@ -81,23 +74,18 @@ class HomeDataProvider extends StatelessWidget {
     }
 
     // Calculate user rank (all-time)
-    final companyUsers =
-        allUsers
-            .where(
-              (u) => u.companyId == currentUser.companyId && u.role != 'admin',
-            )
-            .toList()
-          ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
+    final companyUsers = allUsers
+      .where((u) => u.companyId == currentUser.companyId && u.role != 'admin')
+      .toList()
+    ..sort((a, b) => b.totalPoints.compareTo(a.totalPoints));
 
-    final userRank =
-        companyUsers.indexWhere((u) => u.uid == currentUser.uid) + 1;
+    final userRank = companyUsers.indexWhere((u) => u.uid == currentUser.uid) + 1;
 
     // Calculate points from company goal created timestamp to goal deadline timestamp
     final int currentGoalPoints;
     final goalStartDate = company.goalCreatedTimestamp.toDate();
     final goalEndDate = company.goalDeadlineTimestamp.toDate();
-    final currentGoalTransactions =
-        userTransactions
+    final currentGoalTransactions = userTransactions
             .where(
               (t) =>
                   t.timestamp.toDate().isAfter(goalStartDate) &&
@@ -105,10 +93,7 @@ class HomeDataProvider extends StatelessWidget {
                   t.value > 0,
             )
             .toList();
-    currentGoalPoints = currentGoalTransactions.fold<int>(
-      0,
-      (sum, t) => sum + t.value,
-    );
+    currentGoalPoints = currentGoalTransactions.fold<int>(0, (sum, t) => sum + t.value);
 
     // Calculate percentage
     final goalCompletedPercentage =
@@ -129,7 +114,7 @@ class HomeDataProvider extends StatelessWidget {
       goalPoints: company.goalPoints,
       allTimePoints: currentUser.totalPoints,
       goalCompletedPercentage: goalCompletedPercentage,
-      emissionsSaved: currentUser.totalPoints * 2.518,
+      emissionsSaved: currentUser.totalPoints * EnvironmentalImpactCalculator.KG_CO2E_PER_POINT,
       goalTimeLeft: goalTimeLeft,
       userRank: userRank,
     );

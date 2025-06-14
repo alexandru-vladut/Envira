@@ -14,6 +14,7 @@ class UserModel {
   final List<String> myVouchersIds;
   final String transportMethod;
   final int distanceToOffice;
+  final dynamic createdAt; // timestamp when the user was created
 
   UserModel({
     this.docId,
@@ -28,6 +29,7 @@ class UserModel {
     required this.myVouchersIds,
     this.transportMethod = 'not set', // default transport method
     this.distanceToOffice = -1, // default distance to office
+    required this.createdAt,
   });
 
   Map<String, dynamic> toMap() {
@@ -43,6 +45,7 @@ class UserModel {
       "myVouchersIds": myVouchersIds,
       "transportMethod": transportMethod,
       "distanceToOffice": distanceToOffice,
+      "createdAt": createdAt,
     };
   }
 
@@ -76,6 +79,7 @@ class UserModel {
         myVouchersIds: myVouchersIds,
         transportMethod: data["transportMethod"],
         distanceToOffice: data["distanceToOffice"],
+        createdAt: data["createdAt"],
       );
     } catch (e) {
       throw Exception(
