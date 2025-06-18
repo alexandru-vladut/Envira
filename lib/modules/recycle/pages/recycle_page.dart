@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/app_config.dart';
+import 'package:flutter_app_base/core/config.dart';
 import 'package:flutter_app_base/core/global_instances.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';

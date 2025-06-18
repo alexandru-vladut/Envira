@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/modules/environmental_impact/pages/impact_dashboard_page.dart';
+import 'package:flutter_app_base/modules/news/pages/news_page.dart';
 import 'package:flutter_app_base/modules/recycle/pages/recycle_page.dart';
 import 'package:flutter_app_base/modules/work_log/pages/work_log_page.dart';
 import 'package:flutter_app_base/modules/home/widgets/action_list_data.dart';
@@ -116,6 +117,8 @@ class ActionsView extends StatelessWidget {
                   AppNavigator.navigateTo(page: const WorkLogPage());
                 } else if (title == 'Impact') {
                   AppNavigator.navigateTo(page: const ImpactDashboardPage());
+                } else if (title == 'Info') {
+                  AppNavigator.navigateTo(page: const NewsPage());
                 }
               },
               child: SizedBox(

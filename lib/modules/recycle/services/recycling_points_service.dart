@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app_base/core/app_config.dart';
+import 'package:flutter_app_base/core/config.dart';
 import 'package:flutter_app_base/data/models/recycling_point.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';

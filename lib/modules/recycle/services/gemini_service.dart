@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter_app_base/core/app_config.dart';
+import 'package:flutter_app_base/core/config.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 
 class GeminiService {

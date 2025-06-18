@@ -66,6 +66,38 @@ abstract class BaseRepository<T> {
     }
   }
 
+  Future<void> deleteDocument(String docId) async {
+    try {
+      DocumentReference docRef = firestore.collection(collectionName).doc(docId);
+      await docRef.delete();
+    } catch (error) {
+      logger.e("[ERROR - deleteDocument()] Error deleting document with ID $docId from collection $collectionName: $error");
+    }
+  }
+
+  Future<void> deleteAllDocuments() async {
+    try {
+      QuerySnapshot querySnapshot = await firestore.collection(collectionName).get();
+      
+      if (querySnapshot.docs.isEmpty) {
+        logger.w("[WARNING - deleteAllDocuments()] No documents found to delete in collection $collectionName.");
+        return;
+      }
+
+      WriteBatch batch = firestore.batch();
+      
+      for (QueryDocumentSnapshot doc in querySnapshot.docs) {
+        batch.delete(doc.reference);
+      }
+      
+      await batch.commit();
+      
+      logger.i("[INFO - deleteAllDocuments()] Successfully deleted ${querySnapshot.docs.length} documents from collection $collectionName.");
+    } catch (error) {
+      logger.e("[ERROR - deleteAllDocuments()] Error deleting all documents from collection $collectionName: $error");
+    }
+  }
+
   Stream<List<T>> getDocumentsStream({String? fieldName, String? value}) {
     try {
       Stream<QuerySnapshot<Map<String, dynamic>>> snapshotsRef;

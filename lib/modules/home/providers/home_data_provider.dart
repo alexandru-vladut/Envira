@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/utils/calculators/env_impact_calculator.dart';
+import 'package:flutter_app_base/modules/environmental_impact/providers/env_impact_calculator.dart';
 import 'package:flutter_app_base/data/models/user_model.dart';
 import 'package:flutter_app_base/data/models/transaction_model.dart';
 import 'package:flutter_app_base/data/models/company_model.dart';
