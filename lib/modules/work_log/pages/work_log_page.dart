@@ -85,6 +85,8 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
                       if (_selectedCheckbox != null) _buildPointsInfo(data),
                       const SizedBox(height: 24),
                       if (_selectedCheckbox != null) _buildSubmitButton(data),
+                    ] else ...[
+                      _buildProfileInfo(data),
                     ],
                     const SizedBox(height: 30),
                   ],
@@ -622,11 +624,17 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
             // Only process selection if the day is not already logged
             if (!_isDateLogged(selectedDay, loggedDates)) {
               setState(() {
-                _selectedDay = selectedDay;
+                // If the same day is selected again, deselect it
+                if (isSameDay(_selectedDay, selectedDay)) {
+                  _selectedDay = null;
+                  _selectedCheckbox = null;
+                } else {
+                  _selectedDay = selectedDay;
+                  _selectedCheckbox = null;
+                  _animationController.reset();
+                  _animationController.forward();
+                }
                 _focusedDay = focusedDay;
-                _selectedCheckbox = null;
-                _animationController.reset();
-                _animationController.forward();
               });
             }
           },
@@ -1067,5 +1075,306 @@ class _WorkLogPageState extends State<WorkLogPage> with SingleTickerProviderStat
         ),
       ),
     );
+  }
+
+  Widget _buildProfileInfo(WorkLogData data) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Header
+        Padding(
+          padding: const EdgeInsets.only(left: 8, bottom: 16, top: 0),
+          child: Text(
+            'Your Profile',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: CustomTheme.darkGrey,
+            ),
+          ),
+        ),
+        
+        // Transport & Distance Card
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: CustomTheme.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: CustomTheme.grey200),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                spreadRadius: 0,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: CustomTheme.primaryGreen.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Icon(
+                          Icons.directions_car_rounded,
+                          color: CustomTheme.primaryGreen,
+                          size: 20,
+                        ),
+                      ),
+                      const SizedBox(width: 12),
+                      Text(
+                        'Transport Details',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: CustomTheme.darkGrey,
+                        ),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () async {
+                      await workLogService.resetUserTransportAndDistance(context: context);
+                      setState(() {});
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                      decoration: BoxDecoration(
+                        color: CustomTheme.primaryGreen,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.edit_rounded,
+                            size: 14,
+                            color: CustomTheme.white,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            'Edit',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                              color: CustomTheme.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              
+              // Transport Method
+              Row(
+                children: [
+                  Icon(
+                    _getTransportIcon(data.transportMethod ?? 'car'),
+                    size: 18,
+                    color: CustomTheme.grey600,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Transport Method:',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: CustomTheme.grey600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    _formatTransportMethod(data.transportMethod ?? 'car'),
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: CustomTheme.darkGrey,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              
+              // Distance
+              Row(
+                children: [
+                  Icon(
+                    Icons.straighten_rounded,
+                    size: 18,
+                    color: CustomTheme.grey600,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Distance to Office:',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: CustomTheme.grey600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    '${data.distanceToOffice ?? 0} km',
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: CustomTheme.darkGrey,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        
+        const SizedBox(height: 16),
+        
+        // Company Details Card
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: CustomTheme.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: CustomTheme.grey200),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 8,
+                spreadRadius: 0,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: CustomTheme.mediumBlue.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Icon(
+                      Icons.business_rounded,
+                      color: CustomTheme.mediumBlue,
+                      size: 20,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    'Company Details',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: CustomTheme.darkGrey,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              
+              // Company Type
+              Row(
+                children: [
+                  Icon(
+                    Icons.category_rounded,
+                    size: 18,
+                    color: CustomTheme.grey600,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Company Type:',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: CustomTheme.grey600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      'Technology',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: CustomTheme.darkGrey,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              
+              // Company Region
+              Row(
+                children: [
+                  Icon(
+                    Icons.location_on_rounded,
+                    size: 18,
+                    color: CustomTheme.grey600,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    'Company Region:',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: CustomTheme.grey600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      data.companyRegion ?? 'Not specified',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: CustomTheme.darkGrey,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  IconData _getTransportIcon(String transportMethod) {
+    switch (transportMethod.toLowerCase()) {
+      case 'car':
+        return Icons.directions_car;
+      case 'public transit':
+        return Icons.directions_bus;
+      case 'bike':
+        return Icons.directions_bike;
+      case 'walk':
+        return Icons.directions_walk;
+      case 'mixed':
+        return Icons.shuffle;
+      default:
+        return Icons.directions_car;
+    }
+  }
+
+  String _formatTransportMethod(String transportMethod) {
+    return transportMethod
+        .split(' ')
+        .map((word) => word[0].toUpperCase() + word.substring(1))
+        .join(' ');
   }
 }

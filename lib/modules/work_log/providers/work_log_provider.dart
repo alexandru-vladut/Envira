@@ -38,7 +38,6 @@ class WorkLogProvider extends StatelessWidget {
       .toSet()
       .toList();
 
-    int? newPoints;
     if (currentUser!.transportMethod != 'not set' && currentUser.distanceToOffice > 0) {
       // Get company data
       final company = context.select<CompaniesProvider, CompanyModel?>((provider) => provider.items
@@ -46,26 +45,43 @@ class WorkLogProvider extends StatelessWidget {
       );
 
       // Calculate new points based on WFH calculator
-      newPoints = WFHCalculator.calculateSingleDayPoints(
+      int newPoints = WFHCalculator.calculateSingleDayPoints(
         distanceToOfficeKm: currentUser.distanceToOffice,
         transportMethod: WFHCalculator.parseTransportMethod(currentUser.transportMethod),
         companyType: company!.type,
         region: company.region,
       );
+
+      return builder(
+        WorkLogData(
+          loggedDates: loggedDates,
+          newPoints: newPoints,
+          distanceToOffice: currentUser.distanceToOffice,
+          transportMethod: currentUser.transportMethod,
+          companyType: company.type,
+          companyRegion: company.region,
+        ),
+      );
     }
 
-    final workLogData = WorkLogData(
-      loggedDates: loggedDates,
-      newPoints: newPoints,
-    );
-
-    return builder(workLogData);
+    return builder(WorkLogData(loggedDates: loggedDates));
   }
 }
 
 class WorkLogData {
   final List<DateTime> loggedDates;
   final int? newPoints;
+  final int? distanceToOffice;
+  final String? transportMethod;
+  final String? companyType;
+  final String? companyRegion;
 
-  const WorkLogData({required this.loggedDates, required this.newPoints});
+  const WorkLogData({
+    required this.loggedDates,
+    this.newPoints,
+    this.distanceToOffice,
+    this.transportMethod,
+    this.companyType,
+    this.companyRegion,
+  });
 }

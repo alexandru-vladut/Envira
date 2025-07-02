@@ -137,4 +137,46 @@ class WorkLogService {
       errorDialog(context: context, title: 'Error updating profile: $error');
     }
   }
+
+  Future<void> resetUserTransportAndDistance({required BuildContext context}) async {
+    loadingDialog(context: context);
+
+    try {
+      // Get current user UID from auth provider
+      final currentUserUid = context.read<AuthStateProvider>().uid;
+      if (currentUserUid == null) {
+        AppNavigator.pop();
+        errorDialog(context: context, title: 'User not authenticated');
+        return;
+      }
+
+      // Get current user data from users provider
+      final currentUser = context.read<UsersProvider>().items.firstWhereOrNull(
+        (u) => u.uid == currentUserUid,
+      );
+
+      if (currentUser == null) {
+        AppNavigator.pop();
+        errorDialog(context: context, title: 'User data not found');
+        return;
+      }
+
+      // Update user's transport method and distance
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'transportMethod',
+        'not set',
+      );
+      await _userRepository.updateDocumentField(
+        currentUser.docId!,
+        'distanceToOffice',
+        -1,
+      );
+
+      AppNavigator.pop();
+    } catch (error) {
+      AppNavigator.pop();
+      errorDialog(context: context, title: 'Error resetting details: $error');
+    }
+  }
 }
