@@ -12,6 +12,7 @@ class MyTextField extends StatelessWidget {
     required this.validator,
     required this.onFieldSubmitted,
     required this.textInputAction,
+    this.initialValue,
   });
   final String hintText;
   final TextInputType inputType;
@@ -20,11 +21,12 @@ class MyTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final void Function(String)? onFieldSubmitted;
   final TextInputAction? textInputAction;
+  final String? initialValue;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
         focusNode: focusNode,
         controller: controller,
@@ -33,6 +35,7 @@ class MyTextField extends StatelessWidget {
         textInputAction: textInputAction,
         style: kBodyTextLight.copyWith(color: Colors.black),
         keyboardType: inputType,
+        initialValue: initialValue,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(16),
           hintText: hintText,

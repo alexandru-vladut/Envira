@@ -37,8 +37,8 @@ class ActionListData {
     ),
     ActionListData(
       imagePath: 'assets/images/home/info.png',
-      titleTxt: 'Info',
-      actions: <String>['Waste', 'Management'],
+      titleTxt: 'News',
+      actions: <String>['Latest about', 'environment'],
       startColor: '#FE95B6',
       endColor: '#FF5287',
     ),

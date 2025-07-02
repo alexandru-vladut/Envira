@@ -117,7 +117,7 @@ class ActionsView extends StatelessWidget {
                   AppNavigator.navigateTo(page: const WorkLogPage());
                 } else if (title == 'Impact') {
                   AppNavigator.navigateTo(page: const ImpactDashboardPage());
-                } else if (title == 'Info') {
+                } else if (title == 'News') {
                   AppNavigator.navigateTo(page: const NewsPage());
                 }
               },

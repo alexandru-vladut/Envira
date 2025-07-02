@@ -17,7 +17,7 @@ class NewsPage extends StatelessWidget {
   }
 
   Widget _buildContent(BuildContext context, NewsData data) {
-    print('NewsPage: isInitialLoading = ${data.isInitialLoading}');
+    // print('NewsPage: isInitialLoading = ${data.isInitialLoading}');
 
     return Scaffold(
       backgroundColor: CustomTheme.white,

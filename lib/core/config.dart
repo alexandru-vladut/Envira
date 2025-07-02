@@ -29,6 +29,6 @@ class NewsConfig {
   ];
   static String sourceParam = top60Sources.join(',');
 
-  static DateTime fromDate = DateTime.now().subtract(const Duration(days: 7));
-  static DateTime toDate = DateTime.now();
+  static DateTime fromDate = DateTime.now().subtract(const Duration(days: 16));
+  static DateTime toDate = DateTime.now().subtract(const Duration(days: 9));
 }

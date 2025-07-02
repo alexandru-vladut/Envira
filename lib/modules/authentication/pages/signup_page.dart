@@ -28,11 +28,13 @@ class SignUpState extends State<SignUp> {
   final FocusNode emailFocusNode = FocusNode();
   final FocusNode passwordFocusNode = FocusNode();
   final FocusNode confirmPasswordFocusNode = FocusNode();
+  final FocusNode companyCodeFocusNode = FocusNode();
 
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController companyCodeController = TextEditingController();
 
   @override
   void dispose() {
@@ -40,6 +42,7 @@ class SignUpState extends State<SignUp> {
     emailFocusNode.dispose();
     passwordFocusNode.dispose();
     confirmPasswordFocusNode.dispose();
+    companyCodeFocusNode.dispose();
     super.dispose();
   }
 
@@ -81,7 +84,7 @@ class SignUpState extends State<SignUp> {
                               "Create new account to get started.",
                               style: kBodyText2Light,
                             ),
-                            SizedBox(height: 42),
+                            SizedBox(height: 30),
                             MyTextField(
                               hintText: 'Name',
                               inputType: TextInputType.name,
@@ -137,6 +140,20 @@ class SignUpState extends State<SignUp> {
                                 }
                               },
                               textInputAction: TextInputAction.go,
+                            ),
+                            MyTextField(
+                              hintText: 'Company Code',
+                              inputType: TextInputType.text,
+                              focusNode: companyCodeFocusNode,
+                              controller: null,
+                              validator: (value) => isTextValid(value),
+                              onFieldSubmitted: (_) {
+                                if (_formKey.currentState!.validate()) {
+                                  authService.signUp(emailController.text, nameController.text, passwordController.text, confirmPasswordController.text);
+                                }
+                              },
+                              textInputAction: TextInputAction.go,
+                              initialValue: 'X7C9-PLZ3-KY48',
                             ),
                           ],
                         ),
