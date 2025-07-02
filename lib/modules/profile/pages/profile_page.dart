@@ -92,7 +92,7 @@ class _ProfilePageState extends State<ProfilePage> with SingleTickerProviderStat
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(55),
                     child: Image.asset(
-                      Memojis.memoji1,
+                      (data.currentUser != null) ? data.currentUser!.memojiPath : Memojis.memoji7,
                       fit: BoxFit.cover,
                     ),
                   ),

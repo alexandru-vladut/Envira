@@ -15,6 +15,7 @@ class UserModel {
   final String transportMethod;
   final int distanceToOffice;
   final dynamic createdAt; // timestamp when the user was created
+  final String memojiPath;
 
   UserModel({
     this.docId,
@@ -30,6 +31,7 @@ class UserModel {
     this.transportMethod = 'not set', // default transport method
     this.distanceToOffice = -1, // default distance to office
     required this.createdAt,
+    this.memojiPath = 'assets/images/memoji/7.png', // default memoji path
   });
 
   Map<String, dynamic> toMap() {
@@ -46,6 +48,7 @@ class UserModel {
       "transportMethod": transportMethod,
       "distanceToOffice": distanceToOffice,
       "createdAt": createdAt,
+      "memojiPath": memojiPath,
     };
   }
 
@@ -80,6 +83,7 @@ class UserModel {
         transportMethod: data["transportMethod"],
         distanceToOffice: data["distanceToOffice"],
         createdAt: data["createdAt"],
+        memojiPath: data["memojiPath"],
       );
     } catch (e) {
       throw Exception(

@@ -101,7 +101,11 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                       ? data.otherUsersAllTime[index]
                                       : data.otherUsersGoal[index];
 
-                              bool isCurrentUser = (data.currentUser != null && (data.currentUser!.uid == (item as UserModel).uid));
+                              dynamic castItem = _showAllTime
+                                    ? item as UserModel
+                                    : (item as UserWithGoalPoints).user;
+
+                              bool isCurrentUser = (data.currentUser != null && (data.currentUser!.uid == castItem.uid));
 
                               Color accentColor = isCurrentUser ? _accentGold : HomeAppTheme.lightText;
 
@@ -148,10 +152,11 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                         ),
                                         child: CircleAvatar(
                                           radius: 20,
-                                          backgroundColor:
-                                              CustomTheme.transparent,
+                                          backgroundColor: CustomTheme.transparent,
                                           foregroundImage: AssetImage(
-                                            memojiPaths[(index + 3) % 9],
+                                            _showAllTime
+                                                ? (item as UserModel).memojiPath
+                                                : (item as UserWithGoalPoints).user.memojiPath,
                                           ),
                                         ),
                                       ),
@@ -370,6 +375,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
   Widget _buildFirstPlace(LeaderboardData data) {
     final name = _getTopUserName(data, 0);
     final points = _getTopUserPoints(data, 0);
+    final memojiPath = _getTopUserMemojiPath(data, 0);
 
     Color accentColor = _isCurrentUserTop(data, 0) ? _accentGold : HomeAppTheme.lightText;
 
@@ -430,10 +436,10 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                   ),
                 ],
               ),
-              child: const CircleAvatar(
+              child: CircleAvatar(
                 radius: 38,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage(Memojis.memoji1),
+                foregroundImage: AssetImage(memojiPath),
               ),
             ),
             // First place badge
@@ -535,6 +541,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
   Widget _buildRunnerUp(LeaderboardData data, int index, int rank) {
     final name = _getTopUserName(data, index);
     final points = _getTopUserPoints(data, index);
+    final memojiPath = _getTopUserMemojiPath(data, index);
 
     Color accentColor = _isCurrentUserTop(data, index) ? _accentGold : HomeAppTheme.lightText;
 
@@ -559,9 +566,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
               child: CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.white,
-                foregroundImage: AssetImage(
-                  rank == 2 ? Memojis.memoji2 : Memojis.memoji3,
-                ),
+                foregroundImage: AssetImage(memojiPath),
               ),
             ),
 
@@ -697,5 +702,20 @@ class _LeaderboardPageState extends State<LeaderboardPage>
       }
     }
     return "0";
+  }
+
+  String _getTopUserMemojiPath(LeaderboardData data, int index) {
+    if (_showAllTime) {
+      final list = data.topThreeUsersAllTime;
+      if (list.length > index) {
+        return (list[index]).memojiPath;
+      }
+    } else {
+      final list = data.topThreeUsersGoal;
+      if (list.length > index) {
+        return (list[index]).user.memojiPath;
+      }
+    }
+    return Memojis.memoji7; // Default memoji path
   }
 }
