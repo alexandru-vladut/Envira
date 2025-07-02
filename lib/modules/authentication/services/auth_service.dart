@@ -60,10 +60,18 @@ class AuthService {
 
       if (AppConfig.emailVerificationEnabled) {
         if (user.emailVerified == false) {
+
+          if (AppConfig.demoAccountEmails.contains(email)) {
+            await sessionManager.startListeningToProviders();
+            AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
+            return;
+          }
+
           await user.sendEmailVerification();
           _firebaseAuth.signOut();
           AppNavigator.navigateAndRemoveAll(page: const VerificationEmailSent());
           return;
+
         } else if (AppConfig.pinCodeEnabled == false) {
           await sessionManager.startListeningToProviders();
           AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
@@ -131,6 +139,25 @@ class AuthService {
     }
   }
 
+  Future<void> autoSignOut() async {
+
+    // Handle context across async gaps
+    final ctx = ContextUtils.getSafeContext();
+    if (ctx == null) return;
+
+    try {
+      logger.i('[INFO - logOut()] Logging out user...');
+
+      ctx.read<AuthStateProvider>().markManualLogout();
+      await _firebaseAuth.signOut();
+      await sessionManager.stopListeningToProviders();
+
+      logger.i('[INFO - logOut()] User logged out successfully.');
+    } catch (error) {
+      logger.e('[ERROR - logOut()] ${error.toString()}');
+    }
+  }
+
   Future<void> sendPasswordResetEmail(BuildContext dialogContext, String email) async {
 
     Navigator.pop(dialogContext);
@@ -194,7 +221,7 @@ class AuthService {
       }
 
       await user.sendEmailVerification();
-      _firebaseAuth.signOut();
+      await authService.autoSignOut(); // Sign out after sending verification email
 
       logger.i('[INFO - signUp()] User created successfully. Email verification sent.');
 

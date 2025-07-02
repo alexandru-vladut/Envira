@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_base/core/config.dart';
 import 'package:flutter_app_base/core/utils/app_navigator.dart';
 import 'package:flutter_app_base/modules/authentication/pages/login_page.dart';
 import 'package:flutter_app_base/core/theme/theme.dart';
@@ -11,68 +10,201 @@ class VerificationEmailSent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomTheme.darkBlue1,
-      body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 30),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const Image(
-              height: 100,
-              image: AssetImage('assets/images/info.png')
-            ),
-            RichText(
-              text: const TextSpan(
-                style: TextStyle(
-                  fontSize: 17,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: 'DMSans'
+      backgroundColor: CustomTheme.white,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Email icon with modern design
+                    Container(
+                      width: 120,
+                      height: 120,
+                      decoration: BoxDecoration(
+                        color: CustomTheme.lightGreenAccent,
+                        shape: BoxShape.circle,
+                        boxShadow: [
+                          BoxShadow(
+                            color: CustomTheme.primaryGreen.withOpacity(0.2),
+                            blurRadius: 20,
+                            spreadRadius: 0,
+                            offset: const Offset(0, 8),
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        Icons.mark_email_read_rounded,
+                        size: 60,
+                        color: CustomTheme.primaryGreen,
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 32),
+                    
+                    // Title
+                    Text(
+                      'Check Your Email',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: CustomTheme.darkGrey,
+                        fontFamily: 'DMSans',
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 16),
+                    
+                    // Subtitle
+                    Text(
+                      'We\'ve sent a verification link to your email address',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: CustomTheme.grey600,
+                        fontFamily: 'DMSans',
+                        height: 1.4,
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 32),
+                    
+                    // Info card
+                    Container(
+                      padding: const EdgeInsets.all(20),
+                      decoration: BoxDecoration(
+                        color: CustomTheme.lightBlueAccent.withOpacity(0.3),
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: CustomTheme.mediumBlue.withOpacity(0.2),
+                          width: 1,
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                padding: const EdgeInsets.all(8),
+                                decoration: BoxDecoration(
+                                  color: CustomTheme.mediumBlue.withOpacity(0.1),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: Icon(
+                                  Icons.info_outline_rounded,
+                                  size: 20,
+                                  color: CustomTheme.mediumBlue,
+                                ),
+                              ),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  'What\'s next?',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: CustomTheme.mediumBlue,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Text(
+                            '• Click the verification link in your email\n• Complete your account setup\n• Start earning points for eco-friendly choices',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: CustomTheme.darkGrey,
+                              height: 1.5,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    
+                    const SizedBox(height: 24),
+                    
+                    // Didn't receive email section
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: CustomTheme.lightGrey.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.help_outline_rounded,
+                            size: 20,
+                            color: CustomTheme.grey600,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              'Didn\'t receive the email? Check your spam folder',
+                              style: TextStyle(
+                                fontSize: 13,
+                                color: CustomTheme.grey600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                children: <TextSpan>[
-                  TextSpan(
-                    text: '🎉 Welcome to ${AppConfig.appName}! 🚀\n\n'
-                    'Thank you for signing up! We\'re excited to have you on board. To get started, there\'s just one small step left:\n\n',
-                  ),
-                  TextSpan(
-                    text: '📧 Check Your Inbox: ',
-                    style: TextStyle(fontWeight: FontWeight.w900,),
-                  ),
-                  TextSpan(
-                    text: 'We\'ve sent a verification email to the address you provided. Please click on the link in that email to verify your account. Can\'t find it? Remember to check your spam folder just in case!\n\n'
-                    'Once verified, you\'ll have full access to all the amazing features ${AppConfig.appName} has to offer. Happy exploring!\n\n'
-                    '🌟 ${AppConfig.appName} Team 🌟',
-                  )
-                ]
               ),
-            ),
-
-            Container(
-              width: 230.0,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-                color: const Color.fromARGB(255, 0, 10, 75),
-                border: Border.all(
-                  color: Colors.white,
-                  width: 1.0,
+              
+              // Bottom section with button
+              Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: Column(
+                  children: [
+                    // Go to Login button
+                    SizedBox(
+                      width: double.infinity,
+                      height: 56,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          AppNavigator.navigateAndRemoveAll(page: const LoginPage(), context: context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: CustomTheme.white,
+                          backgroundColor: CustomTheme.primaryGreen,
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          padding: const EdgeInsets.symmetric(vertical: 16),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.login_rounded,
+                              size: 24,
+                            ),
+                            const SizedBox(width: 12),
+                            Text(
+                              'Go to Login',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'DMSans',
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              child: MaterialButton(
-                highlightColor: Colors.transparent,
-                splashColor: const Color.fromARGB(255, 38, 40, 110),
-                child: const Text(
-                  'Go to Login',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontFamily: 'WorkSansBold'),
-                ),
-                onPressed: () {
-                  AppNavigator.navigateAndRemoveAll(page: const LoginPage(), context: context);
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
