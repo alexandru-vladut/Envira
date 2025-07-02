@@ -101,11 +101,19 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                       ? data.otherUsersAllTime[index]
                                       : data.otherUsersGoal[index];
 
+                              bool isCurrentUser = (data.currentUser != null && (data.currentUser!.uid == (item as UserModel).uid));
+
+                              Color accentColor = isCurrentUser ? _accentGold : HomeAppTheme.lightText;
+
                               return Container(
                                 margin: const EdgeInsets.fromLTRB(16, 4, 16, 4),
                                 decoration: BoxDecoration(
                                   color: CustomTheme.white,
                                   borderRadius: BorderRadius.circular(16),
+                                  border: Border.all(
+                                    color: accentColor.withOpacity(0.2),
+                                    width: isCurrentUser ? 1 : 0,
+                                  ),
                                   boxShadow: [
                                     BoxShadow(
                                       color: CustomTheme.black.withOpacity(0.1),
@@ -115,12 +123,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                   ],
                                 ),
                                 child: ListTile(
-                                  contentPadding: const EdgeInsets.only(
-                                    left: 4,
-                                    right: 16,
-                                    top: 8,
-                                    bottom: 8,
-                                  ),
+                                  contentPadding: const EdgeInsets.only(left: 4, right: 16, top: 8, bottom: 8),
                                   leading: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -157,9 +160,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                   title: Text(
                                     _showAllTime
                                         ? (item as UserModel).name
-                                        : (item as UserWithGoalPoints)
-                                            .user
-                                            .name,
+                                        : (item as UserWithGoalPoints).user.name,
                                     style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,
@@ -168,16 +169,13 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                   ),
                                   trailing: Container(
                                     height: 36,
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 14,
-                                    ),
+                                    padding: const EdgeInsets.symmetric(horizontal: 14),
                                     decoration: BoxDecoration(
-                                      color: HomeAppTheme.lightText,
+                                      color: accentColor,
                                       borderRadius: BorderRadius.circular(20),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: HomeAppTheme.lightText
-                                              .withOpacity(0.3),
+                                          color: accentColor.withOpacity(0.3),
                                           blurRadius: 4,
                                           offset: const Offset(0, 2),
                                         ),
@@ -194,11 +192,8 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                                         const SizedBox(width: 6),
                                         Text(
                                           _showAllTime
-                                              ? (item as UserModel).totalPoints
-                                                  .toString()
-                                              : (item as UserWithGoalPoints)
-                                                  .goalPoints
-                                                  .toString(),
+                                              ? (item as UserModel).totalPoints.toString()
+                                              : (item as UserWithGoalPoints).goalPoints.toString(),
                                           style: const TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 14,
@@ -376,6 +371,8 @@ class _LeaderboardPageState extends State<LeaderboardPage>
     final name = _getTopUserName(data, 0);
     final points = _getTopUserPoints(data, 0);
 
+    Color accentColor = _isCurrentUserTop(data, 0) ? _accentGold : HomeAppTheme.lightText;
+
     return Column(
       children: [
         // Profile picture with glow and decoration
@@ -390,8 +387,8 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                 shape: BoxShape.circle,
                 gradient: RadialGradient(
                   colors: [
-                    _accentGold.withOpacity(0.6),
-                    _accentGold.withOpacity(0.0),
+                    accentColor.withOpacity(0.6),
+                    accentColor.withOpacity(0.0),
                   ],
                   radius: 0.55,
                 ),
@@ -410,7 +407,7 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: _accentGold.withOpacity(0.3),
+                        color: accentColor.withOpacity(0.3),
                         width: 2,
                         strokeAlign: BorderSide.strokeAlignOutside,
                       ),
@@ -424,10 +421,10 @@ class _LeaderboardPageState extends State<LeaderboardPage>
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: _accentGold, width: 3),
+                border: Border.all(color: accentColor, width: 3),
                 boxShadow: [
                   BoxShadow(
-                    color: _accentGold.withOpacity(0.4),
+                    color: accentColor.withOpacity(0.4),
                     blurRadius: 12,
                     spreadRadius: 2,
                   ),
@@ -448,12 +445,12 @@ class _LeaderboardPageState extends State<LeaderboardPage>
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(
-                      color: _accentGold.withOpacity(0.4),
+                      color: accentColor.withOpacity(0.4),
                       blurRadius: 8,
                       spreadRadius: 1,
                     ),
                   ],
-                  color: _accentGold,
+                  color: accentColor,
                 ),
                 child: const CircleAvatar(
                   radius: 16,
@@ -505,11 +502,11 @@ class _LeaderboardPageState extends State<LeaderboardPage>
           height: 36,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           decoration: BoxDecoration(
-            color: _accentGold,
+            color: accentColor,
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
-                color: _accentGold.withOpacity(0.3),
+                color: accentColor.withOpacity(0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 3),
               ),
@@ -539,6 +536,8 @@ class _LeaderboardPageState extends State<LeaderboardPage>
     final name = _getTopUserName(data, index);
     final points = _getTopUserPoints(data, index);
 
+    Color accentColor = _isCurrentUserTop(data, index) ? _accentGold : HomeAppTheme.lightText;
+
     return Column(
       children: [
         // Avatar with border
@@ -548,10 +547,10 @@ class _LeaderboardPageState extends State<LeaderboardPage>
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                border: Border.all(color: HomeAppTheme.lightText, width: 2),
+                border: Border.all(color: accentColor, width: 2),
                 boxShadow: [
                   BoxShadow(
-                    color: HomeAppTheme.lightText.withOpacity(0.3),
+                    color: accentColor.withOpacity(0.3),
                     blurRadius: 10,
                     spreadRadius: 1,
                   ),
@@ -570,10 +569,10 @@ class _LeaderboardPageState extends State<LeaderboardPage>
             Container(
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: HomeAppTheme.lightText,
+                color: accentColor,
                 boxShadow: [
                   BoxShadow(
-                    color: HomeAppTheme.lightText.withOpacity(0.3),
+                    color: accentColor.withOpacity(0.3),
                     blurRadius: 6,
                     spreadRadius: 1,
                   ),
@@ -628,11 +627,11 @@ class _LeaderboardPageState extends State<LeaderboardPage>
           height: 30,
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            color: HomeAppTheme.lightText,
+            color: accentColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: HomeAppTheme.lightText,
+                color: accentColor,
                 blurRadius: 6,
                 offset: const Offset(0, 2),
               ),
@@ -656,6 +655,18 @@ class _LeaderboardPageState extends State<LeaderboardPage>
         ),
       ],
     );
+  }
+
+  bool _isCurrentUserTop(LeaderboardData data, int index) {
+    if (_showAllTime) {
+      return data.currentUser != null &&
+          data.topThreeUsersAllTime.length > index &&
+          data.topThreeUsersAllTime[index].uid == data.currentUser!.uid;
+    } else {
+      return data.currentUser != null &&
+          data.topThreeUsersGoal.length > index &&
+          data.topThreeUsersGoal[index].user.uid == data.currentUser!.uid;
+    }
   }
 
   String _getTopUserName(LeaderboardData data, int index) {

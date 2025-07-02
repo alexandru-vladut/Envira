@@ -63,6 +63,7 @@ class LeaderboardProvider extends StatelessWidget {
   }) {
     if (currentUser == null || company == null) {
       return const LeaderboardData(
+        currentUser: null,
         topThreeUsersAllTime: [],
         otherUsersAllTime: [],
         topThreeUsersGoal: [],
@@ -94,6 +95,7 @@ class LeaderboardProvider extends StatelessWidget {
     final otherUsersGoal = goalBasedUsers.skip(3).toList();
 
     return LeaderboardData(
+      currentUser: currentUser,
       topThreeUsersAllTime: topThreeUsersAllTime,
       otherUsersAllTime: otherUsersAllTime,
       topThreeUsersGoal: topThreeUsersGoal,
@@ -130,12 +132,14 @@ class UserWithGoalPoints {
 }
 
 class LeaderboardData {
+  final UserModel? currentUser;
   final List<UserModel> topThreeUsersAllTime;
   final List<UserModel> otherUsersAllTime;
   final List<UserWithGoalPoints> topThreeUsersGoal;
   final List<UserWithGoalPoints> otherUsersGoal;
 
   const LeaderboardData({
+    required this.currentUser,
     required this.topThreeUsersAllTime,
     required this.otherUsersAllTime,
     required this.topThreeUsersGoal,

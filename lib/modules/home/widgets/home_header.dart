@@ -12,7 +12,7 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 24, right: 0),
+      padding: const EdgeInsets.only(left: 24, right: 24),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -43,8 +43,8 @@ class HomeHeader extends StatelessWidget {
             ],
           ),
           Image.asset(
-            'assets/images/singleton.png',
-            width: 200,
+            'assets/images/technova_crop.png',
+            width: 150,
           )
         ],
       ),
