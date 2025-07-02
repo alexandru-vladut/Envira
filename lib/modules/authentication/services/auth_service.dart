@@ -214,7 +214,7 @@ class AuthService {
       await user.updateDisplayName(inputName);
       await user.reload();
 
-      if (AppConfig.emailVerificationEnabled == false) {
+      if (AppConfig.emailVerificationEnabled == false || AppConfig.demoAccountEmails.contains(inputEmail)) {
         await sessionManager.startListeningToProviders();
         AppNavigator.navigateAndRemoveAll(page: const CustomNavBar());
         return;

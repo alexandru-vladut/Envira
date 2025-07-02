@@ -4,14 +4,16 @@ class AppConfig {
   static const bool emailVerificationEnabled = true;
   static const bool pinCodeEnabled = false;
   static const String geminiApiKey = 'AIzaSyDRUDGxGqdmLhZH_H_8u7CeG7itN5moeKg';
-  static const String barcodeLookupApiKey = '4p9i06zpselyxdg07fwr349zzybma4';
+  static const String barcodeLookupApiKey = '0z71kd1apuyxaql5kkddktye3uc15u';
   static const double recyclingPointsRadiusKm = 0.5;
   static const List<String> demoAccountEmails = [
     'alex@gmail.com',
     'robert@gmail.com',
     'maria@gmail.com',
     'mihai@gmail.com',
-    'ioana@gmail.com'
+    'ioana@gmail.com',
+    'raul@gmail.com',
+    'andrei@gmail.com'
   ];
 }
 
@@ -36,6 +38,6 @@ class NewsConfig {
   ];
   static String sourceParam = top60Sources.join(',');
 
-  static DateTime fromDate = DateTime.now().subtract(const Duration(days: 16));
-  static DateTime toDate = DateTime.now().subtract(const Duration(days: 9));
+  static DateTime fromDate = DateTime.now().subtract(const Duration(days: 7));
+  static DateTime toDate = DateTime.now();
 }
