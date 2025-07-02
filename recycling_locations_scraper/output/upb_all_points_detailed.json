@@ -1,0 +1,3813 @@
+{
+  "summary": {
+    "total_points": 255,
+    "successful": 241,
+    "failed": 14,
+    "failed_ids": [
+      3516668,
+      3516671,
+      3516669,
+      3516670,
+      3516672,
+      3515916,
+      3516676,
+      3526732,
+      3516852,
+      3515919,
+      3516681,
+      3516673,
+      3516674,
+      3516853
+    ]
+  },
+  "points": [
+    {
+      "id": 3528619,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4349988,
+        26.0498305
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Iuliu Maniu, nr 6R",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529029,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4349988,
+        26.0498305
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Iuliu Maniu, nr 6R",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532378,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44050676,
+        26.05498432
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "Global Business Center, Blvd. Vasile Milea nr. 4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524398,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4348641,
+        26.0529075
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bld. Iuliu Maniu 6N",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3531339,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4384151,
+        26.0564834
+      ],
+      "subheading": "Colectare separată deșeuri administrat de OMV",
+      "address": "Bulevardul Doina Cornea, nr. 5",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534108,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44120644,
+        26.05638542
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Economu Cezarescu, Nr. 34-42",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534527,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.44120644,
+        26.05638542
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Economu Cezarescu, Nr. 34-42",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524269,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44348189,
+        26.04624304
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Splaiul Independentei Nr. 319",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533575,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44034,
+        26.05772
+      ],
+      "subheading": "Colectare separată deșeuri administrat de PPC Energie",
+      "address": "Bd. Vasile Milea, 2 P",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516166,
+      "name": "Reparații IT",
+      "latlng": [
+        44.43278887,
+        26.05410142
+      ],
+      "subheading": "Reparații administrat de LME CONNECT srl",
+      "address": "Bulevardul Vasile Milea 2r, Sector 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514832,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43234803,
+        26.05347707
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange Shop  Afi Cotroceni",
+      "address": "Bd. G-Ral Vasile Milea, Nr. 4, Afi Palace Cotroceni, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523563,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43168682,
+        26.0508246
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Intersport",
+      "address": "B-Dul General Paul Teodorescu Nr 4, Afi Palacecotroceni",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524679,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43157514,
+        26.05083326
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Blvd Vasilea Milea 4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527115,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4315944,
+        26.0527472
+      ],
+      "subheading": "Donații administrat de Pull&Bear",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526496,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44482976,
+        26.04542218
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Telekom",
+      "address": "Splaiul Independentei Nr. 319G, Sema Parc, Cladirea Atrium House, Et. 1 - 2",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514852,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43098221,
+        26.05246662
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Bd. G-Ral Vasile Milea, Nr.4, Afi Palace Cotroceni, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510809,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43075256,
+        26.05074895
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Flanco",
+      "address": "Bd. Vasile Milea nr.4 (AFI Cotroceni)",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535849,
+      "name": "Închiriere echipamente electronice și IT&C",
+      "latlng": [
+        44.4308766,
+        26.0522712
+      ],
+      "subheading": "Reutilizare administrat de Telerenta",
+      "address": "Bulevardul General Paul Teodorescu, nr 4 (AFI Cotroceni)",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527140,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4309799,
+        26.0527588
+      ],
+      "subheading": "Donații administrat de Zara Home",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535427,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.43481275,
+        26.04330632
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Bulevardul Iuliu Maniu nr. 8B",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3521876,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.434813,
+        26.043306
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Lidl, Bulevardul Iuliu Maniu 8B, Sector 6, București",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": true
+      }
+    },
+    {
+      "id": 3516854,
+      "name": "Croitorie",
+      "latlng": [
+        44.430592858539,
+        26.052145957947
+      ],
+      "subheading": "Reparații administrat de AFI Cotroceni",
+      "address": "AFI Cotroceni, Bulevardul General Paul Teodorescu 4, Sector 6, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3524542,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4305742,
+        26.0529274
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Noriel",
+      "address": "Bld Paul Teodorescu Nr 4 (Mall Afi Cotroceni)",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533605,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43037374,
+        26.05336144
+      ],
+      "subheading": "Colectare separată deșeuri administrat de SAMSUNG ELECTRONICS ROMANIA",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511856,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4302762,
+        26.0532123
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Strada Vasile Milea, nr. 4, Sector 6, Bucuresti, 061341",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527099,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4303893,
+        26.0536319
+      ],
+      "subheading": "Donații administrat de Oysho",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511062,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4302629,
+        26.0532629
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bulevardul General Paul Teodorescu 4, Bucuresti 061344",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523582,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43016903,
+        26.0534453
+      ],
+      "subheading": "Colectare separată deșeuri administrat de ISTYLE Retail",
+      "address": "Str Vasile Milea, Nr. 4, Afi Palace Cotroceni",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527131,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4298812,
+        26.0530707
+      ],
+      "subheading": "Donații administrat de Stradivarius",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527086,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4298816,
+        26.0530751
+      ],
+      "subheading": "Donații administrat de Massimo Dutti",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527072,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4298787,
+        26.0530661
+      ],
+      "subheading": "Donații administrat de Berska",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527156,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4298778,
+        26.0531827
+      ],
+      "subheading": "Donații administrat de Zara",
+      "address": "Bulevardul Doina Cornea 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527183,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4294009,
+        26.0534172
+      ],
+      "subheading": "Colectare separată deșeuri administrat de H&M",
+      "address": "Bulevardul General Paul Teodorescu, nr. 4",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516833,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.44535473429,
+        26.059172759363
+      ],
+      "subheading": "Reducere administrat de Apa Nova București",
+      "address": "Splaiul Independenței X Soseaua Grozavesti (Metrou)",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510929,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4338554,
+        26.0414356
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Str.? Iuliu Maniu nr. 15B., Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3528618,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4289046,
+        26.0472183
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Timisoara, nr 8-10",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529028,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4289046,
+        26.0472183
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Timisoara, nr 8-10",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511810,
+      "name": "Centru de colectare",
+      "latlng": [
+        44.4493229,
+        26.0546803
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Centrul de Evaluare si Tratament a Toxicodependentelor pentru Tineri Sfantul Stelian",
+      "address": "Strada IngIner Cristian Pascal 25-27, Bucuresti",
+      "materials": [
+        "Medicamente"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526105,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42815292,
+        26.05143176
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "B-Dul Timisoara, Nr. 17A, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525345,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42860113,
+        26.04606942
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "B-Dul Timisoara Nr. 8C ;61328",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523900,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44640961,
+        26.06054247
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Soseaua Orhideelor Nr. 4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516793,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.428730130145,
+        26.044337413898
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Parc Timișoara nr. 10",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535428,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.45115645,
+        26.04828144
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Strada Sergent Stefan Crisan nr. 31",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516746,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426849762275,
+        26.052713767418
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Poiana Mare 8, Bloc B9",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516743,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.42707165727,
+        26.054195611596
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Poiana Mare 2, Bloc B6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524712,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44313656,
+        26.06268699
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Splaiul Independentei, Nr. 210 ? 210 B, Spatiul B47-48, Lot 11, Centrul Comercial Orhideea",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516760,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.42693007627,
+        26.047023782761
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Sibiu nr.2-4 bl.OD1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516744,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426851952496,
+        26.054983096254
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bulevardul  General  Paul Teodorescu nr. 11",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516745,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.42628678752,
+        26.053369138582
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Poiana Mare 14, langa  Bloc B3",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3528615,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4515979,
+        26.0462986
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Soseaua Virtutii, nr 148A",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529025,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4515979,
+        26.0462986
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Soseaua Virtutii, nr 148A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516017,
+      "name": "Container stradal",
+      "latlng": [
+        44.438431748448,
+        26.037468908723
+      ],
+      "subheading": "Colectare separată deșeuri administrat de TexCycle",
+      "address": "Strada Cheile Orzei, Sector 6, București",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525317,
+      "name": "Punct magazin",
+      "latlng": [
+        44.426134,
+        26.04775439
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Str. Sibiu Nr. 5A, 61533",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3521875,
+      "name": "Centru de colectare",
+      "latlng": [
+        44.438414705062,
+        26.037458200214
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 6",
+      "address": "Strada Cheile Orzei, Sector 6, București",
+      "materials": [
+        "Hârtie & carton",
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu",
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516748,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.425863178087,
+        26.048474209747
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Bistra nr.3",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525956,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42567214,
+        26.05173465
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str Drumul Taberei Nr18",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524284,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42564044,
+        26.05140158
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Drumul Taberei Nr. 18-20, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533351,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42561588,
+        26.05068118
+      ],
+      "subheading": "Colectare separată deșeuri administrat de PICIU PLAST PLACE",
+      "address": "Bd. Dr. Taberei Nr. 18, Piata Orizont, Magazin 19",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516226,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4255822,
+        26.0504099
+      ],
+      "subheading": "Reducere administrat de Piata Orizont",
+      "address": "Drumul Taberei 18",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524057,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45230955,
+        26.04775166
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Calea Crangasi Nr.29",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514816,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44552048,
+        26.0628629
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange Shop Bucuresti Carrefour Orhideea",
+      "address": "Centrul comercial Carrefour Orhideea: Splaiul Independentei 210-210B, sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534062,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4448541,
+        26.06321695
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Express",
+      "address": "Sos Orhideea Nr 15 A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534481,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4448541,
+        26.06321695
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Express",
+      "address": "Sos Orhideea Nr 15 A",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511066,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4286502,
+        26.0419036
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bd. Timisoara 14a, Bucuresti 061344",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511860,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4286827,
+        26.0418631
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bd. Timisoara, 14A, sector 6, Bucuresti, 061344",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533725,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44473949,
+        26.06329315
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "B-Dul Splaiul Independentei, Nr.210-210B",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534144,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.44473949,
+        26.06329315
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "B-Dul Splaiul Independentei, Nr.210-210B",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526101,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43817253,
+        26.03692646
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Sos. Virtutii Nr. 9",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525961,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43814759,
+        26.03692688
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Fabricii, Nr. 25",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516203,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4527281,
+        26.0480389
+      ],
+      "subheading": "Reducere administrat de Complexul Agroalimentar Crangasi",
+      "address": "Calea Crangasi 29",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534087,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43465,
+        26.03757
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Express",
+      "address": "Str. Iuliu Maniu, Nr. 16",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534506,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.43465,
+        26.03757
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Express",
+      "address": "Str. Iuliu Maniu, Nr. 16",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516756,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.427339256428,
+        26.04329488461
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Al. Poiana Vadului, nr. 1, bl. OD8",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516016,
+      "name": "Container stradal",
+      "latlng": [
+        44.452744,
+        26.047414
+      ],
+      "subheading": "Colectare separată deșeuri administrat de TexCycle",
+      "address": "Piata Crangasi",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533989,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45318,
+        26.04953
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Market",
+      "address": "Calea Crangasi Nr. 29",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534408,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.45318,
+        26.04953
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Market",
+      "address": "Calea Crangasi Nr. 29",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524476,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44607815,
+        26.06308957
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Noriel",
+      "address": "Splaiul Independentei Nr. 210 - 210A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525971,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45328316,
+        26.05093202
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Calea Crangasi Nr. 25, Bloc 20, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526669,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44817441,
+        26.06175437
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Brico Depot",
+      "address": "Calea Giulesti, Nr. 1-3",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511807,
+      "name": "Centru de colectare",
+      "latlng": [
+        44.4498998,
+        26.0601017
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Maternitatea Giulesti",
+      "address": "Strada Boisoara, Bucuresti",
+      "materials": [
+        "Medicamente"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516753,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.425479489425,
+        26.046464882761
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Sibiu, nr. 4, bl. OD2",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516747,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426784990632,
+        26.058193638583
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Intr. Drumul Taberei nr.2-4 bl.I",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516754,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.427565517588,
+        26.042145709747
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Timisoara, nr. 31",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516820,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.452636325337,
+        26.045780082762
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Parc Crangasi",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3521922,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44815335,
+        26.06224522
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Altex",
+      "address": "Calea Giulesti, Nr. 1-3",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526072,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4535498,
+        26.0483813
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Soseaua Crangasi Nr. 24B (Fosta Cladire A Romtelecom)",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524012,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44650637,
+        26.03808502
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Sos. Virtutii Fn",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534124,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43294,
+        26.03743
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "B-Dul. Iuliu Maniu, Nr. 19",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534543,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.43294,
+        26.03743
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "B-Dul. Iuliu Maniu, Nr. 19",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3531289,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.453787072815,
+        26.049608588219
+      ],
+      "subheading": "Reparații administrat de DANE Gheorghita",
+      "address": "Strada Popescu Filofteia, Bl. 45, Sector 6, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516114,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.45305096,
+        26.05557035
+      ],
+      "subheading": "Reparații administrat de Absolut Video",
+      "address": "Calea Crangasi, nr. 5, bloc 3, parter, Sector 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527324,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4535009,
+        26.0541723
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Digi",
+      "address": "Calea Crangasi, nr 13",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510807,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44617386,
+        26.0637676
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Flanco",
+      "address": "Splaiul Independentei, Nr. 210, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514903,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45378737,
+        26.0488322
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Cl. Crangasi, Nr.22, Bl.46, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516819,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.452058505428,
+        26.043403867211
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Fantana Crangasi",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516750,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.425728626731,
+        26.044026352076
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Pravat, nr. 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524181,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42474079,
+        26.04647599
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Drumul Taberei Nr. 24, Complex Favorit",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516812,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.43475340662,
+        26.036332396254
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Iuliu Maniu, nr. 18",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525379,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42633342,
+        26.05902
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Str. Lt. Av. Caranda Gheorghe Nr. 5",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510953,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4416412,
+        26.0357756
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Sos. Virtutii nr. 22A, sect. 6 Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532708,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43285487,
+        26.03689872
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Inmedio",
+      "address": "B-Dul Iuliu Maniu, Nr.19",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525990,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45419275,
+        26.05362706
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Calea Crangasi, Nr. 10, Bloc 10A, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525885,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4423141,
+        26.0357417
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Rompetrol",
+      "address": "Str. Virtutii Nr. 42-48",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516013,
+      "name": "Container stradal",
+      "latlng": [
+        44.427751,
+        26.040375
+      ],
+      "subheading": "Colectare separată deșeuri administrat de TexCycle",
+      "address": "Timisoara nr. 35",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516814,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.453614666044,
+        26.056005611598
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Parc Nicolae Filimon",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514901,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43306199,
+        26.0364184
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Bd. Iuliu Maniu, Nr.19, Cora Lujerului,Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526083,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45366336,
+        26.04517297
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bdul Constructorilor Nr. 26",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516831,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426038204317,
+        26.059476492595
+      ],
+      "subheading": "Reducere administrat de Apa Nova București",
+      "address": "Drumul Sarii – Oficiul Starii Civile",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525364,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44492307,
+        26.03615479
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Sos. Virtutii Nr. 27, 60783",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516786,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.423714556482,
+        26.046799676939
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Sibiu nr. 6, bl. E23",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510802,
+      "name": "Punct magazin",
+      "latlng": [
+        44.433467157605,
+        26.035891799998
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Flanco",
+      "address": "Supernova Lujerului, Bulevardul Iuliu Maniu 19, Sector 6, București",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527319,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4334252,
+        26.0357506
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Digi",
+      "address": "Bulevardul Iuliu Maniu, nr 19",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516113,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.45516539,
+        26.05136034
+      ],
+      "subheading": "Reparații administrat de Reparatii TV",
+      "address": "Strada Ceahlau 10",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526194,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42763338,
+        26.03932372
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bd-Ul Timisoara Nr. 35 C Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524251,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4399593,
+        26.0345165
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Veteranilor Nr. 20",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525965,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45279244,
+        26.04186311
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Calea Crangasi, Nr 40, Bl P11",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516297,
+      "name": "Reparații bijuterii & bijutieri",
+      "latlng": [
+        44.43610719,
+        26.03458784
+      ],
+      "subheading": "Reparații administrat de Bijuteria Ricardo",
+      "address": "Sos. Virtutii nr. 1, Complex Sir Militari Sector 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516818,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.4553090608,
+        26.053804869269
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. 9 Mai",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534106,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42648629,
+        26.06137062
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Sergent Nutu Ion. Nr. 44",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534525,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.42648629,
+        26.06137062
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Sergent Nutu Ion. Nr. 44",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516758,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.427614898813,
+        26.038836996254
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Timisoara nr.35 bl.OD6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516755,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.427660869843,
+        26.038761894404
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Timisoara nr. 35 – spate bloc  ",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524459,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42837563,
+        26.03810523
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bd. Timisoara, Nr. 18",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523756,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42821524,
+        26.03823598
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Bdul Timisoara Nr. 18",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516733,
+      "name": "Croitorie",
+      "latlng": [
+        44.4357697,
+        26.0342602
+      ],
+      "subheading": "Reparații administrat de Daky Design",
+      "address": "Soseaua Virtutii, nr 1, Complex Comercial Sir, stand E113, Bucuresti 060781",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526053,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4561512,
+        26.05133554
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Porumbacu, Nr. 48, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516792,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.431577625918,
+        26.03542406301
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Parc Liniei",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516811,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.44034918396,
+        26.033622861597
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Orsova nr. 5, bl. D5",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516263,
+      "name": "Reparații încălțăminte",
+      "latlng": [
+        44.43766138,
+        26.0680133
+      ],
+      "subheading": "Reparații administrat de Reparatii incaltaminte cotroceni",
+      "address": "Sos. Cotroceni Nr.18 sector 6, Bucuresti",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516725,
+      "name": "Reparații electrocasnice",
+      "latlng": [
+        44.4566277,
+        26.0492762
+      ],
+      "subheading": "Reparații administrat de Frigotehnice",
+      "address": "Strada Porumbacu 15, Bucuresti 060363",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516797,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.434680556782,
+        26.033691987554
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Iuliu Maniu nr. 22 A (Spate Lujerului)",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524172,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43403255,
+        26.03378909
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bd. Iuliu Maniu, Nr.51",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516145,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.42152565,
+        26.04848554
+      ],
+      "subheading": "Reparații administrat de es Prodcom",
+      "address": "Strada Sibiu Nr. 31, Sector 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524186,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42379631,
+        26.04179835
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Drumul Taberei Nr. 32",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532714,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42972671,
+        26.0356259
+      ],
+      "subheading": "Colectare separată deșeuri administrat de 1Minute Buc. Anchor Plaza",
+      "address": "Anchor Plaza - Bulevardul Timisoara 26",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516808,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.436353788794,
+        26.033130626939
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Partizanilor nr. 3, bl. M10",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516757,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.424184991723,
+        26.040935298103
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Drumul Taberei nr.34 bl.T3",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526198,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43743119,
+        26.06862512
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Cotroceni Nr. 15",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516788,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.422417583959,
+        26.044217742281
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Obcina Mare nr. 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516821,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.455209635747,
+        26.042860938584
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Strada Nucsoara nr. 8",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516816,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.455723501704,
+        26.043855507899
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Bd. Constructorilor nr. 29, bl. 29",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511019,
+      "name": "Container stradal",
+      "latlng": [
+        44.430633507173,
+        26.066810733204
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Academia Militara - Platou",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516815,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.456707225515,
+        26.045750796256
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Vintila Mihailescu nr. 18",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516817,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.457420071997,
+        26.050219750228
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Tabla Butii, nr. 62-70",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524103,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4571136,
+        26.04721966
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str.Ceahlau, Nr.20, Bl.103",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3521910,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42878106,
+        26.03551292
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Altex",
+      "address": "B-Dul. Timisoara, Nr. 26",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524475,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43056286,
+        26.03442848
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Noriel",
+      "address": "Bulevardul Timisoara Nr. 26Z",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516749,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.424796479905,
+        26.039062552076
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Pravat, nr. 20, bl. P9  ",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516810,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.438741862188,
+        26.032275382761
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Veteranilor nr. 19, bl. B8",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524750,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42919461,
+        26.03514012
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Bulevardul Timi?oara, Nr. 26, Subsol, Complex Comercial Plaza Romania",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526289,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45590663,
+        26.04296762
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bld. Constructorilor, Nr. 20, Bl. 20A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510941,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4319884,
+        26.0336511
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Calea Giulesti nr.39/Pod Grant, sect.6, Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525308,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43850172,
+        26.06930944
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Splaiul Independentei Nr. 191, 50099",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510940,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4319687,
+        26.0336207
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Str.Lujerului fn.,sect.6, Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516822,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.45577390878,
+        26.042421779064
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Strada Nucsoara nr. 20",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516228,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4311522,
+        26.0677833
+      ],
+      "subheading": "Reducere administrat de Piata Eroilor",
+      "address": "Piata Eroilor",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516796,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.432108512514,
+        26.033337496254
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Strada Lujerului nr.35",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514853,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42861208,
+        26.03492951
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Bd. Timisoara, Nr.26, Nivel -1, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527152,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4285442,
+        26.0349462
+      ],
+      "subheading": "Donații administrat de Zara",
+      "address": "Bd. Timisoara 26",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524207,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45683559,
+        26.04383046
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. George Valsan, Nr. 24",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517765,
+      "name": "Container stradal",
+      "latlng": [
+        44.4581435,
+        26.0520454
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 1",
+      "address": "Calea Giulesti intersectie cu Str. Prunaru",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516144,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.42268122,
+        26.04104391
+      ],
+      "subheading": "Reparații administrat de Printech Electronic S.r.l",
+      "address": "Str.Drumul Taberei nr. 35, Sectorul 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527111,
+      "name": "Centre de donații",
+      "latlng": [
+        44.4285449,
+        26.0348622
+      ],
+      "subheading": "Donații administrat de Pull&Bear",
+      "address": "Bd. Timisoara 26",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524217,
+      "name": "Punct magazin",
+      "latlng": [
+        44.44520028,
+        26.0326158
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Dambovitei, Nr. 40",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516787,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.420210551856,
+        26.047689753925
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Sibiu nr. 18, bl. 813",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527184,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4286504,
+        26.0347203
+      ],
+      "subheading": "Colectare separată deșeuri administrat de H&M",
+      "address": "Bulevardul Timisoara, nr. 26",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524099,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45820252,
+        26.05278383
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Sos. Giulesti, Nr.38-40",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533144,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4284859,
+        26.03474852
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Plaza Romania",
+      "address": "Bld. Timisoara Nr. 26, Complex Plaza Romania",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532389,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42863626,
+        26.03460368
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "Plaza Romania,Bd. Timisoara, nr. 26",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516759,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.423787355779,
+        26.039049969268
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Drumul Taberei nr.38 bl.OD4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535414,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4248681,
+        26.0638429
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Strada Sergent Nutu Ion nr. 8-12",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3533982,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42733,
+        26.06612
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Market",
+      "address": "Str Panduri, Nr 71",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534401,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.42733,
+        26.06612
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour Market",
+      "address": "Str Panduri, Nr 71",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516363,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4485556,
+        26.0676869
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland Bucuresti-Basarab",
+      "address": "Soseaua Orhideelor 46",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516543,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4485556,
+        26.0676869
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland Bucuresti-Basarab",
+      "address": "Soseaua Orhideelor 46",
+      "materials": [
+        "Hârtie & carton",
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Plastic",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524230,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42843931,
+        26.03440288
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bulevardul Timisoara, Nr. 26, Cladirea Plaza Romania, Etaj 2",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516146,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.44389513,
+        26.06974594
+      ],
+      "subheading": "Reparații administrat de Radioprogres Scca Bucuresti-Unitatea 19",
+      "address": "Calea Plevnei 13, Sector 6",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516832,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.419681305934,
+        26.048326318141
+      ],
+      "subheading": "Reducere administrat de Apa Nova București",
+      "address": "Str. Sibiu x Bd. 1 mai",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523874,
+      "name": "Punct magazin",
+      "latlng": [
+        44.43191606,
+        26.03255056
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Str. Lujerului",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516752,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.425992226144,
+        26.036113125089
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Al. Valea Florilor, nr. 8, bl. Z10",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526704,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42806123,
+        26.03445032
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Cellini",
+      "address": "Bdul. Timisoara, Nr. 26",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524140,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41964339,
+        26.04760635
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bd. 1 Mai, Nr.26-28",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516761,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426627676785,
+        26.035452411596
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Bucsenesti   nr. 3  ",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511043,
+      "name": "Container stradal",
+      "latlng": [
+        44.423746360997,
+        26.063286042937
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Str. Nutu Ion x Str. Mihail Sebastian - Giratoriu",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525945,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41954559,
+        26.04763108
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "B-Dul 1Mai Nr 15 Blc3 Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524141,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41952574,
+        26.04762351
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bd. 1 Mai, Nr. 18B",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517743,
+      "name": "Container stradal",
+      "latlng": [
+        44.453565,
+        26.064647
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 1",
+      "address": "Calea Grivitei intersectie cu Str. soimarestilor",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516751,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.425135314608,
+        26.036130740432
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Al. Valea Florilor nr. 4, bl. P10",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524342,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4307204,
+        26.0321392
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Strada Serg. Constantin Apostol 2-6, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526555,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45618372,
+        26.03928431
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Unix Auto",
+      "address": "Str. Mehadiei, Nr.41",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516791,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.420034990833,
+        26.058831894404
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Drumul Sarii nr. 11–17",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511026,
+      "name": "Container stradal",
+      "latlng": [
+        44.428718265604,
+        26.068686199169
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Str. Grigore Romniceanu - Parc",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516225,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4235826,
+        26.0369326
+      ],
+      "subheading": "Reducere administrat de Piata Drumul Taberei II",
+      "address": "Drumul Taberei 40-44",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511025,
+      "name": "Container stradal",
+      "latlng": [
+        44.426903649885,
+        26.06773578091
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Sos. Panduri - Scoala nr. 146 ( trotuar )",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526166,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45177578,
+        26.06758045
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Cal. Grivitei Nr. 168",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517742,
+      "name": "Container stradal",
+      "latlng": [
+        44.457755,
+        26.060613
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 1",
+      "address": "Calea Grivitei intersectie cu Str. Sf. Vineri",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514914,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45777447,
+        26.04087381
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Bd. Constructorilor, Nr.16A, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510942,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4562072,
+        26.0632965
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Str. Chiscani nr.1 (Inters.Podul Grant), sect.1, Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3515170,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42243268,
+        26.03761997
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange Communications DRUMUL TABEREI",
+      "address": "Bd. Drumul Taberei, Nr. 41-43, Parter, Sector 6",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524854,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45801187,
+        26.04098646
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Bd Constructorilor 16A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527315,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4576959,
+        26.0401941
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Digi",
+      "address": "Bulevardul Constructorilor, nr 16A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511857,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4579828,
+        26.0406029
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bd. Constructorilor, nr. 16A, Sector 6, Bucuresti, 060511",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511063,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4579906,
+        26.0405407
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bulevardul Constructorilor 16A, Bucuresti 060511",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526479,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42195761,
+        26.03782382
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Telekom",
+      "address": "Bd. Drumul Taberei Nr. 41-43",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532713,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45799656,
+        26.04021935
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Inmedio",
+      "address": "B-Dul. Constructorilor Nr.16 A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526147,
+      "name": "Punct magazin",
+      "latlng": [
+        44.46057566,
+        26.04639123
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Calea Giulesti Nr. 113",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516087,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.45406471,
+        26.0669126
+      ],
+      "subheading": "Reparații administrat de Moptics",
+      "address": "Str Lugoj, nr 22, Bucuresti, sector 1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516233,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4228863,
+        26.0359014
+      ],
+      "subheading": "Reducere administrat de Piata Drumul Taberei I",
+      "address": "Drumul Taberei 44",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516769,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.426522338962,
+        26.032459525089
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Brasov nr. 12 bl. 1S14 ( sahisti )",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516789,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.420572375439,
+        26.03845148276
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Aleea Valea Prahovei",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517766,
+      "name": "Container stradal",
+      "latlng": [
+        44.450855,
+        26.069686
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 1",
+      "address": "B-dul Titulescu intersectie cu Calea Grivitei",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524378,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42302112,
+        26.03538764
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Brasov Nr 25, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511046,
+      "name": "Container stradal",
+      "latlng": [
+        44.418367803761,
+        26.058981501994
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Str. Petre Ispirescu x Cal. 13 Septembrie",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524224,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45102094,
+        26.06970429
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Sos. Nicolae Titulescu Nr. 94 Bl. 14-14A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524147,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42286228,
+        26.03539152
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Sos. Drumul Taberei, Nr. 40-44",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525321,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41797975,
+        26.05815013
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Str. Antiaeriana Nr. 2A, 51015",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510952,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4181455,
+        26.0593169
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Calea 13 Sept. Nr. 293-297, Bucuresti,? Sect.5?",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524246,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42167829,
+        26.06542854
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Sebastian Nr. 138-140",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526367,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41832439,
+        26.04144718
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bd. 1 Mai, Nr.41,Bl. C16",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516785,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.419431542494,
+        26.039266498103
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Al. Compozitorilor nr. 22, bl. F11",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510930,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4209306,
+        26.0647737
+      ],
+      "subheading": "Colectare separată deșeuri administrat de MOL",
+      "address": "Calea 13 Septembrie 204-206A, sect. 5, Bucuresti",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526445,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45644745,
+        26.06580962
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Radu Popescu, Nr. 17",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516101,
+      "name": "Reparații altele",
+      "latlng": [
+        44.46049072,
+        26.05940969
+      ],
+      "subheading": "Reparații administrat de Reparatii Radiatoare Auto & Moto",
+      "address": "Caraiman 4",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516762,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.423988281282,
+        26.033357867418
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Str. Brasov, nr. 20, bl. OD1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511027,
+      "name": "Container stradal",
+      "latlng": [
+        44.420740717878,
+        26.065927692301
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "Cal. 13 Septembrie x Str. Mihail Sebastian",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526145,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41876378,
+        26.06329579
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Baltaretului Nr. 17-21 Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532310,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42027769,
+        26.06584489
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "Bdul. Ghencea. bl.C87, parter, nr 28",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524095,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42003924,
+        26.06600828
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Calea 13 Septembrie, Nr.221-225, Centrul Comercial Prosper",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516341,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4176356,
+        26.0387941
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland",
+      "address": "Bulevardul 1 Mai 55",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516521,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4176356,
+        26.0387941
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland",
+      "address": "Bulevardul 1 Mai 55",
+      "materials": [
+        "Hârtie & carton",
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Plastic",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517767,
+      "name": "Container stradal",
+      "latlng": [
+        44.457593,
+        26.067186
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 1",
+      "address": "Str. Turda",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526025,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45787186,
+        26.06726087
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Turda, Nr. 117 -119, Bloc 6, Vis-a-Vis De Parcul Regina Maria",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525352,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41943982,
+        26.03497547
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Petrom",
+      "address": "Str. Brasov Nr. 23;61444",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526722,
+      "name": "Container stradal",
+      "latlng": [
+        44.457696,
+        26.068092
+      ],
+      "subheading": "Colectare separată deșeuri administrat de ",
+      "address": "Strada Turda 100, Sector 1, București",
+      "materials": [
+        "Hârtie & carton",
+        "Sticlă",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526010,
+      "name": "Punct magazin",
+      "latlng": [
+        44.45774566,
+        26.06819997
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Turda, Nr. 100, Bl. 30",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511028,
+      "name": "Container stradal",
+      "latlng": [
+        44.422247133789,
+        26.06994615096
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 5",
+      "address": "13 Septembrie x Sos. Progresului ( trotuar Scoala nr. 115)",
+      "materials": [
+        "Hârtie & carton",
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524703,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41757657,
+        26.03642165
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Strada Brasov, Nr 25, Et 1, Centru Comercial Auchan Dr. Taberei",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524522,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41744576,
+        26.03591842
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Noriel",
+      "address": "Str Brasov Nr 25",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516780,
+      "name": "Sursă publică de apă potabilă",
+      "latlng": [
+        44.420209964687,
+        26.032232153925
+      ],
+      "subheading": "Reducere administrat de Primăria Sectorului 6",
+      "address": "Parc Drumul Taberei",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510808,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41738751,
+        26.03516033
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Flanco",
+      "address": "Str. Brasov nr. 25, 25A, 25B, 25C, 25J, Sector 6, Centrul Comercial Drumul Taberei",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526129,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41775139,
+        26.06811975
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Mihail Sebastian Nr. 23E Parter Sp. Com. 2",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    }
+  ]
+}

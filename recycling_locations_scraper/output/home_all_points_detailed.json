@@ -1,0 +1,2737 @@
+{
+  "summary": {
+    "total_points": 164,
+    "successful": 162,
+    "failed": 2,
+    "failed_ids": [
+      3535794,
+      3515920
+    ]
+  },
+  "points": [
+    {
+      "id": 3526466,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41650223,
+        26.18524745
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Gura Ialomitei, Nr.22",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517533,
+      "name": "Container stradal",
+      "latlng": [
+        44.4146078,
+        26.1852531
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Gura Ialomitei,nr.14",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517532,
+      "name": "Container stradal",
+      "latlng": [
+        44.4148753,
+        26.1865419
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Gura Ialomitei,nr.18",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517537,
+      "name": "Container stradal",
+      "latlng": [
+        44.4155778,
+        26.1830692
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Giurgeni,nr.21",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517534,
+      "name": "Container stradal",
+      "latlng": [
+        44.4138205,
+        26.1839448
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Gura Ialomitei,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526009,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41368694,
+        26.18410029
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str Gura Ialomitei Nr1 Ca23",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517536,
+      "name": "Container stradal",
+      "latlng": [
+        44.4145308,
+        26.1827682
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Giurgeni,nr.9",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517535,
+      "name": "Container stradal",
+      "latlng": [
+        44.4142188,
+        26.1826982
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Giurgeni,nr.7",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517549,
+      "name": "Container stradal",
+      "latlng": [
+        44.4184014,
+        26.1834688
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Ioan Cuibaru,nr.11",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517539,
+      "name": "Container stradal",
+      "latlng": [
+        44.4147918,
+        26.1820762
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Fetesti,nr.4",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517538,
+      "name": "Container stradal",
+      "latlng": [
+        44.4153528,
+        26.181863
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Fetesti,nr.6-10",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524249,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41695778,
+        26.18190705
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Aleea Buhusi Nr 2",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526056,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41696927,
+        26.18188426
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Aleea Buhusi, Nr. 2,",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524337,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41704192,
+        26.18188002
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Postasului 5",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517548,
+      "name": "Container stradal",
+      "latlng": [
+        44.4166936,
+        26.1817643
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Buhusi,nr.2-4",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517529,
+      "name": "Container stradal",
+      "latlng": [
+        44.4125899,
+        26.1827974
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Fetesti,nr.54-56",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517521,
+      "name": "Container stradal",
+      "latlng": [
+        44.4166018,
+        26.1808892
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.32",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517519,
+      "name": "Container stradal",
+      "latlng": [
+        44.4169418,
+        26.1806732
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.38",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516239,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4133694,
+        26.1811387
+      ],
+      "subheading": "Reducere administrat de Piata Ozana",
+      "address": "Aleea Perisoru 1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3519352,
+      "name": "Container stradal",
+      "latlng": [
+        44.4124128,
+        26.1814151
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Tandarei",
+      "address": "str.Fetesti,nr.3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517522,
+      "name": "Container stradal",
+      "latlng": [
+        44.4161251,
+        26.1798128
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.24",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517528,
+      "name": "Container stradal",
+      "latlng": [
+        44.4114341,
+        26.1819997
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Perisoru,nr.8",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517547,
+      "name": "Container stradal",
+      "latlng": [
+        44.4196553,
+        26.1808758
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Iosif Albu,nr.88",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517517,
+      "name": "Container stradal",
+      "latlng": [
+        44.4173883,
+        26.1796068
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi intersectie cu str.Iosif Albu",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516692,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516693,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516694,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516695,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516696,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516697,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.420538,
+        26.181595
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3517520,
+      "name": "Container stradal",
+      "latlng": [
+        44.4167258,
+        26.1793272
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.19",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517523,
+      "name": "Container stradal",
+      "latlng": [
+        44.4148278,
+        26.1791352
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.22",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517525,
+      "name": "Container stradal",
+      "latlng": [
+        44.411972,
+        26.179855
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.15",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535401,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.42194735,
+        26.18239775
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Strada Bratarii nr. 2",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524431,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41291,
+        26.19143
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Drumul Gura Crivatului Nr 19-23",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3528625,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4100869,
+        26.1816142
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Theodor Pallady, nr 39",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529035,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4100869,
+        26.1816142
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul Theodor Pallady, nr 39",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517524,
+      "name": "Container stradal",
+      "latlng": [
+        44.4129868,
+        26.1787532
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.20",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535853,
+      "name": "Închiriere echipamente electronice și IT&C",
+      "latlng": [
+        44.4203162,
+        26.1796703
+      ],
+      "subheading": "Reutilizare administrat de Telerenta",
+      "address": "Bulevardul 1 Decembrie 1918, nr 33A (Iris Titan Shopping Center)",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517545,
+      "name": "Container stradal",
+      "latlng": [
+        44.4161908,
+        26.1781502
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Str. Ciucea,nr. 3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517550,
+      "name": "Container stradal",
+      "latlng": [
+        44.4225068,
+        26.1824046
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Bratarii,nr. 50",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527178,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4204433,
+        26.1796644
+      ],
+      "subheading": "Colectare separată deșeuri administrat de H&M",
+      "address": "Bulevardul 1 Decembrie 1918, nr. 33A",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526526,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42040149,
+        26.1795858
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Telekom",
+      "address": "B-Dul. 1 Decembrie 1918, Nr. 33A, Stand C26-C27",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524661,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42017158,
+        26.17935268
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Bd. 1 Decembrie 1918 Nr 33A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517516,
+      "name": "Container stradal",
+      "latlng": [
+        44.4225686,
+        26.1821501
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Bratarii,nr.32B",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511880,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4203417,
+        26.1793092
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bd. 1 Decembrie 1918, nr. 33A, Sector 3, Bucuresti, 032455",
+      "materials": [
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3511088,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4203428,
+        26.1793028
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Auchan",
+      "address": "Bulevardul 1 Decembrie 1918 33A, Bucuresti 032455",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517526,
+      "name": "Container stradal",
+      "latlng": [
+        44.4121362,
+        26.178817
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.18",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517554,
+      "name": "Container stradal",
+      "latlng": [
+        44.417561,
+        26.1779099
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Iosif Albu,nr.88",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517546,
+      "name": "Container stradal",
+      "latlng": [
+        44.4162907,
+        26.1777142
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Str. Ciucea,nr. 1-3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532381,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42001961,
+        26.17882324
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "Hypermarket Auchan Titan, B-dul 1 Decembrie 1918, nr.33A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517544,
+      "name": "Container stradal",
+      "latlng": [
+        44.4138198,
+        26.1778802
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Lipanesti,nr.1-3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517531,
+      "name": "Container stradal",
+      "latlng": [
+        44.4109808,
+        26.1793361
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.6",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517530,
+      "name": "Container stradal",
+      "latlng": [
+        44.4190151,
+        26.1782055
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.31",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535767,
+      "name": "Container stradal",
+      "latlng": [
+        44.4159628,
+        26.1775256
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Strada Ciucea, nr. 1",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526342,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4171787,
+        26.177605
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str Col Iosif Albu, Nr 62B",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526266,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41015591,
+        26.1799058
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bd. Th. Pallady Nr. 35, Bloc N 2, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534102,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41536132,
+        26.19340066
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Drumul Gura Putnei, Nr. 52-54",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534521,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.41536132,
+        26.19340066
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Drumul Gura Putnei, Nr. 52-54",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517543,
+      "name": "Container stradal",
+      "latlng": [
+        44.4136968,
+        26.1775044
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.13",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524472,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42070672,
+        26.17877315
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Noriel",
+      "address": "Bulevardul 1 Decembrie 1918 Nr. 33A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527312,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4202918,
+        26.1783751
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Digi",
+      "address": "Bd. 1 Decembrie 1918 nr. 33A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517527,
+      "name": "Container stradal",
+      "latlng": [
+        44.4108068,
+        26.1787952
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.4",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517518,
+      "name": "Container stradal",
+      "latlng": [
+        44.4184064,
+        26.1774216
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Steriadi,nr.29",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517540,
+      "name": "Container stradal",
+      "latlng": [
+        44.413096,
+        26.1771935
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Ceairului,nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516698,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516699,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516700,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516701,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516702,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516703,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516704,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516705,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516706,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516707,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516708,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.416694,
+        26.176665
+      ],
+      "subheading": "Reparații administrat de ",
+      "address": "Piata 1 Decembrie 1918, Strada Colonel Iosif Albu, Sector 3, București",
+      "materials": [],
+      "info": {
+        "offers_money": null
+      }
+    },
+    {
+      "id": 3516222,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4168233,
+        26.1764209
+      ],
+      "subheading": "Reducere administrat de Piata Agroalimentara 1 Decembrie",
+      "address": "Strada Colonel Iosif Albu 1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517514,
+      "name": "Container stradal",
+      "latlng": [
+        44.4149288,
+        26.1763801
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Campineanca,nr.6",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3521923,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42216879,
+        26.17881107
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Altex",
+      "address": "Bulevardul 1 Decembrie 1918, 33 A, Centrul Comercial Iris",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517553,
+      "name": "Container stradal",
+      "latlng": [
+        44.4238061,
+        26.1807862
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea  Cioplea,nr.15 A",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517542,
+      "name": "Container stradal",
+      "latlng": [
+        44.411361,
+        26.1771994
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Armenis,nr.10",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517541,
+      "name": "Container stradal",
+      "latlng": [
+        44.4121665,
+        26.1767694
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Ceairului,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523868,
+      "name": "Punct magazin",
+      "latlng": [
+        44.40929058,
+        26.1786997
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Str. Lemnisorului 1B-1D",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517515,
+      "name": "Container stradal",
+      "latlng": [
+        44.4146998,
+        26.1760302
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Campineanca,nr.4-6",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3510801,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4239755,
+        26.18048816
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Flanco",
+      "address": "B-dul 1 Decembrie 1918, Nr. 33A, Sector 3, Complex Comercial Auchan",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517501,
+      "name": "Container stradal",
+      "latlng": [
+        44.409114,
+        26.1783762
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Lemnisorului,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3528627,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4196638,
+        26.1763145
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul 1 Decembrie 1918, nr 33",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529037,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4196638,
+        26.1763145
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Bulevardul 1 Decembrie 1918, nr 33",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524237,
+      "name": "Punct magazin",
+      "latlng": [
+        44.40972601,
+        26.17751747
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Mizil Nr. 2A, Parter, (Bloc Petaluda",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535416,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.40824535,
+        26.17887994
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Bulevardul Theodor Pallady nr. 30",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517551,
+      "name": "Container stradal",
+      "latlng": [
+        44.4242344,
+        26.1797251
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea  Cioplea,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514797,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42036255,
+        26.17604655
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange Shop Bucuresti Auchan Titan",
+      "address": "Bd. 1 Decembrie 1918, Nr. 33A, sector 3",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3527017,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4075269,
+        26.1916128
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Socar",
+      "address": "Bulevardul Theodor Pallady, nr 50",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517591,
+      "name": "Container stradal",
+      "latlng": [
+        44.4186718,
+        26.1752843
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Onisifor Ghibu,nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517552,
+      "name": "Container stradal",
+      "latlng": [
+        44.4246474,
+        26.1795947
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea  Cioplea,nr.5",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526112,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41451062,
+        26.17456454
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Al. Iosif Hodos 1A Bl P102 Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517593,
+      "name": "Container stradal",
+      "latlng": [
+        44.4185444,
+        26.174794
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Onisifor Ghibu,nr.4",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517513,
+      "name": "Container stradal",
+      "latlng": [
+        44.4148028,
+        26.1744172
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "B-dul 1 Decembrie 1918,nr.41",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523726,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41576156,
+        26.17433331
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Str. 1 Decembrie 1918 Nr. 138",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525992,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42313004,
+        26.17704288
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bd. 1 Decembrie 1918 Nr.25, Bloc 46, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517590,
+      "name": "Container stradal",
+      "latlng": [
+        44.4187944,
+        26.1746537
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Onisifor Ghibu,nr.6",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535786,
+      "name": "Container stradal",
+      "latlng": [
+        44.4230208,
+        26.1762558
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Bulevardul 1 Decembrie 1918, nr. 38, in dreptul blocului U4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516286,
+      "name": "Ceasornicărie",
+      "latlng": [
+        44.42619584,
+        26.17989014
+      ],
+      "subheading": "Reparații administrat de Daneliuc Simion",
+      "address": "Bulevardul 1 Decembrie 1918 Nr. 7H",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517502,
+      "name": "Container stradal",
+      "latlng": [
+        44.4072626,
+        26.177452
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Mizil,nr.8",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517588,
+      "name": "Container stradal",
+      "latlng": [
+        44.4195624,
+        26.1741092
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Leorda,nr.5",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535774,
+      "name": "Container stradal",
+      "latlng": [
+        44.4226017,
+        26.1755924
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Bulevardul 1 Decembrie 1918, nr. 38, bl. U4",
+      "materials": [
+        "Textile"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534074,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41480436,
+        26.17354805
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Bd. 1 Decembrie 1918, Nr. 58",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534493,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.41480436,
+        26.17354805
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Bd. 1 Decembrie 1918, Nr. 58",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526490,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41479818,
+        26.17354767
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Telekom",
+      "address": "Bd. 1 Decembrie 1918, Nr. 58",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517500,
+      "name": "Container stradal",
+      "latlng": [
+        44.4071828,
+        26.1772232
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Mizil,nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517503,
+      "name": "Container stradal",
+      "latlng": [
+        44.4068328,
+        26.1774882
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Mizil,nr.5",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517499,
+      "name": "Container stradal",
+      "latlng": [
+        44.408123,
+        26.1761203
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Prevederii,nr.23",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526439,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42598833,
+        26.17866311
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bld. 1 Decembrie 1918, Nr.1, Bl.9",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517586,
+      "name": "Container stradal",
+      "latlng": [
+        44.4215244,
+        26.1746022
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Codrii Neamtului,nr.17",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526982,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4091494,
+        26.1955582
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Leroy Merlin",
+      "address": "Bulevardul Theodor Pallady, nr. 51",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526235,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41450473,
+        26.17306378
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Ghita Serban Nr. 92",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3514864,
+      "name": "Punct magazin",
+      "latlng": [
+        44.40818415,
+        26.19504404
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Orange store",
+      "address": "Bd. Theodor Pallady, Nr.51, Sector 3",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524256,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41457633,
+        26.17304166
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Soldat Ghita Serban (Fost Nr. 52) Nr. 55, Demisol",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532495,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41123148,
+        26.17381189
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "B-dul 1 Decembrie, nr.1",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3532560,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41122642,
+        26.1738084
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Vodafone",
+      "address": "Str. Pietii, bl.4",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517589,
+      "name": "Container stradal",
+      "latlng": [
+        44.4196599,
+        26.1734374
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Leorda,nr.8",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517592,
+      "name": "Container stradal",
+      "latlng": [
+        44.4179046,
+        26.1729971
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Onisifor Ghibu,nr.5",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524368,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4213502,
+        26.17404414
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Codrii Neamtului, Nr 15, Bloc 6, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534098,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4115744,
+        26.1973438
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Victor Brauner, Nr. 29",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Uleiuri & grăsimi"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3534517,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4115744,
+        26.1973438
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Carrefour",
+      "address": "Str. Victor Brauner, Nr. 29",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517437,
+      "name": "Container stradal",
+      "latlng": [
+        44.4249928,
+        26.1763736
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Barajul Bistritei,nr.3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517436,
+      "name": "Container stradal",
+      "latlng": [
+        44.42668,
+        26.1784899
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "B-dul 1 Decembrie,nr.30",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517508,
+      "name": "Container stradal",
+      "latlng": [
+        44.4062418,
+        26.1769171
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Gura Vadului,nr.8",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3528629,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4237392,
+        26.1751974
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Strada Liviu Rebreanu, nr 30A",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3529039,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4237392,
+        26.1751974
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Penny",
+      "address": "Strada Liviu Rebreanu, nr 30A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517497,
+      "name": "Container stradal",
+      "latlng": [
+        44.4071584,
+        26.1759042
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Marin Pazon,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524050,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41131682,
+        26.17325152
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Bd.Theodor Pallady, Nr.73A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3525970,
+      "name": "Punct magazin",
+      "latlng": [
+        44.41133669,
+        26.17322013
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Bd. Theodor Pallady, Nr. 13, Bl. R5D, Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517435,
+      "name": "Container stradal",
+      "latlng": [
+        44.4263475,
+        26.1774546
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Barajul Bistrita,nr.6",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3523871,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42387183,
+        26.17488461
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lukoil",
+      "address": "Str. Liviu Rebreanu Nr. 30",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517509,
+      "name": "Container stradal",
+      "latlng": [
+        44.4066136,
+        26.175764
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Valea Buzaului,nr.5",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516094,
+      "name": "Reparații altele",
+      "latlng": [
+        44.40862798,
+        26.19676395
+      ],
+      "subheading": "Reparații administrat de Atelierul de Festonat",
+      "address": "Bld. Theodor Pallady 51",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517438,
+      "name": "Container stradal",
+      "latlng": [
+        44.4246656,
+        26.1749772
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Liviu Rebreanu,nr.35",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516431,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.4082339,
+        26.1967628
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland Pallady",
+      "address": "Bulevardul Theodor Pallady 51",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516611,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4082339,
+        26.1967628
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Kaufland Pallady",
+      "address": "Bulevardul Theodor Pallady 51",
+      "materials": [
+        "Hârtie & carton",
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)",
+        "Plastic",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516717,
+      "name": "Reparații electronice",
+      "latlng": [
+        44.4179486,
+        26.1717565
+      ],
+      "subheading": "Reparații administrat de Reparatii Televizoare Bucuresti - Service TV - Reparatii Electronice",
+      "address": "Strada Tudor Ion 4, Bucuresti 032441",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517510,
+      "name": "Container stradal",
+      "latlng": [
+        44.405681,
+        26.1760357
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Valea Buzaului,nr.16",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517594,
+      "name": "Container stradal",
+      "latlng": [
+        44.4211399,
+        26.1725022
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Codrii Neamtului,nr.5 -7",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3516213,
+      "name": "Magazine cu vânzare vrac",
+      "latlng": [
+        44.4103503,
+        26.1725454
+      ],
+      "subheading": "Reducere administrat de Piata Trapezului",
+      "address": "Strada Trapezului 1",
+      "materials": [],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517576,
+      "name": "Container stradal",
+      "latlng": [
+        44.4225942,
+        26.1731129
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Calistrat Hogas,nr.24-26",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517587,
+      "name": "Container stradal",
+      "latlng": [
+        44.4192779,
+        26.171786
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Codrii Neamtului,nr.15",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524215,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4061777,
+        26.17515149
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Str. Valea Buzaului Nr. 14 Bloc G26 Bis Parter",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517432,
+      "name": "Container stradal",
+      "latlng": [
+        44.4264676,
+        26.1760296
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str. Spiesti,nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517450,
+      "name": "Container stradal",
+      "latlng": [
+        44.4257759,
+        26.1747297
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Solidaritatii, nr.7",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517498,
+      "name": "Container stradal",
+      "latlng": [
+        44.4055244,
+        26.1749918
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Gura Vadului,nr.1",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517451,
+      "name": "Container stradal",
+      "latlng": [
+        44.4249218,
+        26.1738232
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Liviu Rebreanu,nr.31",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517496,
+      "name": "Container stradal",
+      "latlng": [
+        44.4084371,
+        26.1726494
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Prevederii,nr.15",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517511,
+      "name": "Container stradal",
+      "latlng": [
+        44.4061428,
+        26.1737152
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Valea Buzaului,nr.12",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517449,
+      "name": "Container stradal",
+      "latlng": [
+        44.425763,
+        26.1737102
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Solidaritatii, nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517505,
+      "name": "Container stradal",
+      "latlng": [
+        44.4050219,
+        26.1743401
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Burnitei,nr.58",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517448,
+      "name": "Container stradal",
+      "latlng": [
+        44.4261888,
+        26.1735828
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "Aleea Solidaritatii, nr.3",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3526393,
+      "name": "Punct magazin",
+      "latlng": [
+        44.408668,
+        26.1713859
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Shop & Go",
+      "address": "Str. Prevederii Nr.13A",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524933,
+      "name": "Punct magazin",
+      "latlng": [
+        44.42435,
+        26.17185
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Pepco",
+      "address": "Aleea Ion Agarbiceanu, Nr. 1-3",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3535396,
+      "name": "Punct recuperare garanție (SGR)",
+      "latlng": [
+        44.40749445,
+        26.19918193
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Lidl",
+      "address": "Bulevardul Theodor Pallady nr. 51",
+      "materials": [
+        "Plastic",
+        "Sticlă",
+        "Metal & aluminiu"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3524425,
+      "name": "Punct magazin",
+      "latlng": [
+        44.4245562,
+        26.17156268
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Mega Image",
+      "address": "Aleea Ion Agarbiceanu Nr 7",
+      "materials": [
+        "Deseuri de Echipamente Electrice și Electronice (DEEE)"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517512,
+      "name": "Container stradal",
+      "latlng": [
+        44.4065998,
+        26.1717622
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Valea Buzaului,nr.2",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    },
+    {
+      "id": 3517504,
+      "name": "Container stradal",
+      "latlng": [
+        44.4061148,
+        26.1713612
+      ],
+      "subheading": "Colectare separată deșeuri administrat de Primaria Sectorului 3",
+      "address": "str.Trapezului,nr.11",
+      "materials": [
+        "Hârtie & carton",
+        "Metal & aluminiu",
+        "Plastic"
+      ],
+      "info": {
+        "offers_money": false
+      }
+    }
+  ]
+}
