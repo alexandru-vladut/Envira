@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return MaterialApp(
-      title: "App Base",
+      title: "Envira",
       debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey, // 👈 Plug in your global navigator key here
