@@ -11,13 +11,9 @@ impact, compete on a company leaderboard, and redeem points for real vouchers.
 
 ## Screenshots
 
-| Home | Scan a product | Impact tracking |
-|:---:|:---:|:---:|
-| <img src="screenshots/01-home-dashboard.png" width="220" alt="Home dashboard"> | <img src="screenshots/02-scan-product.png" width="220" alt="Scan a product"> | <img src="screenshots/03-impact-tracking.png" width="220" alt="Impact tracking"> |
-
-| Leaderboard | Vouchers |
-|:---:|:---:|
-| <img src="screenshots/04-leaderboard.png" width="220" alt="Leaderboard"> | <img src="screenshots/05-vouchers.png" width="220" alt="Vouchers"> |
+| Home | Scan a product | Impact tracking | Leaderboard | Vouchers |
+|:---:|:---:|:---:|:---:|:---:|
+| <img src="screenshots/01-home-dashboard.png" width="160" alt="Home dashboard"> | <img src="screenshots/02-scan-product.png" width="160" alt="Scan a product"> | <img src="screenshots/03-impact-tracking.png" width="160" alt="Impact tracking"> | <img src="screenshots/04-leaderboard.png" width="160" alt="Leaderboard"> | <img src="screenshots/05-vouchers.png" width="160" alt="Vouchers"> |
 
 ## What it does
 
