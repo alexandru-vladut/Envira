@@ -44,3 +44,6 @@ app.*.map.json
 
 # Android CMake/NDK build files
 **/android/app/.cxx/
+
+# FVM Version Cache
+.fvm/

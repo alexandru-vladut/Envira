@@ -1,4 +1,6 @@
-# TO DO
+# Roadmap
+
+Known gaps and planned improvements — see [PROJECT_QA.md](PROJECT_QA.md) for a fuller evidence-based audit of current limitations.
 
 ## General
 - firestore security rules + other firebase products
