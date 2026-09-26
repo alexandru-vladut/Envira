@@ -27,28 +27,32 @@ Using a mismatched Flutter/JDK version leads to build failures. Follow this exac
    ```
 
 3. **Android emulator**: create/use an AVD with a **Google Play** system image (not plain "Google APIs"), since
-   Firebase Auth/Firestore require Google Play Services. Boot it, then run:
-   ```bash
-   fvm flutter devices        # confirm the emulator is detected
-   fvm flutter pub get
-   fvm flutter run
-   ```
+   Firebase Auth/Firestore require Google Play Services.
 
 4. **Firebase config is already checked in** — `android/app/google-services.json` and `lib/firebase_options.dart`
    are committed, so no Firebase setup is required to run on Android. (iOS is not configured — see
-   [CLAUDE.md](../CLAUDE.md).)
+   [CLAUDE.md](../CLAUDE.md).) The Firebase `apiKey` embedded there is not a secret — see the note below.
 
-5. **Permissions**: the app requests location (`ACCESS_FINE_LOCATION`/`ACCESS_COARSE_LOCATION`) for the
+5. **API keys — required, not checked in.** Copy [env.json.example](../env.json.example) to `env.json` (repo
+   root, gitignored) and fill in real values, then always run/build with
+   `--dart-define-from-file=env.json`:
+   ```bash
+   cp env.json.example env.json   # then fill in the three keys
+   fvm flutter devices            # confirm the emulator is detected
+   fvm flutter pub get
+   fvm flutter run --dart-define-from-file=env.json
+   ```
+   The VS Code launch config already passes this flag, so debugging from the editor works without extra setup
+   once `env.json` exists.
+
+6. **Permissions**: the app requests location (`ACCESS_FINE_LOCATION`/`ACCESS_COARSE_LOCATION`) for the
    recycling-points feature and camera (`CAMERA`) for barcode/product scanning — grant these when prompted on
    first use.
 
-6. **No offline mode**: the app requires an active internet connection at all times (`ConnectionGate` redirects
+7. **No offline mode**: the app requires an active internet connection at all times (`ConnectionGate` redirects
    to a "no internet" page otherwise), so make sure the emulator has network access.
 
 ## External Services / API Keys
-
-All external service credentials this app needs are **already checked into the repo** — there is no `.env`
-file, no secrets manager, and nothing you need to obtain or configure yourself to run the app locally.
 
 - **Firebase (Auth, Firestore, Storage)** — `android/app/google-services.json` and `lib/firebase_options.dart`
   are committed and point at the project's real Firebase backend (project ID `bachelor-project-47b18`; there's
@@ -57,26 +61,36 @@ file, no secrets manager, and nothing you need to obtain or configure yourself t
   [CLAUDE.md](../CLAUDE.md). Manage it at the
   [Firebase Console](https://console.firebase.google.com/project/bachelor-project-47b18/overview) (requires
   access to the Google account/team that owns this project).
-- **Google Gemini** (recycling image recognition) — key hardcoded as `AppConfig.geminiApiKey` in
-  [lib/core/config.dart](../lib/core/config.dart). Manage/rotate keys at
-  [Google AI Studio](https://aistudio.google.com/api-keys).
-- **Barcode Lookup API** (product/barcode scanning) — key hardcoded as `AppConfig.barcodeLookupApiKey` in
+
+  The Firebase `apiKey` in these files is **not treated as a secret** — per Google's own docs, it only
+  identifies the project to Google's backend and is designed to be embedded in public client apps; access
+  control is meant to come from Firestore/Storage security rules (not yet present in this repo — see
+  [ROADMAP.md](ROADMAP.md)), not from hiding this key.
+
+- **Google Gemini** (recycling image recognition) — read at runtime via
+  `String.fromEnvironment('GEMINI_API_KEY')` in [lib/core/config.dart](../lib/core/config.dart). Get/rotate
+  keys at [Google AI Studio](https://aistudio.google.com/api-keys).
+- **Barcode Lookup API** (product/barcode scanning) — read via
+  `String.fromEnvironment('BARCODE_LOOKUP_API_KEY')` in
   [lib/core/config.dart](../lib/core/config.dart). Manage the account/key at
   [barcodelookup.com/api](https://www.barcodelookup.com/api) (log in, then see account settings).
-- **NewsAPI** (news feed) — key hardcoded as `NewsConfig.apiKey` in [lib/core/config.dart](../lib/core/config.dart).
-  Manage/rotate the key at [newsapi.org/account](https://newsapi.org/account).
+- **NewsAPI** (news feed) — read via `String.fromEnvironment('NEWS_API_KEY')` in
+  [lib/core/config.dart](../lib/core/config.dart). Manage/rotate the key at
+  [newsapi.org/account](https://newsapi.org/account).
 
-This is existing practice in the repo, not something to "fix" by moving to environment variables unless
-explicitly asked — see [CLAUDE.md](../CLAUDE.md). If a key stops working (e.g. rate-limited or revoked), it needs
-to be swapped directly in `config.dart`; there's no other place it's read from.
+These three are supplied at build/run time via `--dart-define-from-file=env.json` (see step 5 above) and are
+**not** committed to the repo. `env.json` is gitignored; only `env.json.example` (blank placeholders) is
+tracked. Note this only keeps the keys out of source control — a compiled APK can still be decompiled to
+recover any value baked in via `--dart-define`, since there is no backend to hold them server-side. Treat these
+as leaked if the app is ever redistributed publicly, and rotate accordingly.
 
 ## Commands
 
 ```bash
-flutter pub get                # install dependencies
-flutter run                    # run on connected device/emulator (Android only)
-flutter analyze                # static analysis (flutter_lints)
-flutter build apk              # build Android release APK
+flutter pub get                                        # install dependencies
+flutter run --dart-define-from-file=env.json            # run on connected device/emulator (Android only)
+flutter analyze                                         # static analysis (flutter_lints)
+flutter build apk --dart-define-from-file=env.json      # build Android release APK
 ```
 
 - After changing app icon: `dart run flutter_launcher_icons`

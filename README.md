@@ -72,13 +72,15 @@ For a candid, evidence-based technical audit of the codebase (patterns, trade-of
 
 ## Running it locally
 
-This repo pins specific Flutter/JDK/Gradle versions to keep the build reproducible — see
-**[docs/SETUP.md](docs/SETUP.md)** for the exact environment setup, API key notes, and available commands.
+This repo pins specific Flutter/JDK/Gradle versions to keep the build reproducible, and API keys are supplied
+at build time rather than committed — see **[docs/SETUP.md](docs/SETUP.md)** for the exact environment setup,
+API key notes, and available commands.
 
 ```bash
 fvm use 3.29.3
 fvm flutter pub get
-fvm flutter run
+cp env.json.example env.json   # then fill in your own API keys
+fvm flutter run --dart-define-from-file=env.json
 ```
 
 ## Contributing / working with this repo

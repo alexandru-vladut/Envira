@@ -47,3 +47,6 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+
+# Local API keys (see env.json.example)
+env.json

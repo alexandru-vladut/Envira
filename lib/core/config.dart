@@ -3,8 +3,8 @@ class AppConfig {
   static const int authTokenRefreshInterval = 60; // seconds
   static const bool emailVerificationEnabled = true;
   static const bool pinCodeEnabled = false;
-  static const String geminiApiKey = 'AIzaSyDRUDGxGqdmLhZH_H_8u7CeG7itN5moeKg';
-  static const String barcodeLookupApiKey = '0z71kd1apuyxaql5kkddktye3uc15u';
+  static const String geminiApiKey = String.fromEnvironment('GEMINI_API_KEY');
+  static const String barcodeLookupApiKey = String.fromEnvironment('BARCODE_LOOKUP_API_KEY');
   static const double recyclingPointsRadiusKm = 0.5;
   static const List<String> demoAccountEmails = [
     'alex@gmail.com',
@@ -18,7 +18,7 @@ class AppConfig {
 }
 
 class NewsConfig {
-  static const String apiKey = '9d9448cd256040e6bb7d753242ff067b';
+  static const String apiKey = String.fromEnvironment('NEWS_API_KEY');
 
   static const List<String> top30Sources = [
     'abc-news', 'abc-news-au', 'al-jazeera-english', 'associated-press', 'axios',
